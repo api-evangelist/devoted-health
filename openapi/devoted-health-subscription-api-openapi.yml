@@ -1,0 +1,82 @@
+swagger: '2.0'
+info:
+  description: "Fast Healthcare Interoperability Resources (FHIR, pronounced \"Fire\") defines a set of \"Resources\" that represent granular clinical concepts. The resources can be managed in isolation, or aggregated into complex documents. Technically, FHIR is designed for the web; the resources are based on simple XML or JSON structures, with an http-based RESTful protocol where each resource has predictable URL. Where possible, open internet standards are used for data representation. \n"
+  title: Untitled CodeSystem Subscription API
+  version: unspecified
+host: api.prod.devoted.com
+basePath: /fhir/
+schemes:
+- https
+tags:
+- name: Subscription
+  description: The Subscription FHIR resource type
+paths:
+  /Subscription/$trigger-subscription:
+    post:
+      tags:
+      - Subscription
+      requestBody:
+        content:
+          application/fhir+json:
+            schema:
+              title: FHIR Resource
+              type: object
+              example: null
+            example: "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [ {\n    \"name\": \"resourceId\",\n    \"valueUri\": \"example\"\n  }, {\n    \"name\": \"searchUrl\",\n    \"valueString\": \"example\"\n  } ]\n}"
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example: null
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+              example: null
+  /Subscription/{id}/$trigger-subscription:
+    post:
+      tags:
+      - Subscription
+      parameters:
+      - name: id
+        in: path
+        description: The resource ID
+        required: true
+        style: simple
+        schema:
+          minimum: 1
+          type: string
+          example: null
+        example: '123'
+      requestBody:
+        content:
+          application/fhir+json:
+            schema:
+              title: FHIR Resource
+              type: object
+              example: null
+            example: "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [ {\n    \"name\": \"resourceId\",\n    \"valueUri\": \"example\"\n  }, {\n    \"name\": \"searchUrl\",\n    \"valueString\": \"example\"\n  } ]\n}"
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example: null
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+              example: null
+components:
+  schemas:
+    FHIR-JSON-RESOURCE:
+      type: object
+      description: A FHIR resource
+      example: null
+    FHIR-XML-RESOURCE:
+      type: object
+      description: A FHIR resource
+      example: null

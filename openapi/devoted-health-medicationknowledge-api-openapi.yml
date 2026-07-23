@@ -1,0 +1,835 @@
+swagger: '2.0'
+info:
+  description: "Fast Healthcare Interoperability Resources (FHIR, pronounced \"Fire\") defines a set of \"Resources\" that represent granular clinical concepts. The resources can be managed in isolation, or aggregated into complex documents. Technically, FHIR is designed for the web; the resources are based on simple XML or JSON structures, with an http-based RESTful protocol where each resource has predictable URL. Where possible, open internet standards are used for data representation. \n"
+  title: Untitled CodeSystem MedicationKnowledge API
+  version: unspecified
+host: api.prod.devoted.com
+basePath: /fhir/
+schemes:
+- https
+tags:
+- name: MedicationKnowledge
+  description: The MedicationKnowledge FHIR resource type
+paths:
+  /MedicationKnowledge/{id}:
+    get:
+      tags:
+      - MedicationKnowledge
+      summary: 'read-instance: Read MedicationKnowledge instance'
+      parameters:
+      - name: id
+        in: path
+        description: The resource ID
+        required: true
+        style: simple
+        schema:
+          minimum: 1
+          type: string
+          example: null
+        example: '123'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example: null
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+              example: null
+    put:
+      tags:
+      - MedicationKnowledge
+      summary: 'update-instance: Update an existing MedicationKnowledge instance, or create using a client-assigned ID'
+      parameters:
+      - name: id
+        in: path
+        description: The resource ID
+        required: true
+        style: simple
+        schema:
+          minimum: 1
+          type: string
+          example: null
+        example: '123'
+      requestBody:
+        content:
+          application/fhir+json:
+            schema:
+              $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+            example: "{\n  \"resourceType\": \"MedicationKnowledge\"\n}"
+          application/fhir+xml:
+            schema:
+              $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+            example: <MedicationKnowledge xmlns="http://hl7.org/fhir"/>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example: null
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+              example: null
+    delete:
+      tags:
+      - MedicationKnowledge
+      summary: 'instance-delete: Perform a logical delete on a resource instance'
+      parameters:
+      - name: id
+        in: path
+        description: The resource ID
+        required: true
+        style: simple
+        schema:
+          minimum: 1
+          type: string
+          example: null
+        example: '123'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example: null
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+              example: null
+    patch:
+      tags:
+      - MedicationKnowledge
+      summary: 'instance-patch: Patch a resource instance of type MedicationKnowledge by ID'
+      parameters:
+      - name: id
+        in: path
+        description: The resource ID
+        required: true
+        style: simple
+        schema:
+          minimum: 1
+          type: string
+          example: null
+        example: '123'
+      requestBody:
+        content:
+          application/fhir+json:
+            schema:
+              $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+            example: "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [ {\n    \"name\": \"operation\",\n    \"part\": [ {\n      \"name\": \"type\",\n      \"valueString\": \"add\"\n    }, {\n      \"name\": \"path\",\n      \"valueString\": \"Patient\"\n    }, {\n      \"name\": \"name\",\n      \"valueString\": \"birthDate\"\n    }, {\n      \"name\": \"value\",\n      \"valueDate\": \"1930-01-01\"\n    } ]\n  } ]\n}"
+          application/fhir+xml:
+            schema:
+              $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+            example: "<Parameters xmlns=\"http://hl7.org/fhir\">\n   <parameter>\n      <name value=\"operation\"/>\n      <part>\n         <name value=\"type\"/>\n         <valueString value=\"add\"/>\n      </part>\n      <part>\n         <name value=\"path\"/>\n         <valueString value=\"Patient\"/>\n      </part>\n      <part>\n         <name value=\"name\"/>\n         <valueString value=\"birthDate\"/>\n      </part>\n      <part>\n         <name value=\"value\"/>\n         <valueDate value=\"1930-01-01\"/>\n      </part>\n   </parameter>\n</Parameters>"
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example: null
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+              example: null
+  /MedicationKnowledge/{id}/_history/{version_id}:
+    get:
+      tags:
+      - MedicationKnowledge
+      summary: 'vread-instance: Read MedicationKnowledge instance with specific version'
+      parameters:
+      - name: id
+        in: path
+        description: The resource ID
+        required: true
+        style: simple
+        schema:
+          minimum: 1
+          type: string
+          example: null
+        example: '123'
+      - name: version_id
+        in: path
+        description: The resource version ID
+        required: true
+        style: simple
+        schema:
+          minimum: 1
+          type: string
+          example: null
+        example: '1'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example: null
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+              example: null
+  /MedicationKnowledge:
+    get:
+      tags:
+      - MedicationKnowledge
+      summary: 'search-type: Search for MedicationKnowledge instances'
+      description: This is a search type
+      parameters:
+      - name: code
+        in: query
+        description: Accesses the status of a FormularyDrug
+        style: simple
+      - name: ingredient
+        in: query
+        description: Medication(s) or substance(s) contained in the medication
+        style: simple
+      - name: doseform
+        in: query
+        description: Accesses the dose form of a FormularyDrug
+        style: simple
+      - name: _lastUpdated
+        in: query
+        description: Accesses the last updated date of a FormularyItem
+        style: simple
+      - name: _security
+        in: query
+        description: Security Labels applied to this resource
+        style: simple
+      - name: classification-type
+        in: query
+        description: The type of category for the medication (for example, therapeutic classification, therapeutic sub-classification)
+        style: simple
+      - name: monograph-type
+        in: query
+        description: The category of medication document
+        style: simple
+      - name: classification
+        in: query
+        description: Specific category assigned to the medication
+        style: simple
+      - name: manufacturer
+        in: query
+        description: Manufacturer of the item
+        style: simple
+      - name: _filter
+        in: query
+        description: Search the contents of the resource's data using a filter
+        style: simple
+      - name: ingredient-code
+        in: query
+        description: Medication(s) or substance(s) contained in the medication
+        style: simple
+      - name: source-cost
+        in: query
+        description: The source or owner for the price information
+        style: simple
+      - name: drug-name
+        in: query
+        description: Accesses the Drug Name of a FormularyDrug
+        style: simple
+      - name: _profile
+        in: query
+        description: Profiles this resource claims to conform to
+        style: simple
+      - name: monitoring-program-name
+        in: query
+        description: Name of the reviewing program
+        style: simple
+      - name: monograph
+        in: query
+        description: Associated documentation about the medication
+        style: simple
+      - name: _tag
+        in: query
+        description: Tags applied to this resource
+        style: simple
+      - name: _has
+        in: query
+        description: Return resources linked to by the given target
+        style: simple
+      - name: _source
+        in: query
+        description: Identifies where the resource comes from
+        style: simple
+      - name: monitoring-program-type
+        in: query
+        description: Type of program under which the medication is monitored
+        style: simple
+      - name: _id
+        in: query
+        description: Logical id of this artifact
+        style: simple
+      - name: _text
+        in: query
+        description: Search on the narrative of the resource
+        style: simple
+      - name: _content
+        in: query
+        description: Search on the entire content of the resource
+        style: simple
+      - name: status
+        in: query
+        description: Accesses the status of a FormularyDrug
+        style: simple
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example: null
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+              example: null
+    post:
+      tags:
+      - MedicationKnowledge
+      summary: 'create-type: Create a new MedicationKnowledge instance'
+      requestBody:
+        content:
+          application/fhir+json:
+            schema:
+              $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+            example: "{\n  \"resourceType\": \"MedicationKnowledge\"\n}"
+          application/fhir+xml:
+            schema:
+              $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+            example: <MedicationKnowledge xmlns="http://hl7.org/fhir"/>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example: null
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+              example: null
+  /MedicationKnowledge/_history:
+    get:
+      tags:
+      - MedicationKnowledge
+      summary: 'type-history: Fetch the resource change history for all resources of type MedicationKnowledge'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example: null
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+              example: null
+  /MedicationKnowledge/{id}/_history:
+    get:
+      tags:
+      - MedicationKnowledge
+      summary: 'instance-history: Fetch the resource change history for all resources of type MedicationKnowledge'
+      parameters:
+      - name: id
+        in: path
+        description: The resource ID
+        required: true
+        style: simple
+        schema:
+          minimum: 1
+          type: string
+          example: null
+        example: '123'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example: null
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+              example: null
+  /MedicationKnowledge/_search:
+    get:
+      tags:
+      - MedicationKnowledge
+      summary: 'search-type: Search for MedicationKnowledge instances'
+      description: This is a search type
+      parameters:
+      - name: code
+        in: query
+        description: Accesses the status of a FormularyDrug
+        style: simple
+      - name: ingredient
+        in: query
+        description: Medication(s) or substance(s) contained in the medication
+        style: simple
+      - name: doseform
+        in: query
+        description: Accesses the dose form of a FormularyDrug
+        style: simple
+      - name: _lastUpdated
+        in: query
+        description: Accesses the last updated date of a FormularyItem
+        style: simple
+      - name: _security
+        in: query
+        description: Security Labels applied to this resource
+        style: simple
+      - name: classification-type
+        in: query
+        description: The type of category for the medication (for example, therapeutic classification, therapeutic sub-classification)
+        style: simple
+      - name: monograph-type
+        in: query
+        description: The category of medication document
+        style: simple
+      - name: classification
+        in: query
+        description: Specific category assigned to the medication
+        style: simple
+      - name: manufacturer
+        in: query
+        description: Manufacturer of the item
+        style: simple
+      - name: _filter
+        in: query
+        description: Search the contents of the resource's data using a filter
+        style: simple
+      - name: ingredient-code
+        in: query
+        description: Medication(s) or substance(s) contained in the medication
+        style: simple
+      - name: source-cost
+        in: query
+        description: The source or owner for the price information
+        style: simple
+      - name: drug-name
+        in: query
+        description: Accesses the Drug Name of a FormularyDrug
+        style: simple
+      - name: _profile
+        in: query
+        description: Profiles this resource claims to conform to
+        style: simple
+      - name: monitoring-program-name
+        in: query
+        description: Name of the reviewing program
+        style: simple
+      - name: monograph
+        in: query
+        description: Associated documentation about the medication
+        style: simple
+      - name: _tag
+        in: query
+        description: Tags applied to this resource
+        style: simple
+      - name: _has
+        in: query
+        description: Return resources linked to by the given target
+        style: simple
+      - name: _source
+        in: query
+        description: Identifies where the resource comes from
+        style: simple
+      - name: monitoring-program-type
+        in: query
+        description: Type of program under which the medication is monitored
+        style: simple
+      - name: _id
+        in: query
+        description: Logical id of this artifact
+        style: simple
+      - name: _text
+        in: query
+        description: Search on the narrative of the resource
+        style: simple
+      - name: _content
+        in: query
+        description: Search on the entire content of the resource
+        style: simple
+      - name: status
+        in: query
+        description: Accesses the status of a FormularyDrug
+        style: simple
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example: null
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+              example: null
+  /MedicationKnowledge/$validate:
+    get:
+      tags:
+      - MedicationKnowledge
+      parameters:
+      - name: mode
+        in: query
+        required: false
+        style: simple
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example: null
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+              example: null
+    post:
+      tags:
+      - MedicationKnowledge
+      requestBody:
+        content:
+          application/fhir+json:
+            schema:
+              title: FHIR Resource
+              type: object
+              example: null
+            example: "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [ {\n    \"name\": \"resource\",\n    \"resource\": {\n      \"resourceType\": \"MedicationKnowledge\",\n      \"id\": \"1\"\n    }\n  }, {\n    \"name\": \"mode\",\n    \"valueCode\": \"example\"\n  }, {\n    \"name\": \"profile\"\n  } ]\n}"
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example: null
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+              example: null
+  /MedicationKnowledge/{id}/$validate:
+    get:
+      tags:
+      - MedicationKnowledge
+      parameters:
+      - name: id
+        in: path
+        description: The resource ID
+        required: true
+        style: simple
+        schema:
+          minimum: 1
+          type: string
+          example: null
+        example: '123'
+      - name: mode
+        in: query
+        required: false
+        style: simple
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example: null
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+              example: null
+    post:
+      tags:
+      - MedicationKnowledge
+      parameters:
+      - name: id
+        in: path
+        description: The resource ID
+        required: true
+        style: simple
+        schema:
+          minimum: 1
+          type: string
+          example: null
+        example: '123'
+      requestBody:
+        content:
+          application/fhir+json:
+            schema:
+              title: FHIR Resource
+              type: object
+              example: null
+            example: "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [ {\n    \"name\": \"resource\",\n    \"resource\": {\n      \"resourceType\": \"MedicationKnowledge\",\n      \"id\": \"1\"\n    }\n  }, {\n    \"name\": \"mode\",\n    \"valueCode\": \"example\"\n  }, {\n    \"name\": \"profile\"\n  } ]\n}"
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example: null
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+              example: null
+  /MedicationKnowledge/{id}/$meta-delete:
+    post:
+      tags:
+      - MedicationKnowledge
+      description: Delete tags, profiles, and/or security labels from a resource
+      parameters:
+      - name: id
+        in: path
+        description: The resource ID
+        required: true
+        style: simple
+        schema:
+          minimum: 1
+          type: string
+          example: null
+        example: '123'
+      requestBody:
+        content:
+          application/fhir+json:
+            schema:
+              title: FHIR Resource
+              type: object
+              example: null
+            example: "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [ {\n    \"name\": \"meta\"\n  } ]\n}"
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example: null
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+              example: null
+  /MedicationKnowledge/{id}/$meta-add:
+    post:
+      tags:
+      - MedicationKnowledge
+      description: Add tags, profiles, and/or security labels to a resource
+      parameters:
+      - name: id
+        in: path
+        description: The resource ID
+        required: true
+        style: simple
+        schema:
+          minimum: 1
+          type: string
+          example: null
+        example: '123'
+      requestBody:
+        content:
+          application/fhir+json:
+            schema:
+              title: FHIR Resource
+              type: object
+              example: null
+            example: "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [ {\n    \"name\": \"meta\"\n  } ]\n}"
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example: null
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+              example: null
+  /MedicationKnowledge/$meta:
+    get:
+      tags:
+      - MedicationKnowledge
+      description: Request a list of tags, profiles, and security labels for a specfic resource instance
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example: null
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+              example: null
+    post:
+      tags:
+      - MedicationKnowledge
+      description: Request a list of tags, profiles, and security labels for a specfic resource instance
+      requestBody:
+        content:
+          application/fhir+json:
+            schema:
+              title: FHIR Resource
+              type: object
+              example: null
+            example: "{\n  \"resourceType\": \"Parameters\"\n}"
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example: null
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+              example: null
+  /MedicationKnowledge/{id}/$meta:
+    get:
+      tags:
+      - MedicationKnowledge
+      description: Request a list of tags, profiles, and security labels for a specfic resource instance
+      parameters:
+      - name: id
+        in: path
+        description: The resource ID
+        required: true
+        style: simple
+        schema:
+          minimum: 1
+          type: string
+          example: null
+        example: '123'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example: null
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+              example: null
+    post:
+      tags:
+      - MedicationKnowledge
+      description: Request a list of tags, profiles, and security labels for a specfic resource instance
+      parameters:
+      - name: id
+        in: path
+        description: The resource ID
+        required: true
+        style: simple
+        schema:
+          minimum: 1
+          type: string
+          example: null
+        example: '123'
+      requestBody:
+        content:
+          application/fhir+json:
+            schema:
+              title: FHIR Resource
+              type: object
+              example: null
+            example: "{\n  \"resourceType\": \"Parameters\"\n}"
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example: null
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+              example: null
+  /MedicationKnowledge/$expunge:
+    post:
+      tags:
+      - MedicationKnowledge
+      requestBody:
+        content:
+          application/fhir+json:
+            schema:
+              title: FHIR Resource
+              type: object
+              example: null
+            example: "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [ {\n    \"name\": \"limit\",\n    \"valueInteger\": 0\n  }, {\n    \"name\": \"expungeDeletedResources\",\n    \"valueBoolean\": false\n  }, {\n    \"name\": \"expungePreviousVersions\",\n    \"valueBoolean\": false\n  }, {\n    \"name\": \"expungeEverything\",\n    \"valueBoolean\": false\n  } ]\n}"
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example: null
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+              example: null
+  /MedicationKnowledge/{id}/$expunge:
+    post:
+      tags:
+      - MedicationKnowledge
+      parameters:
+      - name: id
+        in: path
+        description: The resource ID
+        required: true
+        style: simple
+        schema:
+          minimum: 1
+          type: string
+          example: null
+        example: '123'
+      requestBody:
+        content:
+          application/fhir+json:
+            schema:
+              title: FHIR Resource
+              type: object
+              example: null
+            example: "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [ {\n    \"name\": \"limit\",\n    \"valueInteger\": 0\n  }, {\n    \"name\": \"expungeDeletedResources\",\n    \"valueBoolean\": false\n  }, {\n    \"name\": \"expungePreviousVersions\",\n    \"valueBoolean\": false\n  }, {\n    \"name\": \"expungeEverything\",\n    \"valueBoolean\": false\n  } ]\n}"
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example: null
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+              example: null
+components:
+  schemas:
+    FHIR-JSON-RESOURCE:
+      type: object
+      description: A FHIR resource
+      example: null
+    FHIR-XML-RESOURCE:
+      type: object
+      description: A FHIR resource
+      example: null

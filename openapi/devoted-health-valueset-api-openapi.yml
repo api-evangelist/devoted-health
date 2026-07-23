@@ -1,0 +1,388 @@
+swagger: '2.0'
+info:
+  description: "Fast Healthcare Interoperability Resources (FHIR, pronounced \"Fire\") defines a set of \"Resources\" that represent granular clinical concepts. The resources can be managed in isolation, or aggregated into complex documents. Technically, FHIR is designed for the web; the resources are based on simple XML or JSON structures, with an http-based RESTful protocol where each resource has predictable URL. Where possible, open internet standards are used for data representation. \n"
+  title: Untitled CodeSystem ValueSet API
+  version: unspecified
+host: api.prod.devoted.com
+basePath: /fhir/
+schemes:
+- https
+tags:
+- name: ValueSet
+  description: The ValueSet FHIR resource type
+paths:
+  /ValueSet/$validate-code:
+    get:
+      tags:
+      - ValueSet
+      parameters:
+      - name: url
+        in: query
+        required: false
+        style: simple
+      - name: valueSetVersion
+        in: query
+        required: false
+        style: simple
+      - name: code
+        in: query
+        required: false
+        style: simple
+      - name: system
+        in: query
+        required: false
+        style: simple
+      - name: systemVersion
+        in: query
+        required: false
+        style: simple
+      - name: display
+        in: query
+        required: false
+        style: simple
+      - name: coding
+        in: query
+        required: false
+        style: simple
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example: null
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+              example: null
+    post:
+      tags:
+      - ValueSet
+      requestBody:
+        content:
+          application/fhir+json:
+            schema:
+              title: FHIR Resource
+              type: object
+              example: null
+            example: "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [ {\n    \"name\": \"url\",\n    \"valueUri\": \"example\"\n  }, {\n    \"name\": \"valueSetVersion\",\n    \"valueString\": \"example\"\n  }, {\n    \"name\": \"code\",\n    \"valueCode\": \"example\"\n  }, {\n    \"name\": \"system\",\n    \"valueUri\": \"example\"\n  }, {\n    \"name\": \"systemVersion\",\n    \"valueString\": \"example\"\n  }, {\n    \"name\": \"display\",\n    \"valueString\": \"example\"\n  }, {\n    \"name\": \"coding\",\n    \"valueCoding\": {\n      \"system\": \"http://example.com\",\n      \"code\": \"1234\"\n    }\n  }, {\n    \"name\": \"codeableConcept\",\n    \"valueCodeableConcept\": {\n      \"coding\": [ {\n        \"system\": \"http://example.com\",\n        \"code\": \"1234\"\n      } ]\n    }\n  } ]\n}"
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example: null
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+              example: null
+  /ValueSet/{id}/$validate-code:
+    get:
+      tags:
+      - ValueSet
+      parameters:
+      - name: id
+        in: path
+        description: The resource ID
+        required: true
+        style: simple
+        schema:
+          minimum: 1
+          type: string
+          example: null
+        example: '123'
+      - name: url
+        in: query
+        required: false
+        style: simple
+      - name: valueSetVersion
+        in: query
+        required: false
+        style: simple
+      - name: code
+        in: query
+        required: false
+        style: simple
+      - name: system
+        in: query
+        required: false
+        style: simple
+      - name: systemVersion
+        in: query
+        required: false
+        style: simple
+      - name: display
+        in: query
+        required: false
+        style: simple
+      - name: coding
+        in: query
+        required: false
+        style: simple
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example: null
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+              example: null
+    post:
+      tags:
+      - ValueSet
+      parameters:
+      - name: id
+        in: path
+        description: The resource ID
+        required: true
+        style: simple
+        schema:
+          minimum: 1
+          type: string
+          example: null
+        example: '123'
+      requestBody:
+        content:
+          application/fhir+json:
+            schema:
+              title: FHIR Resource
+              type: object
+              example: null
+            example: "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [ {\n    \"name\": \"url\",\n    \"valueUri\": \"example\"\n  }, {\n    \"name\": \"valueSetVersion\",\n    \"valueString\": \"example\"\n  }, {\n    \"name\": \"code\",\n    \"valueCode\": \"example\"\n  }, {\n    \"name\": \"system\",\n    \"valueUri\": \"example\"\n  }, {\n    \"name\": \"systemVersion\",\n    \"valueString\": \"example\"\n  }, {\n    \"name\": \"display\",\n    \"valueString\": \"example\"\n  }, {\n    \"name\": \"coding\",\n    \"valueCoding\": {\n      \"system\": \"http://example.com\",\n      \"code\": \"1234\"\n    }\n  }, {\n    \"name\": \"codeableConcept\",\n    \"valueCodeableConcept\": {\n      \"coding\": [ {\n        \"system\": \"http://example.com\",\n        \"code\": \"1234\"\n      } ]\n    }\n  } ]\n}"
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example: null
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+              example: null
+  /ValueSet/{id}/$invalidate-expansion:
+    post:
+      tags:
+      - ValueSet
+      parameters:
+      - name: id
+        in: path
+        description: The resource ID
+        required: true
+        style: simple
+        schema:
+          minimum: 1
+          type: string
+          example: null
+        example: '123'
+      requestBody:
+        content:
+          application/fhir+json:
+            schema:
+              title: FHIR Resource
+              type: object
+              example: null
+            example: "{\n  \"resourceType\": \"Parameters\"\n}"
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example: null
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+              example: null
+  /ValueSet/$expand:
+    get:
+      tags:
+      - ValueSet
+      parameters:
+      - name: url
+        in: query
+        required: false
+        style: simple
+      - name: valueSetVersion
+        in: query
+        required: false
+        style: simple
+      - name: filter
+        in: query
+        required: false
+        style: simple
+      - name: context
+        in: query
+        required: false
+        style: simple
+      - name: contextDirection
+        in: query
+        required: false
+        style: simple
+      - name: offset
+        in: query
+        required: false
+        style: simple
+      - name: count
+        in: query
+        required: false
+        style: simple
+      - name: displayLanguage
+        in: query
+        required: false
+        style: simple
+      - name: includeHierarchy
+        in: query
+        required: false
+        style: simple
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example: null
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+              example: null
+    post:
+      tags:
+      - ValueSet
+      requestBody:
+        content:
+          application/fhir+json:
+            schema:
+              title: FHIR Resource
+              type: object
+              example: null
+            example: "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [ {\n    \"name\": \"valueSet\",\n    \"resource\": {\n      \"resourceType\": \"ValueSet\",\n      \"id\": \"1\"\n    }\n  }, {\n    \"name\": \"url\",\n    \"valueUri\": \"example\"\n  }, {\n    \"name\": \"valueSetVersion\",\n    \"valueString\": \"example\"\n  }, {\n    \"name\": \"filter\",\n    \"valueString\": \"example\"\n  }, {\n    \"name\": \"context\",\n    \"valueString\": \"example\"\n  }, {\n    \"name\": \"contextDirection\",\n    \"valueString\": \"example\"\n  }, {\n    \"name\": \"offset\",\n    \"valueInteger\": 0\n  }, {\n    \"name\": \"count\",\n    \"valueInteger\": 0\n  }, {\n    \"name\": \"displayLanguage\",\n    \"valueCode\": \"example\"\n  }, {\n    \"name\": \"includeHierarchy\",\n    \"valueBoolean\": false\n  } ]\n}"
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example: null
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+              example: null
+  /ValueSet/{id}/$expand:
+    get:
+      tags:
+      - ValueSet
+      parameters:
+      - name: id
+        in: path
+        description: The resource ID
+        required: true
+        style: simple
+        schema:
+          minimum: 1
+          type: string
+          example: null
+        example: '123'
+      - name: url
+        in: query
+        required: false
+        style: simple
+      - name: valueSetVersion
+        in: query
+        required: false
+        style: simple
+      - name: filter
+        in: query
+        required: false
+        style: simple
+      - name: context
+        in: query
+        required: false
+        style: simple
+      - name: contextDirection
+        in: query
+        required: false
+        style: simple
+      - name: offset
+        in: query
+        required: false
+        style: simple
+      - name: count
+        in: query
+        required: false
+        style: simple
+      - name: displayLanguage
+        in: query
+        required: false
+        style: simple
+      - name: includeHierarchy
+        in: query
+        required: false
+        style: simple
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example: null
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+              example: null
+    post:
+      tags:
+      - ValueSet
+      parameters:
+      - name: id
+        in: path
+        description: The resource ID
+        required: true
+        style: simple
+        schema:
+          minimum: 1
+          type: string
+          example: null
+        example: '123'
+      requestBody:
+        content:
+          application/fhir+json:
+            schema:
+              title: FHIR Resource
+              type: object
+              example: null
+            example: "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [ {\n    \"name\": \"valueSet\",\n    \"resource\": {\n      \"resourceType\": \"ValueSet\",\n      \"id\": \"1\"\n    }\n  }, {\n    \"name\": \"url\",\n    \"valueUri\": \"example\"\n  }, {\n    \"name\": \"valueSetVersion\",\n    \"valueString\": \"example\"\n  }, {\n    \"name\": \"filter\",\n    \"valueString\": \"example\"\n  }, {\n    \"name\": \"context\",\n    \"valueString\": \"example\"\n  }, {\n    \"name\": \"contextDirection\",\n    \"valueString\": \"example\"\n  }, {\n    \"name\": \"offset\",\n    \"valueInteger\": 0\n  }, {\n    \"name\": \"count\",\n    \"valueInteger\": 0\n  }, {\n    \"name\": \"displayLanguage\",\n    \"valueCode\": \"example\"\n  }, {\n    \"name\": \"includeHierarchy\",\n    \"valueBoolean\": false\n  } ]\n}"
+      responses:
+        '200':
+          description: Success
+          content:
+            application/fhir+json:
+              schema:
+                $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
+              example: null
+            application/fhir+xml:
+              schema:
+                $ref: '#/components/schemas/FHIR-XML-RESOURCE'
+              example: null
+components:
+  schemas:
+    FHIR-JSON-RESOURCE:
+      type: object
+      description: A FHIR resource
+      example: null
+    FHIR-XML-RESOURCE:
+      type: object
+      description: A FHIR resource
+      example: null

@@ -1,0 +1,190 @@
+swagger: '2.0'
+info:
+  description: "Fast Healthcare Interoperability Resources (FHIR, pronounced \"Fire\") defines a set of \"Resources\" that represent granular clinical concepts. The resources can be managed in isolation, or aggregated into complex documents. Technically, FHIR is designed for the web; the resources are based on simple XML or JSON structures, with an http-based RESTful protocol where each resource has predictable URL. Where possible, open internet standards are used for data representation. \n"
+  title: Untitled CodeSystem Condition API
+  version: unspecified
+host: api.prod.devoted.com
+basePath: /fhir/
+schemes:
+- https
+tags:
+- name: Condition
+paths:
+  /Condition:
+    get:
+      tags:
+      - Condition
+      parameters:
+      - name: patient
+        type: string
+        in: query
+        description: Who has the condition. It is a required field.
+      - name: _format
+        in: query
+        type: string
+        x-consoleDefault: application/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Condition'
+definitions:
+  Condition:
+    description: ''
+    type: object
+    properties:
+      resourceType:
+        type: string
+        minLength: 1
+      id:
+        type: string
+        minLength: 1
+      text:
+        type: object
+        properties:
+          status:
+            type: string
+            minLength: 1
+          div:
+            type: string
+            minLength: 1
+        required:
+        - status
+        - div
+      patient:
+        type: object
+        properties:
+          reference:
+            type: string
+            minLength: 1
+        required:
+        - reference
+      code:
+        type: object
+        properties:
+          coding:
+            type: array
+            uniqueItems: true
+            minItems: 1
+            items:
+              required:
+              - system
+              - code
+              - display
+              properties:
+                system:
+                  type: string
+                  minLength: 1
+                code:
+                  type: string
+                  minLength: 1
+                display:
+                  type: string
+                  minLength: 1
+          text:
+            type: string
+            minLength: 1
+        required:
+        - coding
+        - text
+      category:
+        type: object
+        properties:
+          coding:
+            type: array
+            uniqueItems: true
+            minItems: 1
+            items:
+              required:
+              - system
+              - code
+              - display
+              properties:
+                fhir_comments:
+                  type: array
+                  items:
+                    properties: {}
+                system:
+                  type: string
+                  minLength: 1
+                code:
+                  type: string
+                  minLength: 1
+                display:
+                  type: string
+                  minLength: 1
+        required:
+        - coding
+      verificationStatus:
+        type: string
+        minLength: 1
+      severity:
+        type: object
+        properties:
+          coding:
+            type: array
+            uniqueItems: true
+            minItems: 1
+            items:
+              required:
+              - system
+              - code
+              - display
+              properties:
+                system:
+                  type: string
+                  minLength: 1
+                code:
+                  type: string
+                  minLength: 1
+                display:
+                  type: string
+                  minLength: 1
+        required:
+        - coding
+      onsetDateTime:
+        type: string
+        minLength: 1
+      bodySite:
+        type: array
+        uniqueItems: true
+        minItems: 1
+        items:
+          required:
+          - text
+          properties:
+            coding:
+              type: array
+              uniqueItems: true
+              minItems: 1
+              items:
+                required:
+                - system
+                - code
+                - display
+                properties:
+                  system:
+                    type: string
+                    minLength: 1
+                  code:
+                    type: string
+                    minLength: 1
+                  display:
+                    type: string
+                    minLength: 1
+            text:
+              type: string
+              minLength: 1
+    required:
+    - resourceType
+    - id
+    - text
+    - patient
+    - code
+    - category
+    - verificationStatus
+    - severity
+    - onsetDateTime
+    - bodySite
