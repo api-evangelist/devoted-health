@@ -1,0 +1,39 @@
+generated: '2026-07-18'
+method: searched
+source: https://www.devoted.com/developers/
+notes: >-
+  Standards conformance for Devoted Health's FHIR developer surface. Sourced from
+  the developers page (explicit CMS Interoperability / 21st Century Cures Act
+  conformance claim), the two published CapabilityStatements (fhirVersion 4.0.1),
+  the SMART-on-FHIR security service declaration, and the OpenID Connect discovery
+  document. This asserts industry/regulatory standards conformance; it is not a
+  published security-certifications (SOC 2 / ISO 27001) program, so no Compliance
+  pointer is emitted.
+standards:
+- id: hl7-fhir-r4
+  conforms: true
+  evidence: both CapabilityStatements declare fhirVersion 4.0.1 (FHIR R4)
+- id: smart-on-fhir
+  conforms: true
+  evidence: rest.security.service coding SMART-on-FHIR; /fhir/.well-known/smart-configuration present
+- id: oauth2
+  conforms: true
+  evidence: OAuth 2.0 authorization/token endpoints via login.devoted.com (OIDC discovery)
+- id: openid-connect
+  conforms: true
+  evidence: https://login.devoted.com/.well-known/openid-configuration (issuer, jwks, endpoints)
+- id: cms-interoperability-patient-access
+  conforms: true
+  evidence: developers page states conformance with CMS Interoperability rule (21st Century Cures Act); Patient Access API exposes claims/clinical/coverage
+- id: carin-bb
+  conforms: partial
+  evidence: ExplanationOfBenefit exposed for claims (CARIN Blue Button use case); IG conformance not explicitly declared on the developers page
+- id: davinci-pdex-plan-net
+  conforms: partial
+  evidence: Provider Directory exposes Practitioner/Organization/Location/HealthcareService/InsurancePlan (Plan-Net use case); IG conformance not explicitly declared
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: FHIR errors use OperationOutcome (application/fhir+json), not RFC 9457 problem+json
+- id: fhir-bundle-pagination
+  conforms: true
+  evidence: search interactions return searchset Bundles with paging links (HAPI FHIR)

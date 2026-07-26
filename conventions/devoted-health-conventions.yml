@@ -1,0 +1,44 @@
+generated: '2026-07-18'
+method: derived
+source: conformance CapabilityStatements, openapi/*, HAPI FHIR 6.6.0 behavior
+notes: >-
+  Cross-cutting request/response semantics for Devoted Health's FHIR R4 APIs.
+  These are the HL7 FHIR REST conventions the servers follow, derived from the
+  CapabilityStatements and OpenAPI. Both APIs are read-oriented (Patient Access
+  is read/search only), so there is no write-idempotency (Idempotency-Key)
+  contract to assert.
+authentication:
+  style: SMART-on-FHIR OAuth 2.0 / OpenID Connect
+  ref: authentication/devoted-health-authentication.yml
+media_types:
+  request: [application/fhir+json]
+  response: [application/fhir+json, application/json]
+  format_param: _format   # ?_format=json to force JSON on the directory server
+pagination:
+  style: fhir-bundle
+  container: searchset Bundle
+  page_size_param: _count
+  navigation: Bundle.link (relation self / next / previous)
+search:
+  style: fhir-rest-search
+  common_params: [_id, _lastUpdated, _count, _sort, _include, _revinclude, _summary, _elements]
+  resource_params: per-resource SearchParameters advertised in the CapabilityStatement
+versioning:
+  style: fhir-release
+  fhir_version: 4.0.1
+  ref: lifecycle/devoted-health-lifecycle.yml
+idempotency:
+  write_idempotency_key: false
+  notes: >-
+    Read (GET) and search interactions are inherently idempotent per HTTP/FHIR;
+    the exposed APIs do not offer creates/updates, so no Idempotency-Key contract
+    is documented. Resource updates in FHIR (not exposed here) would use
+    ETag / If-Match optimistic concurrency.
+error_envelope:
+  resourceType: OperationOutcome
+  ref: errors/devoted-health-problem-types.yml
+rate_limiting:
+  signaled: unknown
+  notes: No rate-limit headers or published limits located in the docs.
+capability_discovery:
+  metadata_endpoint: /fhir/metadata   # FHIR CapabilityStatement per server

@@ -1,0 +1,49 @@
+generated: '2026-07-18'
+method: searched
+notes: >-
+  /.well-known probes across Devoted Health's identity host (login.devoted.com),
+  the Patient Access API host (api.prod.devoted.com), the Provider Directory host
+  (fhir.devoted.com), and the marketing host (devoted.com). The OpenID Connect
+  and OAuth Authorization Server metadata live on the login (Auth0) host; the
+  Patient Access FHIR server serves a SMART configuration under its /fhir path.
+hosts:
+- host: https://login.devoted.com
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: devoted-health-openid-configuration.json
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: devoted-health-oauth-authorization-server.json
+  - path: /.well-known/jwks.json
+    status: 200
+    file: null
+- host: https://api.prod.devoted.com
+  documents:
+  - path: /fhir/.well-known/smart-configuration
+    status: 200
+    file: devoted-health-smart-configuration.json
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+- host: https://fhir.devoted.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /fhir/.well-known/smart-configuration
+    status: 404
+- host: https://devoted.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404

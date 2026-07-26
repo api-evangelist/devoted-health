@@ -1,0 +1,33 @@
+generated: '2026-07-18'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: devoted.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct  1 23:59:59 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: www.devoted.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Oct  1 23:59:59 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: api.prod.devoted.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 18 15:16:55 2026 GMT
+  hsts: null
+domains:
+- domain: devoted.com
+  dnssec: true
+  caa:
+  - 128 issue "amazonaws.com"
+  - 128 issue "digicert.com"
+  - 128 issue "letsencrypt.org;validationmethods=dns-01;accounturi=https://acme-v02.api.letsencrypt.org/acme/acct/2119334475"
+  - 128 issue "letsencrypt.org;validationmethods=dns-01;accounturi=https://acme-v02.api.letsencrypt.org/acme/acct/88814841"
+  - 128 issue "sectigo.com"
+  spf: true
+  dmarc: true
+  dmarc_policy: quarantine

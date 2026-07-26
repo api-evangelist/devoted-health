@@ -1,0 +1,52 @@
+generated: '2026-07-18'
+method: derived
+status: candidate
+source: openapi/devoted-health-patient-access-openapi-original.json, openapi/devoted-health-provider-directory-openapi-original.yml
+notes: >-
+  No official hosted Devoted Health MCP server was found. This is a candidate
+  tool surface derived from the two FHIR APIs' read/search interactions, one tool
+  per resource interaction. All tools require SMART-on-FHIR OAuth 2.0; Patient
+  Access tools additionally require a member-authorized patient-scoped token.
+server:
+  name: devoted-health
+  transport: http
+  url: null
+  auth: SMART-on-FHIR OAuth 2.0 (login.devoted.com)
+tools:
+- name: get_patient
+  description: Read the authorized member's Patient resource.
+  source_operation: openapi/devoted-health-patient-access-openapi-original.json#GET /Patient/{id}
+  requires: patient-scoped token
+- name: search_patient
+  description: Search the authorized member's Patient resource.
+  source_operation: openapi/devoted-health-patient-access-openapi-original.json#GET /Patient
+- name: search_conditions
+  description: Search the member's Condition (diagnoses) resources.
+  source_operation: openapi/devoted-health-patient-access-openapi-original.json#GET /Condition
+- name: search_encounters
+  description: Search the member's Encounter (visit) resources.
+  source_operation: openapi/devoted-health-patient-access-openapi-original.json#GET /Encounter
+- name: search_medications
+  description: Search the member's Medication resources.
+  source_operation: openapi/devoted-health-patient-access-openapi-original.json#GET /Medication
+- name: search_explanation_of_benefit
+  description: Search the member's ExplanationOfBenefit (claims) resources.
+  source_operation: openapi/devoted-health-patient-access-openapi-original.json#GET /ExplanationOfBenefit
+- name: search_practitioners
+  description: Search the public provider directory for Practitioners.
+  source_operation: openapi/devoted-health-provider-directory-openapi-original.yml#GET /Practitioner
+- name: search_organizations
+  description: Search the public provider directory for Organizations.
+  source_operation: openapi/devoted-health-provider-directory-openapi-original.yml#GET /Organization
+- name: search_locations
+  description: Search the public provider directory for Locations.
+  source_operation: openapi/devoted-health-provider-directory-openapi-original.yml#GET /Location
+- name: search_healthcare_services
+  description: Search the public provider directory for HealthcareServices.
+  source_operation: openapi/devoted-health-provider-directory-openapi-original.yml#GET /HealthcareService
+- name: search_insurance_plans
+  description: Search Devoted's InsurancePlan resources.
+  source_operation: openapi/devoted-health-provider-directory-openapi-original.yml#GET /InsurancePlan
+- name: search_medication_knowledge
+  description: Search the drug formulary (MedicationKnowledge).
+  source_operation: openapi/devoted-health-provider-directory-openapi-original.yml#GET /MedicationKnowledge

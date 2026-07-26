@@ -1,0 +1,31 @@
+generated: '2026-07-18'
+method: generated
+source: openapi/*, conformance CapabilityStatements
+skills:
+- file: devoted-health-member-patient-access.md
+  name: Retrieve a Devoted Health member's claims and clinical data
+  api: openapi/devoted-health-patient-access-openapi-original.json
+  operations:
+  - GET /Patient
+  - GET /Patient/{id}
+  - GET /Condition
+  - GET /Encounter
+  - GET /Medication
+  - GET /ExplanationOfBenefit
+- file: devoted-health-find-in-network-provider.md
+  name: Find an in-network Devoted Health provider or location
+  api: openapi/devoted-health-provider-directory-openapi-original.yml
+  operations:
+  - GET /Practitioner
+  - GET /PractitionerRole
+  - GET /Organization
+  - GET /Location
+  - GET /HealthcareService
+  - GET /InsurancePlan
+- file: devoted-health-drug-formulary-lookup.md
+  name: Look up Devoted Health drug formulary coverage
+  api: openapi/devoted-health-provider-directory-openapi-original.yml
+  operations:
+  - GET /MedicationKnowledge
+  - GET /List
+  - GET /InsurancePlan

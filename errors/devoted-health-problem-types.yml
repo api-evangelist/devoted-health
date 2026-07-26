@@ -1,0 +1,43 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/devoted-health-patient-access-openapi-original.json, conformance CapabilityStatements
+format: fhir-operationoutcome
+notes: >-
+  Devoted Health's FHIR servers return errors as the FHIR R4 OperationOutcome
+  resource (media type application/fhir+json), not RFC 9457 problem+json. The
+  status codes below are the standard FHIR REST error surface derived from the
+  Patient Access and Provider Directory CapabilityStatements and HAPI FHIR
+  behavior; each carries an OperationOutcome body with issue[].severity,
+  issue[].code, and issue[].diagnostics.
+envelope:
+  resourceType: OperationOutcome
+  fields:
+  - issue[].severity   # fatal | error | warning | information
+  - issue[].code       # e.g. processing, not-found, security, invalid, forbidden
+  - issue[].diagnostics
+problems:
+- status: 400
+  fhir_code: invalid
+  title: Bad request / invalid search parameter
+  remediation: Correct malformed FHIR search parameters or request body.
+- status: 401
+  fhir_code: security
+  title: Unauthorized (missing or expired OAuth token)
+  remediation: Obtain a valid SMART-on-FHIR access token from login.devoted.com.
+- status: 403
+  fhir_code: forbidden
+  title: Forbidden (token lacks required patient scope / not consented)
+  remediation: Request the correct patient-scoped clinical scopes and member consent.
+- status: 404
+  fhir_code: not-found
+  title: Unknown resource type or resource id
+  remediation: Verify the FHIR resource type and id; only supported resources are served.
+  evidence: 'observed OperationOutcome HAPI-0302 "Unknown resource type" on fhir.devoted.com'
+- status: 422
+  fhir_code: processing
+  title: Unprocessable entity (business rule / validation failure)
+  remediation: Review the OperationOutcome diagnostics for the failing rule.
+- status: 500
+  fhir_code: exception
+  title: Internal server error
+  remediation: Retry; if persistent contact interop@devoted.com.

@@ -1,0 +1,165 @@
+{
+        "date": "2020-12-30",
+        "description": "Devoted implementation of FHIR",
+        "fhirVersion": "4.0.1",
+        "format": [
+          "json",
+          "application/fhir+json"
+        ],
+        "implementation": {
+          "description": "Devoted implementation of FHIR",
+          "url": "https://api.prod.devoted.com/fhir"
+        },
+        "kind": "instance",
+        "name": "Devoted Capability Statement",
+        "publisher": "Devoted Health, Inc.",
+        "resourceType": "CapabilityStatement",
+        "rest": [
+          {
+            "documentation": "Devoted implementation of FHIR",
+            "mode": "server",
+            "resource": [
+              {
+                "interaction": [
+                  {
+                    "code": "read"
+                  }
+                ],
+                "type": "CapabilityStatement"
+              },
+              {
+                "interaction": [
+                  {
+                    "code": "search-type"
+                  }
+                ],
+                "searchParam": [
+                  {
+                    "definition": "http://hl7.org/fhir/R4/searchparameter-registry.html",
+                    "documentation": "Who has the condition. It is a required field.",
+                    "name": "patient",
+                    "type": "reference"
+                  }
+                ],
+                "type": "Condition"
+              },
+              {
+                "interaction": [
+                  {
+                    "code": "search-type"
+                  }
+                ],
+                "searchParam": [
+                  {
+                    "definition": "http://hl7.org/fhir/R4/searchparameter-registry.html",
+                    "documentation": "The patient present at the encounter. It is a required field.",
+                    "name": "patient",
+                    "type": "reference"
+                  },
+                  {
+                    "definition": "http://hl7.org/fhir/R4/searchparameter-registry.html",
+                    "documentation": "A date or date range from which to find appointments. This must be set when using patient, practitioner or location. The 'date' parameter may be provided once without a prefix or time component to imply a date range or once without a prefix and with a time component to search for appointments at a specific time. Alternately it may be provided twice with 'le' and 'gt' prefixes to search for appointments within a specific range. The date prefix pair must create a closed range.",
+                    "name": "date",
+                    "type": "date"
+                  }
+                ],
+                "type": "Encounter"
+              },
+              {
+                "interaction": [
+                  {
+                    "code": "search-type"
+                  }
+                ],
+                "searchParam": [
+                  {
+                    "definition": "http://hl7.org/fhir/R4/searchparameter-registry.html",
+                    "documentation": "The patient present at the encounter. It is a required field.",
+                    "name": "patient",
+                    "type": "reference"
+                  },
+                  {
+                    "definition": "http://hl7.org/fhir/R4/searchparameter-registry.html",
+                    "documentation": "A date or date range from which to find appointments. This must be set when using patient, practitioner or location. The 'date' parameter may be provided once without a prefix or time component to imply a date range or once without a prefix and with a time component to search for appointments at a specific time. Alternately it may be provided twice with 'le' and 'gt' prefixes to search for appointments within a specific range. The date prefix pair must create a closed range.",
+                    "name": "date",
+                    "type": "date"
+                  }
+                ],
+                "type": "ExplanationOfBenefit"
+              },
+              {
+                "interaction": [
+                  {
+                    "code": "search-type"
+                  }
+                ],
+                "searchParam": [
+                  {
+                    "definition": "http://hl7.org/fhir/R4/searchparameter-registry.html",
+                    "documentation": "The patient to return MedicationRequests for. It is a required field.",
+                    "name": "patient",
+                    "type": "reference"
+                  }
+                ],
+                "type": "Medication"
+              },
+              {
+                "interaction": [
+                  {
+                    "code": "read"
+                  },
+                  {
+                    "code": "search-type"
+                  }
+                ],
+                "searchParam": [
+                  {
+                    "definition": "http://hl7.org/fhir/R4/searchparameter-registry.html",
+                    "documentation": "A patient identifier. Either the '_id' parameter, or 'identifier' must be provided.",
+                    "name": "_id",
+                    "type": "token"
+                  },
+                  {
+                    "definition": "http://hl7.org/fhir/R4/searchparameter-registry.html",
+                    "documentation": "A patient identifier. Either the '_id' parameter, or 'identifier' must be provided.",
+                    "name": "identifier",
+                    "type": "token"
+                  }
+                ],
+                "type": "Patient"
+              }
+            ],
+            "security": {
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "url": "token",
+                      "valueUri": "https://login.devoted.com/oauth/token"
+                    },
+                    {
+                      "url": "authorize",
+                      "valueUri": "https://login.devoted.com/authorize"
+                    }
+                  ],
+                  "url": "http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris"
+                }
+              ],
+              "service": [
+                {
+                  "coding": [
+                    {
+                      "code": "SMART-on-FHIR",
+                      "system": "http://hl7.org/fhir/restful-security-service"
+                    }
+                  ],
+                  "text": "OAuth2 using SMART-on-FHIR profile (see http://docs.smarthealthit.org)"
+                }
+              ]
+            }
+          }
+        ],
+        "status": "active",
+        "title": "Devoted Capability Statement",
+        "url": "https://api.prod.devoted.com/fhir/metadata"
+      }

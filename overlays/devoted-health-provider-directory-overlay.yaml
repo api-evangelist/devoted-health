@@ -1,0 +1,21 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Devoted Health Provider Directory & Formulary API
+  version: 1.0.0
+extends: openapi/devoted-health-provider-directory-openapi-original.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-api: devoted-health-provider-directory
+    x-fhir-version: 4.0.1
+    x-standard: HL7 FHIR R4
+    x-server-software: HAPI FHIR 6.6.0
+    x-access: public (non-member directory and formulary data)
+    x-use-cases: [provider-directory, pharmacy-directory, drug-formulary, davinci-pdex-plan-net]
+    x-agent-ready: true
+- target: $.info
+  update:
+    contact:
+      name: Devoted Health Interoperability
+      email: interop@devoted.com
+      url: https://www.devoted.com/developers/

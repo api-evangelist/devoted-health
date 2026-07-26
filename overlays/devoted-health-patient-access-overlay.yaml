@@ -1,0 +1,26 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Devoted Health Patient Access API
+  version: 1.0.0
+extends: openapi/devoted-health-patient-access-openapi-original.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-api: devoted-health-patient-access
+    x-fhir-version: 4.0.1
+    x-standard: HL7 FHIR R4
+    x-authorization: SMART-on-FHIR OAuth 2.0
+    x-cms-interoperability: patient-access
+    x-agent-ready: true
+    x-registration: https://forms.gle/UFYvckiAeEjWP49K9
+- target: $.info
+  update:
+    contact:
+      name: Devoted Health Interoperability
+      email: interop@devoted.com
+      url: https://www.devoted.com/developers/
+- target: $
+  update:
+    x-servers:
+    - url: https://api.prod.devoted.com/fhir
+      description: Devoted Health Patient Access FHIR R4 base

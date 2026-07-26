@@ -1,0 +1,60 @@
+generated: '2026-07-18'
+method: searched
+source: https://login.devoted.com/.well-known/openid-configuration
+docs: https://www.devoted.com/developers/
+notes: >-
+  Devoted Health authorizes FHIR access with OAuth 2.0 / OpenID Connect using
+  SMART-on-FHIR. The OpenID Connect discovery document publishes the OIDC
+  scopes_supported below. The Patient Access API is patient-authorized and,
+  per SMART-on-FHIR / CMS Patient Access conventions, is accessed with
+  patient-scoped clinical scopes (e.g. patient/Patient.read); those clinical
+  scopes are not enumerated in the discovery document, so only the OIDC scopes
+  Devoted actually publishes are asserted here as searched, with the expected
+  SMART clinical-scope pattern noted as convention.
+schemes:
+- name: OpenID Connect
+  issuer: https://login.devoted.com/
+  authorizationUrl: https://login.devoted.com/authorize
+  tokenUrl: https://login.devoted.com/oauth/token
+  source: well-known/devoted-health-openid-configuration.json
+scopes:
+- scope: openid
+  description: OpenID Connect authentication; returns an ID token.
+- scope: profile
+  description: Access to the end user's default profile claims.
+- scope: offline_access
+  description: Issue a refresh token for long-lived access.
+- scope: name
+  description: End user's full name.
+- scope: given_name
+  description: End user's given (first) name.
+- scope: family_name
+  description: End user's family (last) name.
+- scope: nickname
+  description: End user's nickname.
+- scope: email
+  description: End user's email address.
+- scope: email_verified
+  description: Whether the end user's email address has been verified.
+- scope: picture
+  description: End user's profile picture URL.
+- scope: created_at
+  description: Account creation timestamp.
+- scope: identities
+  description: End user's linked identities.
+- scope: phone
+  description: End user's phone number.
+- scope: address
+  description: End user's postal address.
+smart_clinical_scope_convention:
+  note: >-
+    Per SMART-on-FHIR / CMS Patient Access, member-authorized reads use
+    patient-context clinical scopes of the form patient/<Resource>.read for the
+    resources the Patient Access API exposes. These are governed by Devoted's
+    consent flow and are not enumerated in the OIDC discovery document.
+  expected_patterns:
+  - patient/Patient.read
+  - patient/Condition.read
+  - patient/Encounter.read
+  - patient/Medication.read
+  - patient/ExplanationOfBenefit.read

@@ -1,0 +1,4 @@
+{
+  "authorization_endpoint": "https://login.devoted.com/authorize",
+  "token_endpoint": "https://login.devoted.com/oauth/token"
+}

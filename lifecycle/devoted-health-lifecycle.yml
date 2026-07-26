@@ -1,0 +1,27 @@
+generated: '2026-07-18'
+method: searched
+source: https://www.devoted.com/developers/
+notes: >-
+  Devoted Health versions its FHIR APIs by the FHIR release (R4 / 4.0.1) rather
+  than a provider-specific version scheme. No public status page, deprecation
+  policy, or SLA document was found for the developer APIs; absence is recorded,
+  not fabricated.
+versioning:
+  scheme: fhir-release
+  fhir_version: 4.0.1
+  fhir_release: R4
+  docs: https://www.devoted.com/developers/
+  capability_statement_date: '2020-12-30'
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: No published deprecation/Sunset (RFC 8594) policy located.
+sla:
+  url: null
+  uptime_target: null
+status_page: null
+support:
+  contact: interop@devoted.com
+registration:
+  form: https://forms.gle/UFYvckiAeEjWP49K9
+deprecated_operations: []

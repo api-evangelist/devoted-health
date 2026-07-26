@@ -1,0 +1,34 @@
+# Devoted Health
+
+> Devoted Health is a Medicare Advantage health insurer that publishes CMS Interoperability (21st Century Cures Act) FHIR R4 (4.0.1) APIs. A member-authorized Patient Access API exposes claims, clinical, and coverage data, and public Provider Directory, Pharmacy Directory, and Drug Formulary APIs expose network and formulary data. Authorization is OAuth 2.0 / OpenID Connect with SMART-on-FHIR.
+
+## APIs
+
+- [Patient Access API](https://www.devoted.com/developers/): member-authorized FHIR R4 — Patient, Condition, Encounter, Medication, ExplanationOfBenefit. Base: https://api.prod.devoted.com/fhir
+- [Provider Directory & Formulary API](https://www.devoted.com/developers/): public FHIR R4 — Practitioner, PractitionerRole, Organization, OrganizationAffiliation, Location, HealthcareService, InsurancePlan, MedicationKnowledge, List. Base: https://fhir.devoted.com/fhir
+
+## Specs
+
+- [Patient Access OpenAPI (Swagger 2.0)](openapi/devoted-health-patient-access-openapi-original.json)
+- [Provider Directory OpenAPI 3.0.1](openapi/devoted-health-provider-directory-openapi-original.yml)
+- [Patient Access CapabilityStatement](conformance/devoted-health-patient-access-capabilitystatement.json)
+- [Provider Directory CapabilityStatement](conformance/devoted-health-provider-directory-capabilitystatement.json)
+
+## Auth
+
+- [OpenID Connect discovery](well-known/devoted-health-openid-configuration.json) — issuer https://login.devoted.com/
+- [SMART configuration](well-known/devoted-health-smart-configuration.json)
+- [Authentication profile](authentication/devoted-health-authentication.yml)
+- [OAuth scopes](scopes/devoted-health-scopes.yml)
+- App registration: https://forms.gle/UFYvckiAeEjWP49K9 — contact interop@devoted.com
+
+## Docs
+
+- [Developer portal](https://www.devoted.com/developers/)
+- [Patient Access Swagger UI](https://devoted.com/developers/fhir/swagger/)
+- [Provider Directory server / Swagger](https://fhir.devoted.com)
+- [Conventions](conventions/devoted-health-conventions.yml)
+- [Error catalog (OperationOutcome)](errors/devoted-health-problem-types.yml)
+- [Data model](data-model/devoted-health-data-model.yml)
+- [Lifecycle](lifecycle/devoted-health-lifecycle.yml)
+- [Conformance](conformance/devoted-health-conformance.yml)

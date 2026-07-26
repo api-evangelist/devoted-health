@@ -1,0 +1,101 @@
+generated: '2026-07-18'
+method: derived
+source: conformance CapabilityStatements, openapi/*
+notes: >-
+  Entity-relationship view derived from the FHIR R4 resources Devoted Health
+  exposes across the Patient Access API and the Provider Directory & Formulary
+  API. Relationships follow standard FHIR reference semantics (Reference() and
+  contained id fields). Only resources actually advertised by the two servers
+  are included.
+apis:
+  patient_access:
+    base: https://api.prod.devoted.com/fhir
+    resources: [Patient, Condition, Encounter, Medication, ExplanationOfBenefit]
+  provider_directory:
+    base: https://fhir.devoted.com/fhir
+    resources: [Practitioner, PractitionerRole, Organization, OrganizationAffiliation, Location, HealthcareService, InsurancePlan, MedicationKnowledge, List, CodeSystem, ValueSet]
+entities:
+- name: Patient
+  domain: patient-access
+  relationships:
+  - has_many: Condition
+    via: Condition.subject
+  - has_many: Encounter
+    via: Encounter.subject
+  - has_many: ExplanationOfBenefit
+    via: ExplanationOfBenefit.patient
+- name: Condition
+  domain: patient-access
+  relationships:
+  - belongs_to: Patient
+    via: subject
+  - has_one: Encounter
+    via: encounter
+- name: Encounter
+  domain: patient-access
+  relationships:
+  - belongs_to: Patient
+    via: subject
+- name: ExplanationOfBenefit
+  domain: patient-access
+  relationships:
+  - belongs_to: Patient
+    via: patient
+  - has_one: Organization
+    via: insurer
+- name: Medication
+  domain: patient-access
+  relationships: []
+- name: Practitioner
+  domain: provider-directory
+  relationships:
+  - has_many: PractitionerRole
+    via: PractitionerRole.practitioner
+- name: PractitionerRole
+  domain: provider-directory
+  relationships:
+  - belongs_to: Practitioner
+    via: practitioner
+  - has_one: Organization
+    via: organization
+  - has_many: Location
+    via: location
+  - has_many: HealthcareService
+    via: healthcareService
+- name: Organization
+  domain: provider-directory
+  relationships:
+  - has_many: OrganizationAffiliation
+    via: OrganizationAffiliation.organization
+  - has_many: Location
+    via: Location.managingOrganization
+- name: OrganizationAffiliation
+  domain: provider-directory
+  relationships:
+  - belongs_to: Organization
+    via: organization
+- name: Location
+  domain: provider-directory
+  relationships:
+  - belongs_to: Organization
+    via: managingOrganization
+- name: HealthcareService
+  domain: provider-directory
+  relationships:
+  - has_one: Organization
+    via: providedBy
+  - has_many: Location
+    via: location
+- name: InsurancePlan
+  domain: provider-directory
+  relationships:
+  - has_one: Organization
+    via: ownedBy
+- name: MedicationKnowledge
+  domain: provider-directory
+  relationships: []
+- name: List
+  domain: provider-directory
+  relationships:
+  - has_many: MedicationKnowledge
+    via: entry.item

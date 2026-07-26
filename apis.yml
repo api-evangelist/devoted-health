@@ -1,9 +1,29 @@
 aid: devoted-health
 name: Devoted Health
-description: Devoted Health is a company surfaced as a portfolio company of a16z, gv, iconiq-capital,
-  softbank-vision-fund and added to the API Evangelist network as a stub for enrichment. This profile
-  is a lead awaiting the enrichment pipeline.
-url: https://raw.githubusercontent.com/api-evangelist/devoted-health/refs/heads/main/apis.yml
+description: >-
+  Devoted Health is a Medicare Advantage health insurance company that operates
+  its own health plans, clinical care, and pharmacy for older Americans. For
+  developers, Devoted publishes CMS Interoperability (21st Century Cures Act)
+  FHIR R4 (4.0.1) APIs: a member-authorized Patient Access API exposing claims,
+  clinical, and coverage data (Patient, Condition, Encounter, Medication,
+  ExplanationOfBenefit), and public Provider Directory, Pharmacy Directory, and
+  Drug Formulary APIs (Practitioner, Organization, Location, HealthcareService,
+  InsurancePlan, MedicationKnowledge, List). Access uses OAuth 2.0 / OpenID
+  Connect with SMART-on-FHIR authorization; third-party member-facing apps
+  register for a Client ID and Secret through Devoted's interoperability team.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://www.devoted.com/wp-content/uploads/2021/03/devoted-health-logo.png
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -11,14 +31,404 @@ x-backed-by:
 - gv
 - iconiq-capital
 - softbank-vision-fund
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: profile
+x-tier-reason: enriched-fhir-developer-surface
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
-apis: []
+- Healthcare
+- Health Insurance
+- Medicare Advantage
+- FHIR
+- Interoperability
+- Patient Access
+- Provider Directory
+- Drug Formulary
+- CMS
+- HL7
+- SMART on FHIR
+apis:
+- aid: devoted-health:devoted-health-codesystem-api
+  name: Devoted Health CodeSystem API
+  description: The CodeSystem FHIR resource type
+  humanURL: https://www.devoted.com/developers/
+  baseURL: https://api.prod.devoted.com/fhir
+  tags:
+  - CodeSystem
+  properties:
+  - type: OpenAPI
+    url: openapi/devoted-health-codesystem-api-openapi.yml
+  - type: CapabilityStatement
+    url: conformance/devoted-health-patient-access-capabilitystatement.json
+  - type: APIReference
+    url: https://devoted.com/developers/fhir/swagger/
+  - type: CapabilityStatement
+    url: conformance/devoted-health-provider-directory-capabilitystatement.json
+  - type: APIReference
+    url: https://fhir.devoted.com
+- aid: devoted-health:devoted-health-condition-api
+  name: Devoted Health Condition API
+  description: The Condition API from Devoted Health — 1 operation(s) for condition.
+  humanURL: https://www.devoted.com/developers/
+  baseURL: https://api.prod.devoted.com/fhir
+  tags:
+  - Condition
+  properties:
+  - type: OpenAPI
+    url: openapi/devoted-health-condition-api-openapi.yml
+  - type: CapabilityStatement
+    url: conformance/devoted-health-patient-access-capabilitystatement.json
+  - type: APIReference
+    url: https://devoted.com/developers/fhir/swagger/
+  - type: CapabilityStatement
+    url: conformance/devoted-health-provider-directory-capabilitystatement.json
+  - type: APIReference
+    url: https://fhir.devoted.com
+- aid: devoted-health:devoted-health-encounter-api
+  name: Devoted Health Encounter API
+  description: The Encounter API from Devoted Health — 1 operation(s) for encounter.
+  humanURL: https://www.devoted.com/developers/
+  baseURL: https://api.prod.devoted.com/fhir
+  tags:
+  - Encounter
+  properties:
+  - type: OpenAPI
+    url: openapi/devoted-health-encounter-api-openapi.yml
+  - type: CapabilityStatement
+    url: conformance/devoted-health-patient-access-capabilitystatement.json
+  - type: APIReference
+    url: https://devoted.com/developers/fhir/swagger/
+  - type: CapabilityStatement
+    url: conformance/devoted-health-provider-directory-capabilitystatement.json
+  - type: APIReference
+    url: https://fhir.devoted.com
+- aid: devoted-health:devoted-health-explanationofbenefit-api
+  name: Devoted Health ExplanationOfBenefit API
+  description: >-
+    The ExplanationOfBenefit API from Devoted Health — 1 operation(s) for explanationofbenefit.
+  humanURL: https://www.devoted.com/developers/
+  baseURL: https://api.prod.devoted.com/fhir
+  tags:
+  - ExplanationOfBenefit
+  properties:
+  - type: OpenAPI
+    url: openapi/devoted-health-explanationofbenefit-api-openapi.yml
+  - type: CapabilityStatement
+    url: conformance/devoted-health-patient-access-capabilitystatement.json
+  - type: APIReference
+    url: https://devoted.com/developers/fhir/swagger/
+  - type: CapabilityStatement
+    url: conformance/devoted-health-provider-directory-capabilitystatement.json
+  - type: APIReference
+    url: https://fhir.devoted.com
+- aid: devoted-health:devoted-health-healthcareservice-api
+  name: Devoted Health HealthcareService API
+  description: The HealthcareService FHIR resource type
+  humanURL: https://www.devoted.com/developers/
+  baseURL: https://api.prod.devoted.com/fhir
+  tags:
+  - HealthcareService
+  properties:
+  - type: OpenAPI
+    url: openapi/devoted-health-healthcareservice-api-openapi.yml
+  - type: CapabilityStatement
+    url: conformance/devoted-health-patient-access-capabilitystatement.json
+  - type: APIReference
+    url: https://devoted.com/developers/fhir/swagger/
+  - type: CapabilityStatement
+    url: conformance/devoted-health-provider-directory-capabilitystatement.json
+  - type: APIReference
+    url: https://fhir.devoted.com
+- aid: devoted-health:devoted-health-insuranceplan-api
+  name: Devoted Health InsurancePlan API
+  description: The InsurancePlan FHIR resource type
+  humanURL: https://www.devoted.com/developers/
+  baseURL: https://api.prod.devoted.com/fhir
+  tags:
+  - InsurancePlan
+  properties:
+  - type: OpenAPI
+    url: openapi/devoted-health-insuranceplan-api-openapi.yml
+  - type: CapabilityStatement
+    url: conformance/devoted-health-patient-access-capabilitystatement.json
+  - type: APIReference
+    url: https://devoted.com/developers/fhir/swagger/
+  - type: CapabilityStatement
+    url: conformance/devoted-health-provider-directory-capabilitystatement.json
+  - type: APIReference
+    url: https://fhir.devoted.com
+- aid: devoted-health:devoted-health-list-api
+  name: Devoted Health List API
+  description: The List FHIR resource type
+  humanURL: https://www.devoted.com/developers/
+  baseURL: https://api.prod.devoted.com/fhir
+  tags:
+  - List
+  properties:
+  - type: OpenAPI
+    url: openapi/devoted-health-list-api-openapi.yml
+  - type: CapabilityStatement
+    url: conformance/devoted-health-patient-access-capabilitystatement.json
+  - type: APIReference
+    url: https://devoted.com/developers/fhir/swagger/
+  - type: CapabilityStatement
+    url: conformance/devoted-health-provider-directory-capabilitystatement.json
+  - type: APIReference
+    url: https://fhir.devoted.com
+- aid: devoted-health:devoted-health-location-api
+  name: Devoted Health Location API
+  description: The Location FHIR resource type
+  humanURL: https://www.devoted.com/developers/
+  baseURL: https://api.prod.devoted.com/fhir
+  tags:
+  - Location
+  properties:
+  - type: OpenAPI
+    url: openapi/devoted-health-location-api-openapi.yml
+  - type: CapabilityStatement
+    url: conformance/devoted-health-patient-access-capabilitystatement.json
+  - type: APIReference
+    url: https://devoted.com/developers/fhir/swagger/
+  - type: CapabilityStatement
+    url: conformance/devoted-health-provider-directory-capabilitystatement.json
+  - type: APIReference
+    url: https://fhir.devoted.com
+- aid: devoted-health:devoted-health-medication-api
+  name: Devoted Health Medication API
+  description: The Medication API from Devoted Health — 1 operation(s) for medication.
+  humanURL: https://www.devoted.com/developers/
+  baseURL: https://api.prod.devoted.com/fhir
+  tags:
+  - Medication
+  properties:
+  - type: OpenAPI
+    url: openapi/devoted-health-medication-api-openapi.yml
+  - type: CapabilityStatement
+    url: conformance/devoted-health-patient-access-capabilitystatement.json
+  - type: APIReference
+    url: https://devoted.com/developers/fhir/swagger/
+  - type: CapabilityStatement
+    url: conformance/devoted-health-provider-directory-capabilitystatement.json
+  - type: APIReference
+    url: https://fhir.devoted.com
+- aid: devoted-health:devoted-health-medicationknowledge-api
+  name: Devoted Health MedicationKnowledge API
+  description: The MedicationKnowledge FHIR resource type
+  humanURL: https://www.devoted.com/developers/
+  baseURL: https://api.prod.devoted.com/fhir
+  tags:
+  - MedicationKnowledge
+  properties:
+  - type: OpenAPI
+    url: openapi/devoted-health-medicationknowledge-api-openapi.yml
+  - type: CapabilityStatement
+    url: conformance/devoted-health-patient-access-capabilitystatement.json
+  - type: APIReference
+    url: https://devoted.com/developers/fhir/swagger/
+  - type: CapabilityStatement
+    url: conformance/devoted-health-provider-directory-capabilitystatement.json
+  - type: APIReference
+    url: https://fhir.devoted.com
+- aid: devoted-health:devoted-health-operationdefinition-api
+  name: Devoted Health OperationDefinition API
+  description: The OperationDefinition FHIR resource type
+  humanURL: https://www.devoted.com/developers/
+  baseURL: https://api.prod.devoted.com/fhir
+  tags:
+  - OperationDefinition
+  properties:
+  - type: OpenAPI
+    url: openapi/devoted-health-operationdefinition-api-openapi.yml
+  - type: CapabilityStatement
+    url: conformance/devoted-health-patient-access-capabilitystatement.json
+  - type: APIReference
+    url: https://devoted.com/developers/fhir/swagger/
+  - type: CapabilityStatement
+    url: conformance/devoted-health-provider-directory-capabilitystatement.json
+  - type: APIReference
+    url: https://fhir.devoted.com
+- aid: devoted-health:devoted-health-organization-api
+  name: Devoted Health Organization API
+  description: The Organization FHIR resource type
+  humanURL: https://www.devoted.com/developers/
+  baseURL: https://api.prod.devoted.com/fhir
+  tags:
+  - Organization
+  properties:
+  - type: OpenAPI
+    url: openapi/devoted-health-organization-api-openapi.yml
+  - type: CapabilityStatement
+    url: conformance/devoted-health-patient-access-capabilitystatement.json
+  - type: APIReference
+    url: https://devoted.com/developers/fhir/swagger/
+  - type: CapabilityStatement
+    url: conformance/devoted-health-provider-directory-capabilitystatement.json
+  - type: APIReference
+    url: https://fhir.devoted.com
+- aid: devoted-health:devoted-health-organizationaffiliation-api
+  name: Devoted Health OrganizationAffiliation API
+  description: The OrganizationAffiliation FHIR resource type
+  humanURL: https://www.devoted.com/developers/
+  baseURL: https://api.prod.devoted.com/fhir
+  tags:
+  - OrganizationAffiliation
+  properties:
+  - type: OpenAPI
+    url: openapi/devoted-health-organizationaffiliation-api-openapi.yml
+  - type: CapabilityStatement
+    url: conformance/devoted-health-patient-access-capabilitystatement.json
+  - type: APIReference
+    url: https://devoted.com/developers/fhir/swagger/
+  - type: CapabilityStatement
+    url: conformance/devoted-health-provider-directory-capabilitystatement.json
+  - type: APIReference
+    url: https://fhir.devoted.com
+- aid: devoted-health:devoted-health-patient-api
+  name: Devoted Health Patient API
+  description: The Patient API from Devoted Health — 2 operation(s) for patient.
+  humanURL: https://www.devoted.com/developers/
+  baseURL: https://api.prod.devoted.com/fhir
+  tags:
+  - Patient
+  properties:
+  - type: OpenAPI
+    url: openapi/devoted-health-patient-api-openapi.yml
+  - type: CapabilityStatement
+    url: conformance/devoted-health-patient-access-capabilitystatement.json
+  - type: APIReference
+    url: https://devoted.com/developers/fhir/swagger/
+  - type: CapabilityStatement
+    url: conformance/devoted-health-provider-directory-capabilitystatement.json
+  - type: APIReference
+    url: https://fhir.devoted.com
+- aid: devoted-health:devoted-health-practitioner-api
+  name: Devoted Health Practitioner API
+  description: The Practitioner FHIR resource type
+  humanURL: https://www.devoted.com/developers/
+  baseURL: https://api.prod.devoted.com/fhir
+  tags:
+  - Practitioner
+  properties:
+  - type: OpenAPI
+    url: openapi/devoted-health-practitioner-api-openapi.yml
+  - type: CapabilityStatement
+    url: conformance/devoted-health-patient-access-capabilitystatement.json
+  - type: APIReference
+    url: https://devoted.com/developers/fhir/swagger/
+  - type: CapabilityStatement
+    url: conformance/devoted-health-provider-directory-capabilitystatement.json
+  - type: APIReference
+    url: https://fhir.devoted.com
+- aid: devoted-health:devoted-health-practitionerrole-api
+  name: Devoted Health PractitionerRole API
+  description: The PractitionerRole FHIR resource type
+  humanURL: https://www.devoted.com/developers/
+  baseURL: https://api.prod.devoted.com/fhir
+  tags:
+  - PractitionerRole
+  properties:
+  - type: OpenAPI
+    url: openapi/devoted-health-practitionerrole-api-openapi.yml
+  - type: CapabilityStatement
+    url: conformance/devoted-health-patient-access-capabilitystatement.json
+  - type: APIReference
+    url: https://devoted.com/developers/fhir/swagger/
+  - type: CapabilityStatement
+    url: conformance/devoted-health-provider-directory-capabilitystatement.json
+  - type: APIReference
+    url: https://fhir.devoted.com
+- aid: devoted-health:devoted-health-searchparameter-api
+  name: Devoted Health SearchParameter API
+  description: The SearchParameter FHIR resource type
+  humanURL: https://www.devoted.com/developers/
+  baseURL: https://api.prod.devoted.com/fhir
+  tags:
+  - SearchParameter
+  properties:
+  - type: OpenAPI
+    url: openapi/devoted-health-searchparameter-api-openapi.yml
+  - type: CapabilityStatement
+    url: conformance/devoted-health-patient-access-capabilitystatement.json
+  - type: APIReference
+    url: https://devoted.com/developers/fhir/swagger/
+  - type: CapabilityStatement
+    url: conformance/devoted-health-provider-directory-capabilitystatement.json
+  - type: APIReference
+    url: https://fhir.devoted.com
+- aid: devoted-health:devoted-health-structuredefinition-api
+  name: Devoted Health StructureDefinition API
+  description: The StructureDefinition FHIR resource type
+  humanURL: https://www.devoted.com/developers/
+  baseURL: https://api.prod.devoted.com/fhir
+  tags:
+  - StructureDefinition
+  properties:
+  - type: OpenAPI
+    url: openapi/devoted-health-structuredefinition-api-openapi.yml
+  - type: CapabilityStatement
+    url: conformance/devoted-health-patient-access-capabilitystatement.json
+  - type: APIReference
+    url: https://devoted.com/developers/fhir/swagger/
+  - type: CapabilityStatement
+    url: conformance/devoted-health-provider-directory-capabilitystatement.json
+  - type: APIReference
+    url: https://fhir.devoted.com
+- aid: devoted-health:devoted-health-subscription-api
+  name: Devoted Health Subscription API
+  description: The Subscription FHIR resource type
+  humanURL: https://www.devoted.com/developers/
+  baseURL: https://api.prod.devoted.com/fhir
+  tags:
+  - Subscription
+  properties:
+  - type: OpenAPI
+    url: openapi/devoted-health-subscription-api-openapi.yml
+  - type: CapabilityStatement
+    url: conformance/devoted-health-patient-access-capabilitystatement.json
+  - type: APIReference
+    url: https://devoted.com/developers/fhir/swagger/
+  - type: CapabilityStatement
+    url: conformance/devoted-health-provider-directory-capabilitystatement.json
+  - type: APIReference
+    url: https://fhir.devoted.com
+- aid: devoted-health:devoted-health-system-level-operations-api
+  name: Devoted Health System Level Operations API
+  description: Server-level operations
+  humanURL: https://www.devoted.com/developers/
+  baseURL: https://api.prod.devoted.com/fhir
+  tags:
+  - System Level Operations
+  properties:
+  - type: OpenAPI
+    url: openapi/devoted-health-system-level-operations-api-openapi.yml
+  - type: CapabilityStatement
+    url: conformance/devoted-health-patient-access-capabilitystatement.json
+  - type: APIReference
+    url: https://devoted.com/developers/fhir/swagger/
+  - type: CapabilityStatement
+    url: conformance/devoted-health-provider-directory-capabilitystatement.json
+  - type: APIReference
+    url: https://fhir.devoted.com
+- aid: devoted-health:devoted-health-valueset-api
+  name: Devoted Health ValueSet API
+  description: The ValueSet FHIR resource type
+  humanURL: https://www.devoted.com/developers/
+  baseURL: https://api.prod.devoted.com/fhir
+  tags:
+  - ValueSet
+  properties:
+  - type: OpenAPI
+    url: openapi/devoted-health-valueset-api-openapi.yml
+  - type: CapabilityStatement
+    url: conformance/devoted-health-patient-access-capabilitystatement.json
+  - type: APIReference
+    url: https://devoted.com/developers/fhir/swagger/
+  - type: CapabilityStatement
+    url: conformance/devoted-health-provider-directory-capabilitystatement.json
+  - type: APIReference
+    url: https://fhir.devoted.com
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -27,3 +437,54 @@ maintainers:
 common:
 - type: Website
   url: https://devoted.com
+- type: DeveloperPortal
+  url: https://www.devoted.com/developers/
+- type: Documentation
+  url: https://www.devoted.com/developers/
+- type: APIReference
+  url: https://devoted.com/developers/fhir/swagger/
+- type: SignUp
+  url: https://forms.gle/UFYvckiAeEjWP49K9
+- type: Support
+  url: mailto:interop@devoted.com
+- type: Blog
+  url: https://www.devoted.com/newsroom/
+- type: PrivacyPolicy
+  url: https://www.devoted.com/privacy-policy/
+- type: TermsOfService
+  url: https://www.devoted.com/terms-of-use/
+- type: Authentication
+  url: authentication/devoted-health-authentication.yml
+- type: OAuthScopes
+  url: scopes/devoted-health-scopes.yml
+- type: OpenIDConnect
+  url: well-known/devoted-health-openid-configuration.json
+- type: WellKnown
+  url: well-known/devoted-health-well-known.yml
+- type: Conformance
+  url: conformance/devoted-health-conformance.yml
+- type: ErrorCatalog
+  url: errors/devoted-health-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/devoted-health-lifecycle.yml
+- type: Conventions
+  url: conventions/devoted-health-conventions.yml
+- type: DataModel
+  url: data-model/devoted-health-data-model.yml
+- type: MCPServer
+  url: mcp/devoted-health-mcp.yml
+- type: LLMsTxt
+  url: llms/devoted-health-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Overlay
+  url: overlays/devoted-health-patient-access-overlay.yaml
+- type: Overlay
+  url: overlays/devoted-health-provider-directory-overlay.yaml
+- type: DomainSecurity
+  url: security/devoted-health-domain-security.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence
