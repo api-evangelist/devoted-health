@@ -1,0 +1,286 @@
+{
+  "item": [
+    {
+      "id": "45df9d1a-513d-4ae4-aa06-8d7a06ecf8d0",
+      "name": "CodeSystem",
+      "description": {
+        "content": "The CodeSystem FHIR resource type",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4ef7c3e5-333a-4ac7-be5c-3e5e0f8d2da3",
+          "name": "/CodeSystem/$upload-external-code-system",
+          "request": {
+            "name": "/CodeSystem/$upload-external-code-system",
+            "description": {},
+            "url": {
+              "path": [
+                "CodeSystem",
+                "$upload-external-code-system"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/fhir+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "238cdc50-02a4-4308-96b6-3dcdab3802a2",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "CodeSystem",
+                    "$upload-external-code-system"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [ {\n    \"name\": \"system\",\n    \"valueUri\": \"example\"\n  }, {\n    \"name\": \"file\"\n  } ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f92d97c1-75fc-4d31-ac86-bdd8acaf1e07",
+          "name": "/CodeSystem/$apply-codesystem-delta-remove",
+          "request": {
+            "name": "/CodeSystem/$apply-codesystem-delta-remove",
+            "description": {},
+            "url": {
+              "path": [
+                "CodeSystem",
+                "$apply-codesystem-delta-remove"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/fhir+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2f07ca88-a262-40f8-80ad-070cc2e6140f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "CodeSystem",
+                    "$apply-codesystem-delta-remove"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9258d23c-fab7-497b-8ceb-e7be884ff47a",
+          "name": "/CodeSystem/$apply-codesystem-delta-add",
+          "request": {
+            "name": "/CodeSystem/$apply-codesystem-delta-add",
+            "description": {},
+            "url": {
+              "path": [
+                "CodeSystem",
+                "$apply-codesystem-delta-add"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/fhir+json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/fhir+json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ff9ee920-ea36-4a8c-b72b-2acd38f51bfa",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "CodeSystem",
+                    "$apply-codesystem-delta-add"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/fhir+json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/fhir+json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.prod.devoted.com/fhir",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0f001665-dcfd-4f3c-8886-1765f0f048b6",
+    "name": "Untitled CodeSystem API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Fast Healthcare Interoperability Resources (FHIR, pronounced \"Fire\") defines a set of \"Resources\" that represent granular clinical concepts. The resources can be managed in isolation, or aggregated into complex documents. Technically, FHIR is designed for the web; the resources are based on simple XML or JSON structures, with an http-based RESTful protocol where each resource has predictable URL. Where possible, open internet standards are used for data representation. \n",
+      "type": "text/plain"
+    }
+  }
+}

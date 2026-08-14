@@ -1,0 +1,60 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Untitled CodeSystem API",
+    "version": "unspecified"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CodeSystem",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "POST /CodeSystem/$upload-external-code-system",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/CodeSystem/$upload-external-code-system",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "POST /CodeSystem/$apply-codesystem-delta-remove",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/CodeSystem/$apply-codesystem-delta-remove",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "POST /CodeSystem/$apply-codesystem-delta-add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/CodeSystem/$apply-codesystem-delta-add",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,215 @@
+{
+  "item": [
+    {
+      "id": "4883b0a1-c18d-451e-b93e-5ef429483e4b",
+      "name": "Patient",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8c8093dd-8fcc-4eeb-95b3-c2d998250e58",
+          "name": "/Patient",
+          "request": {
+            "name": "/Patient",
+            "description": {},
+            "url": {
+              "path": [
+                "Patient"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "_id",
+                  "value": "<string>",
+                  "description": "A patient identifier. Either the '_id' parameter, or 'identifier' must be provided."
+                },
+                {
+                  "disabled": false,
+                  "key": "identifier",
+                  "value": "<string>",
+                  "description": "A patient identifier. Either the '_id' parameter, or 'identifier' must be provided."
+                },
+                {
+                  "disabled": false,
+                  "key": "_format",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "723c47e1-07b2-4d86-9aaf-2a32d86754b9",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Patient"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "identifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "_format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "[\n  {\n    \"resourceType\": \"string\",\n    \"id\": \"string\",\n    \"text\": {\n      \"status\": \"string\",\n      \"div\": \"string\"\n    },\n    \"identifier\": [\n      {\n        \"use\": \"string\",\n        \"system\": \"string\",\n        \"value\": \"string\",\n        \"type\": {\n          \"coding\": [\n            {\n              \"system\": \"string\",\n              \"code\": \"strin\"\n            }\n          ]\n        }\n      }\n    ],\n    \"active\": false,\n    \"name\": [\n      {\n        \"use\": \"string\"\n      }\n    ],\n    \"gender\": \"string\",\n    \"photo\": [\n      {\n        \"contentType\": \"string\",\n        \"data\": \"string\"\n      }\n    ],\n    \"contact\": [\n      {\n        \"relationship\": [\n          {\n            \"coding\": [\n              {\n                \"system\": \"string\",\n                \"code\": \"string\"\n              }\n            ]\n          }\n        ],\n        \"organization\": {\n          \"reference\": \"string\",\n          \"display\": \"string\"\n        }\n      }\n    ],\n    \"managingOrganization\": {\n      \"reference\": \"string\",\n      \"display\": \"string\"\n    },\n    \"link\": [\n      {\n        \"type\": \"string\",\n        \"other\": {\n          \"reference\": \"string\"\n        }\n      }\n    ]\n  },\n  {\n    \"resourceType\": \"string\",\n    \"id\": \"string\",\n    \"text\": {\n      \"status\": \"string\",\n      \"div\": \"string\"\n    },\n    \"identifier\": [\n      {\n        \"use\": \"string\",\n        \"system\": \"string\",\n        \"value\": \"string\",\n        \"type\": {\n          \"coding\": [\n            {\n              \"system\": \"string\",\n              \"code\": \"string\"\n            }\n          ]\n        }\n      }\n    ],\n    \"active\": true,\n    \"name\": [\n      {\n        \"use\": \"string\"\n      }\n    ],\n    \"gender\": \"string\",\n    \"photo\": [\n      {\n        \"contentType\": \"string\",\n        \"data\": \"string\"\n      }\n    ],\n    \"contact\": [\n      {\n        \"relationship\": [\n          {\n            \"coding\": [\n              {\n                \"system\": \"string\",\n                \"code\": \"str\"\n              }\n            ]\n          }\n        ],\n        \"organization\": {\n          \"reference\": \"string\",\n          \"display\": \"string\"\n        }\n      }\n    ],\n    \"managingOrganization\": {\n      \"reference\": \"string\",\n      \"display\": \"string\"\n    },\n    \"link\": [\n      {\n        \"type\": \"string\",\n        \"other\": {\n          \"reference\": \"string\"\n        }\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c0dc891d-aa9b-4db7-bdd4-2cbec8a90931",
+          "name": "/Patient/:id",
+          "request": {
+            "name": "/Patient/:id",
+            "description": {},
+            "url": {
+              "path": [
+                "Patient",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6b6f3333-2448-4612-a7a3-b820cb82a80c",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Patient",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"resourceType\": \"string\",\n  \"id\": \"string\",\n  \"text\": {\n    \"status\": \"string\",\n    \"div\": \"string\"\n  },\n  \"identifier\": [\n    {\n      \"use\": \"string\",\n      \"system\": \"string\",\n      \"value\": \"string\",\n      \"type\": {\n        \"coding\": [\n          {\n            \"system\": \"string\",\n            \"code\": \"string\"\n          }\n        ]\n      }\n    }\n  ],\n  \"active\": false,\n  \"name\": [\n    {\n      \"use\": \"string\"\n    }\n  ],\n  \"gender\": \"string\",\n  \"photo\": [\n    {\n      \"contentType\": \"string\",\n      \"data\": \"string\"\n    }\n  ],\n  \"contact\": [\n    {\n      \"relationship\": [\n        {\n          \"coding\": [\n            {\n              \"system\": \"string\",\n              \"code\": \"string\"\n            }\n          ]\n        }\n      ],\n      \"organization\": {\n        \"reference\": \"string\",\n        \"display\": \"string\"\n      }\n    }\n  ],\n  \"managingOrganization\": {\n    \"reference\": \"string\",\n    \"display\": \"string\"\n  },\n  \"link\": [\n    {\n      \"type\": \"string\",\n      \"other\": {\n        \"reference\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.prod.devoted.com/fhir",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "62060d9e-ded3-4f86-ba0f-fa777cf9266f",
+    "name": "Untitled Condition Patient API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Fast Healthcare Interoperability Resources (FHIR, pronounced \"Fire\") defines a set of \"Resources\" that represent granular clinical concepts. The resources can be managed in isolation, or aggregated into complex documents. Technically, FHIR is designed for the web; the resources are based on simple XML or JSON structures, with an http-based RESTful protocol where each resource has predictable URL. Where possible, open internet standards are used for data representation. \n",
+      "type": "text/plain"
+    }
+  }
+}

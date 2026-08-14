@@ -1,0 +1,688 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Untitled CodeSystem HealthcareService API",
+    "version": "unspecified"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "HealthcareService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "read-instance: Read HealthcareService instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/HealthcareService/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ]
+          },
+          "docs": "read-instance: Read HealthcareService instance"
+        },
+        {
+          "info": {
+            "name": "update-instance: Update an existing HealthcareService instance, or create using a client-assigned ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/HealthcareService/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "update-instance: Update an existing HealthcareService instance, or create using a client-assigned ID"
+        },
+        {
+          "info": {
+            "name": "instance-patch: Patch a resource instance of type HealthcareService by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/HealthcareService/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "instance-patch: Patch a resource instance of type HealthcareService by ID"
+        },
+        {
+          "info": {
+            "name": "instance-delete: Perform a logical delete on a resource instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/HealthcareService/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ]
+          },
+          "docs": "instance-delete: Perform a logical delete on a resource instance"
+        },
+        {
+          "info": {
+            "name": "vread-instance: Read HealthcareService instance with specific version",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/HealthcareService/:id/_history/:version_id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              },
+              {
+                "name": "version_id",
+                "value": "1",
+                "type": "path",
+                "description": "The resource version ID"
+              }
+            ]
+          },
+          "docs": "vread-instance: Read HealthcareService instance with specific version"
+        },
+        {
+          "info": {
+            "name": "search-type: Search for HealthcareService instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/HealthcareService",
+            "params": [
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "query",
+                "description": "External identifiers for this item"
+              },
+              {
+                "name": "specialty",
+                "value": "",
+                "type": "query",
+                "description": "The specialty of the service provided by this healthcare service"
+              },
+              {
+                "name": "service-category",
+                "value": "",
+                "type": "query",
+                "description": "Service Category of the Healthcare Service"
+              },
+              {
+                "name": "_lastUpdated",
+                "value": "",
+                "type": "query",
+                "description": "When the resource version last changed"
+              },
+              {
+                "name": "service-type",
+                "value": "",
+                "type": "query",
+                "description": "The type of service provided by this healthcare service"
+              },
+              {
+                "name": "_security",
+                "value": "",
+                "type": "query",
+                "description": "Security Labels applied to this resource"
+              },
+              {
+                "name": "active",
+                "value": "",
+                "type": "query",
+                "description": "The Healthcare Service is currently marked as active"
+              },
+              {
+                "name": "program",
+                "value": "",
+                "type": "query",
+                "description": "One of the Programs supported by this HealthcareService"
+              },
+              {
+                "name": "characteristic",
+                "value": "",
+                "type": "query",
+                "description": "One of the HealthcareService's characteristics"
+              },
+              {
+                "name": "_filter",
+                "value": "",
+                "type": "query",
+                "description": "Search the contents of the resource's data using a filter"
+              },
+              {
+                "name": "endpoint",
+                "value": "",
+                "type": "query",
+                "description": "Technical endpoints providing access to electronic services operated for the healthcare service"
+              },
+              {
+                "name": "_profile",
+                "value": "",
+                "type": "query",
+                "description": "Profiles this resource claims to conform to"
+              },
+              {
+                "name": "coverage-area",
+                "value": "",
+                "type": "query",
+                "description": "Location(s) service is intended for/available to"
+              },
+              {
+                "name": "_tag",
+                "value": "",
+                "type": "query",
+                "description": "Tags applied to this resource"
+              },
+              {
+                "name": "organization",
+                "value": "",
+                "type": "query",
+                "description": "The organization that provides this Healthcare Service"
+              },
+              {
+                "name": "_has",
+                "value": "",
+                "type": "query",
+                "description": "Return resources linked to by the given target"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "A portion of the Healthcare service name"
+              },
+              {
+                "name": "_source",
+                "value": "",
+                "type": "query",
+                "description": "Identifies where the resource comes from"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "query",
+                "description": "The location of the Healthcare Service"
+              },
+              {
+                "name": "_id",
+                "value": "",
+                "type": "query",
+                "description": "Logical id of this artifact"
+              },
+              {
+                "name": "_text",
+                "value": "",
+                "type": "query",
+                "description": "Search on the narrative of the resource"
+              },
+              {
+                "name": "_content",
+                "value": "",
+                "type": "query",
+                "description": "Search on the entire content of the resource"
+              }
+            ]
+          },
+          "docs": "This is a search type"
+        },
+        {
+          "info": {
+            "name": "create-type: Create a new HealthcareService instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/HealthcareService",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "create-type: Create a new HealthcareService instance"
+        },
+        {
+          "info": {
+            "name": "type-history: Fetch the resource change history for all resources of type HealthcareService",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/HealthcareService/_history"
+          },
+          "docs": "type-history: Fetch the resource change history for all resources of type HealthcareService"
+        },
+        {
+          "info": {
+            "name": "instance-history: Fetch the resource change history for all resources of type HealthcareService",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/HealthcareService/:id/_history",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ]
+          },
+          "docs": "instance-history: Fetch the resource change history for all resources of type HealthcareService"
+        },
+        {
+          "info": {
+            "name": "search-type: Search for HealthcareService instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/HealthcareService/_search",
+            "params": [
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "query",
+                "description": "External identifiers for this item"
+              },
+              {
+                "name": "specialty",
+                "value": "",
+                "type": "query",
+                "description": "The specialty of the service provided by this healthcare service"
+              },
+              {
+                "name": "service-category",
+                "value": "",
+                "type": "query",
+                "description": "Service Category of the Healthcare Service"
+              },
+              {
+                "name": "_lastUpdated",
+                "value": "",
+                "type": "query",
+                "description": "When the resource version last changed"
+              },
+              {
+                "name": "service-type",
+                "value": "",
+                "type": "query",
+                "description": "The type of service provided by this healthcare service"
+              },
+              {
+                "name": "_security",
+                "value": "",
+                "type": "query",
+                "description": "Security Labels applied to this resource"
+              },
+              {
+                "name": "active",
+                "value": "",
+                "type": "query",
+                "description": "The Healthcare Service is currently marked as active"
+              },
+              {
+                "name": "program",
+                "value": "",
+                "type": "query",
+                "description": "One of the Programs supported by this HealthcareService"
+              },
+              {
+                "name": "characteristic",
+                "value": "",
+                "type": "query",
+                "description": "One of the HealthcareService's characteristics"
+              },
+              {
+                "name": "_filter",
+                "value": "",
+                "type": "query",
+                "description": "Search the contents of the resource's data using a filter"
+              },
+              {
+                "name": "endpoint",
+                "value": "",
+                "type": "query",
+                "description": "Technical endpoints providing access to electronic services operated for the healthcare service"
+              },
+              {
+                "name": "_profile",
+                "value": "",
+                "type": "query",
+                "description": "Profiles this resource claims to conform to"
+              },
+              {
+                "name": "coverage-area",
+                "value": "",
+                "type": "query",
+                "description": "Location(s) service is intended for/available to"
+              },
+              {
+                "name": "_tag",
+                "value": "",
+                "type": "query",
+                "description": "Tags applied to this resource"
+              },
+              {
+                "name": "organization",
+                "value": "",
+                "type": "query",
+                "description": "The organization that provides this Healthcare Service"
+              },
+              {
+                "name": "_has",
+                "value": "",
+                "type": "query",
+                "description": "Return resources linked to by the given target"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "A portion of the Healthcare service name"
+              },
+              {
+                "name": "_source",
+                "value": "",
+                "type": "query",
+                "description": "Identifies where the resource comes from"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "query",
+                "description": "The location of the Healthcare Service"
+              },
+              {
+                "name": "_id",
+                "value": "",
+                "type": "query",
+                "description": "Logical id of this artifact"
+              },
+              {
+                "name": "_text",
+                "value": "",
+                "type": "query",
+                "description": "Search on the narrative of the resource"
+              },
+              {
+                "name": "_content",
+                "value": "",
+                "type": "query",
+                "description": "Search on the entire content of the resource"
+              }
+            ]
+          },
+          "docs": "This is a search type"
+        },
+        {
+          "info": {
+            "name": "GET /HealthcareService/$validate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/HealthcareService/$validate",
+            "params": [
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "POST /HealthcareService/$validate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/HealthcareService/$validate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "GET /HealthcareService/{id}/$validate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/HealthcareService/:id/$validate",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "POST /HealthcareService/{id}/$validate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/HealthcareService/:id/$validate",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "POST /HealthcareService/{id}/$meta-delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/HealthcareService/:id/$meta-delete",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delete tags, profiles, and/or security labels from a resource"
+        },
+        {
+          "info": {
+            "name": "POST /HealthcareService/{id}/$meta-add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/HealthcareService/:id/$meta-add",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add tags, profiles, and/or security labels to a resource"
+        },
+        {
+          "info": {
+            "name": "GET /HealthcareService/$meta",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/HealthcareService/$meta"
+          },
+          "docs": "Request a list of tags, profiles, and security labels for a specfic resource instance"
+        },
+        {
+          "info": {
+            "name": "POST /HealthcareService/$meta",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/HealthcareService/$meta",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Request a list of tags, profiles, and security labels for a specfic resource instance"
+        },
+        {
+          "info": {
+            "name": "GET /HealthcareService/{id}/$meta",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/HealthcareService/:id/$meta",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ]
+          },
+          "docs": "Request a list of tags, profiles, and security labels for a specfic resource instance"
+        },
+        {
+          "info": {
+            "name": "POST /HealthcareService/{id}/$meta",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/HealthcareService/:id/$meta",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Request a list of tags, profiles, and security labels for a specfic resource instance"
+        },
+        {
+          "info": {
+            "name": "POST /HealthcareService/$expunge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/HealthcareService/$expunge",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "POST /HealthcareService/{id}/$expunge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/HealthcareService/:id/$expunge",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Untitled Condition Medication API",
+    "version": "unspecified"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Medication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET /Medication",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/Medication",
+            "params": [
+              {
+                "name": "patient",
+                "value": "",
+                "type": "query",
+                "description": "The patient to return MedicationRequests for. It is a required field."
+              },
+              {
+                "name": "_format",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

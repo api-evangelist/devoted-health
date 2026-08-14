@@ -1,0 +1,130 @@
+{
+  "item": [
+    {
+      "id": "5ed658f8-0e76-40d2-be32-2bd4a8f317a6",
+      "name": "ExplanationOfBenefit",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5611a3c1-3db3-4061-9498-d980aa1e4ad9",
+          "name": "/ExplanationOfBenefit",
+          "request": {
+            "name": "/ExplanationOfBenefit",
+            "description": {},
+            "url": {
+              "path": [
+                "ExplanationOfBenefit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "patient",
+                  "value": "<string>",
+                  "description": "The patient present at the encounter. It is a required field."
+                },
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<date>",
+                  "description": "A date or date range from which to find appointments. This must be set when using patient, practitioner or location. The 'date' parameter may be provided once without a prefix or time component to imply a date range or once without a prefix and with a time component to search for appointments at a specific time. Alternately it may be provided twice with 'le' and 'gt' prefixes to search for appointments within a specific range. The date prefix pair must create a closed range."
+                },
+                {
+                  "disabled": false,
+                  "key": "_format",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "82bd22ad-1e35-41c7-a779-5b80c13bb22d",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ExplanationOfBenefit"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "patient",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "_format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "[\n  {\n    \"resourceType\": \"string\",\n    \"id\": \"string\",\n    \"text\": {\n      \"status\": \"string\",\n      \"div\": \"string\"\n    },\n    \"identifier\": [\n      {\n        \"system\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"request\": {\n      \"reference\": \"string\"\n    },\n    \"outcome\": \"string\",\n    \"disposition\": \"string\",\n    \"created\": \"string\",\n    \"organization\": {\n      \"reference\": \"string\"\n    },\n    \"requestOrganization\": {\n      \"reference\": \"string\"\n    }\n  },\n  {\n    \"resourceType\": \"string\",\n    \"id\": \"string\",\n    \"text\": {\n      \"status\": \"string\",\n      \"div\": \"string\"\n    },\n    \"identifier\": [\n      {\n        \"system\": \"string\",\n        \"value\": \"string\"\n      }\n    ],\n    \"request\": {\n      \"reference\": \"string\"\n    },\n    \"outcome\": \"string\",\n    \"disposition\": \"string\",\n    \"created\": \"string\",\n    \"organization\": {\n      \"reference\": \"string\"\n    },\n    \"requestOrganization\": {\n      \"reference\": \"string\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.prod.devoted.com/fhir",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b8c993d5-a257-4873-b437-fafc89610282",
+    "name": "Untitled Condition ExplanationOfBenefit API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Fast Healthcare Interoperability Resources (FHIR, pronounced \"Fire\") defines a set of \"Resources\" that represent granular clinical concepts. The resources can be managed in isolation, or aggregated into complex documents. Technically, FHIR is designed for the web; the resources are based on simple XML or JSON structures, with an http-based RESTful protocol where each resource has predictable URL. Where possible, open internet standards are used for data representation. \n",
+      "type": "text/plain"
+    }
+  }
+}

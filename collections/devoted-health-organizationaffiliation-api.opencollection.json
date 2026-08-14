@@ -1,0 +1,712 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Untitled CodeSystem OrganizationAffiliation API",
+    "version": "unspecified"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "OrganizationAffiliation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "read-instance: Read OrganizationAffiliation instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/OrganizationAffiliation/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ]
+          },
+          "docs": "read-instance: Read OrganizationAffiliation instance"
+        },
+        {
+          "info": {
+            "name": "update-instance: Update an existing OrganizationAffiliation instance, or create using a client-assigned ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/OrganizationAffiliation/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "update-instance: Update an existing OrganizationAffiliation instance, or create using a client-assigned ID"
+        },
+        {
+          "info": {
+            "name": "instance-patch: Patch a resource instance of type OrganizationAffiliation by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/OrganizationAffiliation/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "instance-patch: Patch a resource instance of type OrganizationAffiliation by ID"
+        },
+        {
+          "info": {
+            "name": "instance-delete: Perform a logical delete on a resource instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/OrganizationAffiliation/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ]
+          },
+          "docs": "instance-delete: Perform a logical delete on a resource instance"
+        },
+        {
+          "info": {
+            "name": "vread-instance: Read OrganizationAffiliation instance with specific version",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/OrganizationAffiliation/:id/_history/:version_id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              },
+              {
+                "name": "version_id",
+                "value": "1",
+                "type": "path",
+                "description": "The resource version ID"
+              }
+            ]
+          },
+          "docs": "vread-instance: Read OrganizationAffiliation instance with specific version"
+        },
+        {
+          "info": {
+            "name": "search-type: Search for OrganizationAffiliation instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/OrganizationAffiliation",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "The period during which the participatingOrganization is affiliated with the primary organization"
+              },
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "query",
+                "description": "An organization affiliation's Identifier"
+              },
+              {
+                "name": "specialty",
+                "value": "",
+                "type": "query",
+                "description": "Specific specialty of the participatingOrganization in the context of the role"
+              },
+              {
+                "name": "role",
+                "value": "",
+                "type": "query",
+                "description": "Definition of the role the participatingOrganization plays"
+              },
+              {
+                "name": "_lastUpdated",
+                "value": "",
+                "type": "query",
+                "description": "When the resource version last changed"
+              },
+              {
+                "name": "_security",
+                "value": "",
+                "type": "query",
+                "description": "Security Labels applied to this resource"
+              },
+              {
+                "name": "active",
+                "value": "",
+                "type": "query",
+                "description": "Whether this organization affiliation record is in active use"
+              },
+              {
+                "name": "primary-organization",
+                "value": "",
+                "type": "query",
+                "description": "The organization that receives the services from the participating organization"
+              },
+              {
+                "name": "network",
+                "value": "",
+                "type": "query",
+                "description": "Health insurance provider network in which the participatingOrganization provides the role's services (if defined) at the indicated locations (if defined)"
+              },
+              {
+                "name": "_filter",
+                "value": "",
+                "type": "query",
+                "description": "Search the contents of the resource's data using a filter"
+              },
+              {
+                "name": "endpoint",
+                "value": "",
+                "type": "query",
+                "description": "Technical endpoints providing access to services operated for this role"
+              },
+              {
+                "name": "_profile",
+                "value": "",
+                "type": "query",
+                "description": "Profiles this resource claims to conform to"
+              },
+              {
+                "name": "phone",
+                "value": "",
+                "type": "query",
+                "description": "A value in a phone contact"
+              },
+              {
+                "name": "service",
+                "value": "",
+                "type": "query",
+                "description": "Healthcare services provided through the role"
+              },
+              {
+                "name": "_tag",
+                "value": "",
+                "type": "query",
+                "description": "Tags applied to this resource"
+              },
+              {
+                "name": "_has",
+                "value": "",
+                "type": "query",
+                "description": "Return resources linked to by the given target"
+              },
+              {
+                "name": "participating-organization",
+                "value": "",
+                "type": "query",
+                "description": "The organization that provides services to the primary organization"
+              },
+              {
+                "name": "_source",
+                "value": "",
+                "type": "query",
+                "description": "Identifies where the resource comes from"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "query",
+                "description": "The location(s) at which the role occurs"
+              },
+              {
+                "name": "telecom",
+                "value": "",
+                "type": "query",
+                "description": "The value in any kind of contact"
+              },
+              {
+                "name": "_id",
+                "value": "",
+                "type": "query",
+                "description": "Logical id of this artifact"
+              },
+              {
+                "name": "_text",
+                "value": "",
+                "type": "query",
+                "description": "Search on the narrative of the resource"
+              },
+              {
+                "name": "_content",
+                "value": "",
+                "type": "query",
+                "description": "Search on the entire content of the resource"
+              },
+              {
+                "name": "email",
+                "value": "",
+                "type": "query",
+                "description": "A value in an email contact"
+              }
+            ]
+          },
+          "docs": "This is a search type"
+        },
+        {
+          "info": {
+            "name": "create-type: Create a new OrganizationAffiliation instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/OrganizationAffiliation",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "create-type: Create a new OrganizationAffiliation instance"
+        },
+        {
+          "info": {
+            "name": "type-history: Fetch the resource change history for all resources of type OrganizationAffiliation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/OrganizationAffiliation/_history"
+          },
+          "docs": "type-history: Fetch the resource change history for all resources of type OrganizationAffiliation"
+        },
+        {
+          "info": {
+            "name": "instance-history: Fetch the resource change history for all resources of type OrganizationAffiliation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/OrganizationAffiliation/:id/_history",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ]
+          },
+          "docs": "instance-history: Fetch the resource change history for all resources of type OrganizationAffiliation"
+        },
+        {
+          "info": {
+            "name": "search-type: Search for OrganizationAffiliation instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/OrganizationAffiliation/_search",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "The period during which the participatingOrganization is affiliated with the primary organization"
+              },
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "query",
+                "description": "An organization affiliation's Identifier"
+              },
+              {
+                "name": "specialty",
+                "value": "",
+                "type": "query",
+                "description": "Specific specialty of the participatingOrganization in the context of the role"
+              },
+              {
+                "name": "role",
+                "value": "",
+                "type": "query",
+                "description": "Definition of the role the participatingOrganization plays"
+              },
+              {
+                "name": "_lastUpdated",
+                "value": "",
+                "type": "query",
+                "description": "When the resource version last changed"
+              },
+              {
+                "name": "_security",
+                "value": "",
+                "type": "query",
+                "description": "Security Labels applied to this resource"
+              },
+              {
+                "name": "active",
+                "value": "",
+                "type": "query",
+                "description": "Whether this organization affiliation record is in active use"
+              },
+              {
+                "name": "primary-organization",
+                "value": "",
+                "type": "query",
+                "description": "The organization that receives the services from the participating organization"
+              },
+              {
+                "name": "network",
+                "value": "",
+                "type": "query",
+                "description": "Health insurance provider network in which the participatingOrganization provides the role's services (if defined) at the indicated locations (if defined)"
+              },
+              {
+                "name": "_filter",
+                "value": "",
+                "type": "query",
+                "description": "Search the contents of the resource's data using a filter"
+              },
+              {
+                "name": "endpoint",
+                "value": "",
+                "type": "query",
+                "description": "Technical endpoints providing access to services operated for this role"
+              },
+              {
+                "name": "_profile",
+                "value": "",
+                "type": "query",
+                "description": "Profiles this resource claims to conform to"
+              },
+              {
+                "name": "phone",
+                "value": "",
+                "type": "query",
+                "description": "A value in a phone contact"
+              },
+              {
+                "name": "service",
+                "value": "",
+                "type": "query",
+                "description": "Healthcare services provided through the role"
+              },
+              {
+                "name": "_tag",
+                "value": "",
+                "type": "query",
+                "description": "Tags applied to this resource"
+              },
+              {
+                "name": "_has",
+                "value": "",
+                "type": "query",
+                "description": "Return resources linked to by the given target"
+              },
+              {
+                "name": "participating-organization",
+                "value": "",
+                "type": "query",
+                "description": "The organization that provides services to the primary organization"
+              },
+              {
+                "name": "_source",
+                "value": "",
+                "type": "query",
+                "description": "Identifies where the resource comes from"
+              },
+              {
+                "name": "location",
+                "value": "",
+                "type": "query",
+                "description": "The location(s) at which the role occurs"
+              },
+              {
+                "name": "telecom",
+                "value": "",
+                "type": "query",
+                "description": "The value in any kind of contact"
+              },
+              {
+                "name": "_id",
+                "value": "",
+                "type": "query",
+                "description": "Logical id of this artifact"
+              },
+              {
+                "name": "_text",
+                "value": "",
+                "type": "query",
+                "description": "Search on the narrative of the resource"
+              },
+              {
+                "name": "_content",
+                "value": "",
+                "type": "query",
+                "description": "Search on the entire content of the resource"
+              },
+              {
+                "name": "email",
+                "value": "",
+                "type": "query",
+                "description": "A value in an email contact"
+              }
+            ]
+          },
+          "docs": "This is a search type"
+        },
+        {
+          "info": {
+            "name": "GET /OrganizationAffiliation/$validate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/OrganizationAffiliation/$validate",
+            "params": [
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "POST /OrganizationAffiliation/$validate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/OrganizationAffiliation/$validate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "GET /OrganizationAffiliation/{id}/$validate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/OrganizationAffiliation/:id/$validate",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "POST /OrganizationAffiliation/{id}/$validate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/OrganizationAffiliation/:id/$validate",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "POST /OrganizationAffiliation/{id}/$meta-delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/OrganizationAffiliation/:id/$meta-delete",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delete tags, profiles, and/or security labels from a resource"
+        },
+        {
+          "info": {
+            "name": "POST /OrganizationAffiliation/{id}/$meta-add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/OrganizationAffiliation/:id/$meta-add",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add tags, profiles, and/or security labels to a resource"
+        },
+        {
+          "info": {
+            "name": "GET /OrganizationAffiliation/$meta",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/OrganizationAffiliation/$meta"
+          },
+          "docs": "Request a list of tags, profiles, and security labels for a specfic resource instance"
+        },
+        {
+          "info": {
+            "name": "POST /OrganizationAffiliation/$meta",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/OrganizationAffiliation/$meta",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Request a list of tags, profiles, and security labels for a specfic resource instance"
+        },
+        {
+          "info": {
+            "name": "GET /OrganizationAffiliation/{id}/$meta",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/OrganizationAffiliation/:id/$meta",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ]
+          },
+          "docs": "Request a list of tags, profiles, and security labels for a specfic resource instance"
+        },
+        {
+          "info": {
+            "name": "POST /OrganizationAffiliation/{id}/$meta",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/OrganizationAffiliation/:id/$meta",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Request a list of tags, profiles, and security labels for a specfic resource instance"
+        },
+        {
+          "info": {
+            "name": "POST /OrganizationAffiliation/$expunge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/OrganizationAffiliation/$expunge",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "POST /OrganizationAffiliation/{id}/$expunge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/OrganizationAffiliation/:id/$expunge",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

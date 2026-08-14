@@ -1,0 +1,760 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Untitled CodeSystem InsurancePlan API",
+    "version": "unspecified"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "InsurancePlan",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "read-instance: Read InsurancePlan instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/InsurancePlan/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ]
+          },
+          "docs": "read-instance: Read InsurancePlan instance"
+        },
+        {
+          "info": {
+            "name": "update-instance: Update an existing InsurancePlan instance, or create using a client-assigned ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/InsurancePlan/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "update-instance: Update an existing InsurancePlan instance, or create using a client-assigned ID"
+        },
+        {
+          "info": {
+            "name": "instance-patch: Patch a resource instance of type InsurancePlan by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "{{baseUrl}}/InsurancePlan/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "instance-patch: Patch a resource instance of type InsurancePlan by ID"
+        },
+        {
+          "info": {
+            "name": "instance-delete: Perform a logical delete on a resource instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/InsurancePlan/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ]
+          },
+          "docs": "instance-delete: Perform a logical delete on a resource instance"
+        },
+        {
+          "info": {
+            "name": "vread-instance: Read InsurancePlan instance with specific version",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/InsurancePlan/:id/_history/:version_id",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              },
+              {
+                "name": "version_id",
+                "value": "1",
+                "type": "path",
+                "description": "The resource version ID"
+              }
+            ]
+          },
+          "docs": "vread-instance: Read InsurancePlan instance with specific version"
+        },
+        {
+          "info": {
+            "name": "search-type: Search for InsurancePlan instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/InsurancePlan",
+            "params": [
+              {
+                "name": "address-state",
+                "value": "",
+                "type": "query",
+                "description": "A state specified in an address"
+              },
+              {
+                "name": "_lastUpdated",
+                "value": "",
+                "type": "query",
+                "description": "Accesses the last updated date of an InsurancePlan"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Accesses the Type of an InsurancePlan"
+              },
+              {
+                "name": "address-country",
+                "value": "",
+                "type": "query",
+                "description": "A country specified in an address"
+              },
+              {
+                "name": "administered-by",
+                "value": "",
+                "type": "query",
+                "description": "Product administrator"
+              },
+              {
+                "name": "endpoint",
+                "value": "",
+                "type": "query",
+                "description": "Technical endpoint"
+              },
+              {
+                "name": "phonetic",
+                "value": "",
+                "type": "query",
+                "description": "A portion of the organization's name using some kind of phonetic matching algorithm"
+              },
+              {
+                "name": "coverage-area",
+                "value": "",
+                "type": "query",
+                "description": "Search InsurancePlan by coverage location."
+              },
+              {
+                "name": "address-city",
+                "value": "",
+                "type": "query",
+                "description": "A city specified in an address"
+              },
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "query",
+                "description": "Accesses the business identifier of an InsurancePlan"
+              },
+              {
+                "name": "period",
+                "value": "",
+                "type": "query",
+                "description": "Accesses the active period of an InsurancePlan"
+              },
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text"
+              },
+              {
+                "name": "owned-by",
+                "value": "",
+                "type": "query",
+                "description": "An organization of which this organization forms a part"
+              },
+              {
+                "name": "_security",
+                "value": "",
+                "type": "query",
+                "description": "Security Labels applied to this resource"
+              },
+              {
+                "name": "address-postalcode",
+                "value": "",
+                "type": "query",
+                "description": "A postal code specified in an address"
+              },
+              {
+                "name": "_filter",
+                "value": "",
+                "type": "query",
+                "description": "Search the contents of the resource's data using a filter"
+              },
+              {
+                "name": "formulary-coverage",
+                "value": "",
+                "type": "query",
+                "description": "Accesses the Coverage Formulary Reference of an InsurancePlan"
+              },
+              {
+                "name": "coverage-type",
+                "value": "",
+                "type": "query",
+                "description": "Accesses the coverage type of an InsurancePlan"
+              },
+              {
+                "name": "_profile",
+                "value": "",
+                "type": "query",
+                "description": "Profiles this resource claims to conform to"
+              },
+              {
+                "name": "_tag",
+                "value": "",
+                "type": "query",
+                "description": "Tags applied to this resource"
+              },
+              {
+                "name": "_has",
+                "value": "",
+                "type": "query",
+                "description": "Return resources linked to by the given target"
+              },
+              {
+                "name": "address-use",
+                "value": "",
+                "type": "query",
+                "description": "A use code specified in an address"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Accesses the name of an InsurancePlan"
+              },
+              {
+                "name": "_source",
+                "value": "",
+                "type": "query",
+                "description": "Identifies where the resource comes from"
+              },
+              {
+                "name": "_id",
+                "value": "",
+                "type": "query",
+                "description": "Logical id of this artifact"
+              },
+              {
+                "name": "_text",
+                "value": "",
+                "type": "query",
+                "description": "Search on the narrative of the resource"
+              },
+              {
+                "name": "_content",
+                "value": "",
+                "type": "query",
+                "description": "Search on the entire content of the resource"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Accesses the status of an InsurancePlan"
+              }
+            ]
+          },
+          "docs": "This is a search type"
+        },
+        {
+          "info": {
+            "name": "create-type: Create a new InsurancePlan instance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/InsurancePlan",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "create-type: Create a new InsurancePlan instance"
+        },
+        {
+          "info": {
+            "name": "type-history: Fetch the resource change history for all resources of type InsurancePlan",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/InsurancePlan/_history"
+          },
+          "docs": "type-history: Fetch the resource change history for all resources of type InsurancePlan"
+        },
+        {
+          "info": {
+            "name": "instance-history: Fetch the resource change history for all resources of type InsurancePlan",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/InsurancePlan/:id/_history",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ]
+          },
+          "docs": "instance-history: Fetch the resource change history for all resources of type InsurancePlan"
+        },
+        {
+          "info": {
+            "name": "search-type: Search for InsurancePlan instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/InsurancePlan/_search",
+            "params": [
+              {
+                "name": "address-state",
+                "value": "",
+                "type": "query",
+                "description": "A state specified in an address"
+              },
+              {
+                "name": "_lastUpdated",
+                "value": "",
+                "type": "query",
+                "description": "Accesses the last updated date of an InsurancePlan"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Accesses the Type of an InsurancePlan"
+              },
+              {
+                "name": "address-country",
+                "value": "",
+                "type": "query",
+                "description": "A country specified in an address"
+              },
+              {
+                "name": "administered-by",
+                "value": "",
+                "type": "query",
+                "description": "Product administrator"
+              },
+              {
+                "name": "endpoint",
+                "value": "",
+                "type": "query",
+                "description": "Technical endpoint"
+              },
+              {
+                "name": "phonetic",
+                "value": "",
+                "type": "query",
+                "description": "A portion of the organization's name using some kind of phonetic matching algorithm"
+              },
+              {
+                "name": "coverage-area",
+                "value": "",
+                "type": "query",
+                "description": "Search InsurancePlan by coverage location."
+              },
+              {
+                "name": "address-city",
+                "value": "",
+                "type": "query",
+                "description": "A city specified in an address"
+              },
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "query",
+                "description": "Accesses the business identifier of an InsurancePlan"
+              },
+              {
+                "name": "period",
+                "value": "",
+                "type": "query",
+                "description": "Accesses the active period of an InsurancePlan"
+              },
+              {
+                "name": "address",
+                "value": "",
+                "type": "query",
+                "description": "A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text"
+              },
+              {
+                "name": "owned-by",
+                "value": "",
+                "type": "query",
+                "description": "An organization of which this organization forms a part"
+              },
+              {
+                "name": "_security",
+                "value": "",
+                "type": "query",
+                "description": "Security Labels applied to this resource"
+              },
+              {
+                "name": "address-postalcode",
+                "value": "",
+                "type": "query",
+                "description": "A postal code specified in an address"
+              },
+              {
+                "name": "_filter",
+                "value": "",
+                "type": "query",
+                "description": "Search the contents of the resource's data using a filter"
+              },
+              {
+                "name": "formulary-coverage",
+                "value": "",
+                "type": "query",
+                "description": "Accesses the Coverage Formulary Reference of an InsurancePlan"
+              },
+              {
+                "name": "coverage-type",
+                "value": "",
+                "type": "query",
+                "description": "Accesses the coverage type of an InsurancePlan"
+              },
+              {
+                "name": "_profile",
+                "value": "",
+                "type": "query",
+                "description": "Profiles this resource claims to conform to"
+              },
+              {
+                "name": "_tag",
+                "value": "",
+                "type": "query",
+                "description": "Tags applied to this resource"
+              },
+              {
+                "name": "_has",
+                "value": "",
+                "type": "query",
+                "description": "Return resources linked to by the given target"
+              },
+              {
+                "name": "address-use",
+                "value": "",
+                "type": "query",
+                "description": "A use code specified in an address"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Accesses the name of an InsurancePlan"
+              },
+              {
+                "name": "_source",
+                "value": "",
+                "type": "query",
+                "description": "Identifies where the resource comes from"
+              },
+              {
+                "name": "_id",
+                "value": "",
+                "type": "query",
+                "description": "Logical id of this artifact"
+              },
+              {
+                "name": "_text",
+                "value": "",
+                "type": "query",
+                "description": "Search on the narrative of the resource"
+              },
+              {
+                "name": "_content",
+                "value": "",
+                "type": "query",
+                "description": "Search on the entire content of the resource"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Accesses the status of an InsurancePlan"
+              }
+            ]
+          },
+          "docs": "This is a search type"
+        },
+        {
+          "info": {
+            "name": "GET /InsurancePlan/$validate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/InsurancePlan/$validate",
+            "params": [
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "POST /InsurancePlan/$validate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/InsurancePlan/$validate",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "GET /InsurancePlan/{id}/$validate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/InsurancePlan/:id/$validate",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              },
+              {
+                "name": "mode",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "POST /InsurancePlan/{id}/$validate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/InsurancePlan/:id/$validate",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "POST /InsurancePlan/{id}/$meta-delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/InsurancePlan/:id/$meta-delete",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delete tags, profiles, and/or security labels from a resource"
+        },
+        {
+          "info": {
+            "name": "POST /InsurancePlan/{id}/$meta-add",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/InsurancePlan/:id/$meta-add",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add tags, profiles, and/or security labels to a resource"
+        },
+        {
+          "info": {
+            "name": "GET /InsurancePlan/$meta",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/InsurancePlan/$meta"
+          },
+          "docs": "Request a list of tags, profiles, and security labels for a specfic resource instance"
+        },
+        {
+          "info": {
+            "name": "POST /InsurancePlan/$meta",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/InsurancePlan/$meta",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Request a list of tags, profiles, and security labels for a specfic resource instance"
+        },
+        {
+          "info": {
+            "name": "GET /InsurancePlan/{id}/$meta",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/InsurancePlan/:id/$meta",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ]
+          },
+          "docs": "Request a list of tags, profiles, and security labels for a specfic resource instance"
+        },
+        {
+          "info": {
+            "name": "POST /InsurancePlan/{id}/$meta",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/InsurancePlan/:id/$meta",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Request a list of tags, profiles, and security labels for a specfic resource instance"
+        },
+        {
+          "info": {
+            "name": "POST /InsurancePlan/$expunge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/InsurancePlan/$expunge",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "POST /InsurancePlan/{id}/$expunge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/InsurancePlan/:id/$expunge",
+            "params": [
+              {
+                "name": "id",
+                "value": "123",
+                "type": "path",
+                "description": "The resource ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

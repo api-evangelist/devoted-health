@@ -1,0 +1,179 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Untitled CodeSystem System Level Operations API",
+    "version": "unspecified"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "System Level Operations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "server-capabilities: Fetch the server FHIR CapabilityStatement",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/metadata"
+          },
+          "docs": "server-capabilities: Fetch the server FHIR CapabilityStatement"
+        },
+        {
+          "info": {
+            "name": "server-transaction: Execute a FHIR Transaction (or FHIR Batch) Bundle",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "server-transaction: Execute a FHIR Transaction (or FHIR Batch) Bundle"
+        },
+        {
+          "info": {
+            "name": "server-history: Fetch the resource change history across all resource types on the server",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/_history"
+          },
+          "docs": "server-history: Fetch the resource change history across all resource types on the server"
+        },
+        {
+          "info": {
+            "name": "POST /$reindex",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/$reindex",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "POST /$perform-reindexing-pass",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/$perform-reindexing-pass",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Forces a single pass of the resource reindexing processor"
+        },
+        {
+          "info": {
+            "name": "GET /$meta",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/$meta"
+          },
+          "docs": "Request a list of tags, profiles, and security labels for a specfic resource instance"
+        },
+        {
+          "info": {
+            "name": "POST /$meta",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/$meta",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Request a list of tags, profiles, and security labels for a specfic resource instance"
+        },
+        {
+          "info": {
+            "name": "POST /$mark-all-resources-for-reindexing",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/$mark-all-resources-for-reindexing",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Marks all currently existing resources of a given type, or all resources of all types, for reindexing."
+        },
+        {
+          "info": {
+            "name": "Provides the number of resources currently stored on the server, broken down by resource type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "{{baseUrl}}/$get-resource-counts"
+          },
+          "docs": "Provides the number of resources currently stored on the server, broken down by resource type"
+        },
+        {
+          "info": {
+            "name": "Provides the number of resources currently stored on the server, broken down by resource type",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/$get-resource-counts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Provides the number of resources currently stored on the server, broken down by resource type"
+        },
+        {
+          "info": {
+            "name": "POST /$expunge",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/$expunge",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "POST /$reindex-terminology",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/$reindex-terminology",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
