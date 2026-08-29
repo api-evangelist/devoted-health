@@ -1,12 +1,10 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  description: "Fast Healthcare Interoperability Resources (FHIR, pronounced \"Fire\") defines a set of \"Resources\" that represent granular clinical concepts. The resources can be managed in isolation, or aggregated into complex documents. Technically, FHIR is designed for the web; the resources are based on simple XML or JSON structures, with an http-based RESTful protocol where each resource has predictable URL. Where possible, open internet standards are used for data representation. \n"
-  title: Untitled CodeSystem Encounter API
+  title: Devoted Health Encounter API
   version: unspecified
-host: api.prod.devoted.com
-basePath: /fhir/
-schemes:
-- https
+  description: 'Operations tagged Encounter across 2 of this provider''s published API definitions: devoted-health-patient-access-openapi-original.json, devoted-health-patient-access-openapi.json. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.prod.devoted.com/fhir/
 tags:
 - name: Encounter
 paths:
@@ -16,66 +14,77 @@ paths:
       - Encounter
       parameters:
       - name: patient
-        type: string
         in: query
         description: The patient present at the encounter. It is a required field.
+        schema:
+          type: string
       - name: date
-        type: string
         in: query
         description: A date or date range from which to find appointments. This must be set when using patient, practitioner or location. The 'date' parameter may be provided once without a prefix or time component to imply a date range or once without a prefix and with a time component to search for appointments at a specific time. Alternately it may be provided twice with 'le' and 'gt' prefixes to search for appointments within a specific range. The date prefix pair must create a closed range.
-        format: date
+        schema:
+          type: string
+          format: date
       - name: _format
         in: query
-        type: string
         x-consoleDefault: application/json
+        schema:
+          type: string
       responses:
         '200':
           description: Success
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Encounter'
-definitions:
-  Encounter:
-    description: ''
-    type: object
-    properties:
-      resourceType:
-        type: string
-        minLength: 1
-      id:
-        type: string
-        minLength: 1
-      text:
-        type: object
-        properties:
-          status:
-            type: string
-            minLength: 1
-          div:
-            type: string
-            minLength: 1
-        required:
-        - status
-        - div
-      status:
-        type: string
-        minLength: 1
-      class:
-        type: string
-        minLength: 1
-      patient:
-        type: object
-        properties:
-          reference:
-            type: string
-            minLength: 1
-        required:
-        - reference
-    required:
-    - resourceType
-    - id
-    - text
-    - status
-    - class
-    - patient
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Encounter'
+    servers:
+    - url: https://api.prod.devoted.com/fhir/
+components:
+  schemas:
+    Encounter:
+      description: ''
+      type: object
+      properties:
+        resourceType:
+          type: string
+          minLength: 1
+        id:
+          type: string
+          minLength: 1
+        text:
+          type: object
+          properties:
+            status:
+              type: string
+              minLength: 1
+            div:
+              type: string
+              minLength: 1
+          required:
+          - status
+          - div
+        status:
+          type: string
+          minLength: 1
+        class:
+          type: string
+          minLength: 1
+        patient:
+          type: object
+          properties:
+            reference:
+              type: string
+              minLength: 1
+          required:
+          - reference
+      required:
+      - resourceType
+      - id
+      - text
+      - status
+      - class
+      - patient
+x-refined-from:
+- devoted-health-patient-access-openapi-original.json
+- devoted-health-patient-access-openapi.json

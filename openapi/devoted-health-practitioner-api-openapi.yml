@@ -1,12 +1,12 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  description: "Fast Healthcare Interoperability Resources (FHIR, pronounced \"Fire\") defines a set of \"Resources\" that represent granular clinical concepts. The resources can be managed in isolation, or aggregated into complex documents. Technically, FHIR is designed for the web; the resources are based on simple XML or JSON structures, with an http-based RESTful protocol where each resource has predictable URL. Where possible, open internet standards are used for data representation. \n"
-  title: Untitled CodeSystem Practitioner API
-  version: unspecified
-host: api.prod.devoted.com
-basePath: /fhir/
-schemes:
-- https
+  title: HAPI FHIR Server Practitioner API
+  contact: {}
+  version: 6.6.0
+  description: The Practitioner FHIR resource type
+servers:
+- url: https://fhir.devoted.com/fhir
+  description: HAPI FHIR Server
 tags:
 - name: Practitioner
   description: The Practitioner FHIR resource type
@@ -187,11 +187,11 @@ paths:
       parameters:
       - name: address-state
         in: query
-        description: "Multiple Resources: \r\n\r\n* [Patient](patient.html): A state specified in an address\r\n* [Person](person.html): A state specified in an address\r\n* [Practitioner](practitioner.html): A state specified in an address\r\n* [RelatedPerson](relatedperson.html): A state specified in an address"
+        description: "Multiple Resources: \n\n* [Patient](patient.html): A state specified in an address\n* [Person](person.html): A state specified in an address\n* [Practitioner](practitioner.html): A state specified in an address\n* [RelatedPerson](relatedperson.html): A state specified in an address"
         style: simple
       - name: gender
         in: query
-        description: "Multiple Resources: \r\n\r\n* [Patient](patient.html): Gender of the patient\r\n* [Person](person.html): The gender of the person\r\n* [Practitioner](practitioner.html): Gender of the practitioner\r\n* [RelatedPerson](relatedperson.html): Gender of the related person"
+        description: "Multiple Resources: \n\n* [Patient](patient.html): Gender of the patient\n* [Person](person.html): The gender of the person\n* [Practitioner](practitioner.html): Gender of the practitioner\n* [RelatedPerson](relatedperson.html): Gender of the related person"
         style: simple
       - name: _lastUpdated
         in: query
@@ -199,19 +199,19 @@ paths:
         style: simple
       - name: address-country
         in: query
-        description: "Multiple Resources: \r\n\r\n* [Patient](patient.html): A country specified in an address\r\n* [Person](person.html): A country specified in an address\r\n* [Practitioner](practitioner.html): A country specified in an address\r\n* [RelatedPerson](relatedperson.html): A country specified in an address"
+        description: "Multiple Resources: \n\n* [Patient](patient.html): A country specified in an address\n* [Person](person.html): A country specified in an address\n* [Practitioner](practitioner.html): A country specified in an address\n* [RelatedPerson](relatedperson.html): A country specified in an address"
         style: simple
       - name: phonetic
         in: query
-        description: "Multiple Resources: \r\n\r\n* [Patient](patient.html): A portion of either family or given name using some kind of phonetic matching algorithm\r\n* [Person](person.html): A portion of name using some kind of phonetic matching algorithm\r\n* [Practitioner](practitioner.html): A portion of either family or given name using some kind of phonetic matching algorithm\r\n* [RelatedPerson](relatedperson.html): A portion of name using some kind of phonetic matching algorithm"
+        description: "Multiple Resources: \n\n* [Patient](patient.html): A portion of either family or given name using some kind of phonetic matching algorithm\n* [Person](person.html): A portion of name using some kind of phonetic matching algorithm\n* [Practitioner](practitioner.html): A portion of either family or given name using some kind of phonetic matching algorithm\n* [RelatedPerson](relatedperson.html): A portion of name using some kind of phonetic matching algorithm"
         style: simple
       - name: telecom
         in: query
-        description: "Multiple Resources: \r\n\r\n* [Patient](patient.html): The value in any kind of telecom details of the patient\r\n* [Person](person.html): The value in any kind of contact\r\n* [Practitioner](practitioner.html): The value in any kind of contact\r\n* [PractitionerRole](practitionerrole.html): The value in any kind of contact\r\n* [RelatedPerson](relatedperson.html): The value in any kind of contact"
+        description: "Multiple Resources: \n\n* [Patient](patient.html): The value in any kind of telecom details of the patient\n* [Person](person.html): The value in any kind of contact\n* [Practitioner](practitioner.html): The value in any kind of contact\n* [PractitionerRole](practitionerrole.html): The value in any kind of contact\n* [RelatedPerson](relatedperson.html): The value in any kind of contact"
         style: simple
       - name: address-city
         in: query
-        description: "Multiple Resources: \r\n\r\n* [Patient](patient.html): A city specified in an address\r\n* [Person](person.html): A city specified in an address\r\n* [Practitioner](practitioner.html): A city specified in an address\r\n* [RelatedPerson](relatedperson.html): A city specified in an address"
+        description: "Multiple Resources: \n\n* [Patient](patient.html): A city specified in an address\n* [Person](person.html): A city specified in an address\n* [Practitioner](practitioner.html): A city specified in an address\n* [RelatedPerson](relatedperson.html): A city specified in an address"
         style: simple
       - name: communication
         in: query
@@ -219,11 +219,11 @@ paths:
         style: simple
       - name: email
         in: query
-        description: "Multiple Resources: \r\n\r\n* [Patient](patient.html): A value in an email contact\r\n* [Person](person.html): A value in an email contact\r\n* [Practitioner](practitioner.html): A value in an email contact\r\n* [PractitionerRole](practitionerrole.html): A value in an email contact\r\n* [RelatedPerson](relatedperson.html): A value in an email contact"
+        description: "Multiple Resources: \n\n* [Patient](patient.html): A value in an email contact\n* [Person](person.html): A value in an email contact\n* [Practitioner](practitioner.html): A value in an email contact\n* [PractitionerRole](practitionerrole.html): A value in an email contact\n* [RelatedPerson](relatedperson.html): A value in an email contact"
         style: simple
       - name: given
         in: query
-        description: "Multiple Resources: \r\n\r\n* [Patient](patient.html): A portion of the given name of the patient\r\n* [Practitioner](practitioner.html): A portion of the given name"
+        description: "Multiple Resources: \n\n* [Patient](patient.html): A portion of the given name of the patient\n* [Practitioner](practitioner.html): A portion of the given name"
         style: simple
       - name: identifier
         in: query
@@ -231,7 +231,7 @@ paths:
         style: simple
       - name: address
         in: query
-        description: "Multiple Resources: \r\n\r\n* [Patient](patient.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\r\n* [Person](person.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\r\n* [Practitioner](practitioner.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\r\n* [RelatedPerson](relatedperson.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text"
+        description: "Multiple Resources: \n\n* [Patient](patient.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\n* [Person](person.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\n* [Practitioner](practitioner.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\n* [RelatedPerson](relatedperson.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text"
         style: simple
       - name: _security
         in: query
@@ -243,7 +243,7 @@ paths:
         style: simple
       - name: address-postalcode
         in: query
-        description: "Multiple Resources: \r\n\r\n* [Patient](patient.html): A postalCode specified in an address\r\n* [Person](person.html): A postal code specified in an address\r\n* [Practitioner](practitioner.html): A postalCode specified in an address\r\n* [RelatedPerson](relatedperson.html): A postal code specified in an address"
+        description: "Multiple Resources: \n\n* [Patient](patient.html): A postalCode specified in an address\n* [Person](person.html): A postal code specified in an address\n* [Practitioner](practitioner.html): A postalCode specified in an address\n* [RelatedPerson](relatedperson.html): A postal code specified in an address"
         style: simple
       - name: _filter
         in: query
@@ -255,7 +255,7 @@ paths:
         style: simple
       - name: phone
         in: query
-        description: "Multiple Resources: \r\n\r\n* [Patient](patient.html): A value in a phone contact\r\n* [Person](person.html): A value in a phone contact\r\n* [Practitioner](practitioner.html): A value in a phone contact\r\n* [PractitionerRole](practitionerrole.html): A value in a phone contact\r\n* [RelatedPerson](relatedperson.html): A value in a phone contact"
+        description: "Multiple Resources: \n\n* [Patient](patient.html): A value in a phone contact\n* [Person](person.html): A value in a phone contact\n* [Practitioner](practitioner.html): A value in a phone contact\n* [PractitionerRole](practitionerrole.html): A value in a phone contact\n* [RelatedPerson](relatedperson.html): A value in a phone contact"
         style: simple
       - name: _tag
         in: query
@@ -267,7 +267,7 @@ paths:
         style: simple
       - name: address-use
         in: query
-        description: "Multiple Resources: \r\n\r\n* [Patient](patient.html): A use code specified in an address\r\n* [Person](person.html): A use code specified in an address\r\n* [Practitioner](practitioner.html): A use code specified in an address\r\n* [RelatedPerson](relatedperson.html): A use code specified in an address"
+        description: "Multiple Resources: \n\n* [Patient](patient.html): A use code specified in an address\n* [Person](person.html): A use code specified in an address\n* [Practitioner](practitioner.html): A use code specified in an address\n* [RelatedPerson](relatedperson.html): A use code specified in an address"
         style: simple
       - name: name
         in: query
@@ -291,7 +291,7 @@ paths:
         style: simple
       - name: family
         in: query
-        description: "Multiple Resources: \r\n\r\n* [Patient](patient.html): A portion of the family name of the patient\r\n* [Practitioner](practitioner.html): A portion of the family name"
+        description: "Multiple Resources: \n\n* [Patient](patient.html): A portion of the family name of the patient\n* [Practitioner](practitioner.html): A portion of the family name"
         style: simple
       responses:
         '200':
@@ -385,11 +385,11 @@ paths:
       parameters:
       - name: address-state
         in: query
-        description: "Multiple Resources: \r\n\r\n* [Patient](patient.html): A state specified in an address\r\n* [Person](person.html): A state specified in an address\r\n* [Practitioner](practitioner.html): A state specified in an address\r\n* [RelatedPerson](relatedperson.html): A state specified in an address"
+        description: "Multiple Resources: \n\n* [Patient](patient.html): A state specified in an address\n* [Person](person.html): A state specified in an address\n* [Practitioner](practitioner.html): A state specified in an address\n* [RelatedPerson](relatedperson.html): A state specified in an address"
         style: simple
       - name: gender
         in: query
-        description: "Multiple Resources: \r\n\r\n* [Patient](patient.html): Gender of the patient\r\n* [Person](person.html): The gender of the person\r\n* [Practitioner](practitioner.html): Gender of the practitioner\r\n* [RelatedPerson](relatedperson.html): Gender of the related person"
+        description: "Multiple Resources: \n\n* [Patient](patient.html): Gender of the patient\n* [Person](person.html): The gender of the person\n* [Practitioner](practitioner.html): Gender of the practitioner\n* [RelatedPerson](relatedperson.html): Gender of the related person"
         style: simple
       - name: _lastUpdated
         in: query
@@ -397,19 +397,19 @@ paths:
         style: simple
       - name: address-country
         in: query
-        description: "Multiple Resources: \r\n\r\n* [Patient](patient.html): A country specified in an address\r\n* [Person](person.html): A country specified in an address\r\n* [Practitioner](practitioner.html): A country specified in an address\r\n* [RelatedPerson](relatedperson.html): A country specified in an address"
+        description: "Multiple Resources: \n\n* [Patient](patient.html): A country specified in an address\n* [Person](person.html): A country specified in an address\n* [Practitioner](practitioner.html): A country specified in an address\n* [RelatedPerson](relatedperson.html): A country specified in an address"
         style: simple
       - name: phonetic
         in: query
-        description: "Multiple Resources: \r\n\r\n* [Patient](patient.html): A portion of either family or given name using some kind of phonetic matching algorithm\r\n* [Person](person.html): A portion of name using some kind of phonetic matching algorithm\r\n* [Practitioner](practitioner.html): A portion of either family or given name using some kind of phonetic matching algorithm\r\n* [RelatedPerson](relatedperson.html): A portion of name using some kind of phonetic matching algorithm"
+        description: "Multiple Resources: \n\n* [Patient](patient.html): A portion of either family or given name using some kind of phonetic matching algorithm\n* [Person](person.html): A portion of name using some kind of phonetic matching algorithm\n* [Practitioner](practitioner.html): A portion of either family or given name using some kind of phonetic matching algorithm\n* [RelatedPerson](relatedperson.html): A portion of name using some kind of phonetic matching algorithm"
         style: simple
       - name: telecom
         in: query
-        description: "Multiple Resources: \r\n\r\n* [Patient](patient.html): The value in any kind of telecom details of the patient\r\n* [Person](person.html): The value in any kind of contact\r\n* [Practitioner](practitioner.html): The value in any kind of contact\r\n* [PractitionerRole](practitionerrole.html): The value in any kind of contact\r\n* [RelatedPerson](relatedperson.html): The value in any kind of contact"
+        description: "Multiple Resources: \n\n* [Patient](patient.html): The value in any kind of telecom details of the patient\n* [Person](person.html): The value in any kind of contact\n* [Practitioner](practitioner.html): The value in any kind of contact\n* [PractitionerRole](practitionerrole.html): The value in any kind of contact\n* [RelatedPerson](relatedperson.html): The value in any kind of contact"
         style: simple
       - name: address-city
         in: query
-        description: "Multiple Resources: \r\n\r\n* [Patient](patient.html): A city specified in an address\r\n* [Person](person.html): A city specified in an address\r\n* [Practitioner](practitioner.html): A city specified in an address\r\n* [RelatedPerson](relatedperson.html): A city specified in an address"
+        description: "Multiple Resources: \n\n* [Patient](patient.html): A city specified in an address\n* [Person](person.html): A city specified in an address\n* [Practitioner](practitioner.html): A city specified in an address\n* [RelatedPerson](relatedperson.html): A city specified in an address"
         style: simple
       - name: communication
         in: query
@@ -417,11 +417,11 @@ paths:
         style: simple
       - name: email
         in: query
-        description: "Multiple Resources: \r\n\r\n* [Patient](patient.html): A value in an email contact\r\n* [Person](person.html): A value in an email contact\r\n* [Practitioner](practitioner.html): A value in an email contact\r\n* [PractitionerRole](practitionerrole.html): A value in an email contact\r\n* [RelatedPerson](relatedperson.html): A value in an email contact"
+        description: "Multiple Resources: \n\n* [Patient](patient.html): A value in an email contact\n* [Person](person.html): A value in an email contact\n* [Practitioner](practitioner.html): A value in an email contact\n* [PractitionerRole](practitionerrole.html): A value in an email contact\n* [RelatedPerson](relatedperson.html): A value in an email contact"
         style: simple
       - name: given
         in: query
-        description: "Multiple Resources: \r\n\r\n* [Patient](patient.html): A portion of the given name of the patient\r\n* [Practitioner](practitioner.html): A portion of the given name"
+        description: "Multiple Resources: \n\n* [Patient](patient.html): A portion of the given name of the patient\n* [Practitioner](practitioner.html): A portion of the given name"
         style: simple
       - name: identifier
         in: query
@@ -429,7 +429,7 @@ paths:
         style: simple
       - name: address
         in: query
-        description: "Multiple Resources: \r\n\r\n* [Patient](patient.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\r\n* [Person](person.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\r\n* [Practitioner](practitioner.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\r\n* [RelatedPerson](relatedperson.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text"
+        description: "Multiple Resources: \n\n* [Patient](patient.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\n* [Person](person.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\n* [Practitioner](practitioner.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text\n* [RelatedPerson](relatedperson.html): A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text"
         style: simple
       - name: _security
         in: query
@@ -441,7 +441,7 @@ paths:
         style: simple
       - name: address-postalcode
         in: query
-        description: "Multiple Resources: \r\n\r\n* [Patient](patient.html): A postalCode specified in an address\r\n* [Person](person.html): A postal code specified in an address\r\n* [Practitioner](practitioner.html): A postalCode specified in an address\r\n* [RelatedPerson](relatedperson.html): A postal code specified in an address"
+        description: "Multiple Resources: \n\n* [Patient](patient.html): A postalCode specified in an address\n* [Person](person.html): A postal code specified in an address\n* [Practitioner](practitioner.html): A postalCode specified in an address\n* [RelatedPerson](relatedperson.html): A postal code specified in an address"
         style: simple
       - name: _filter
         in: query
@@ -453,7 +453,7 @@ paths:
         style: simple
       - name: phone
         in: query
-        description: "Multiple Resources: \r\n\r\n* [Patient](patient.html): A value in a phone contact\r\n* [Person](person.html): A value in a phone contact\r\n* [Practitioner](practitioner.html): A value in a phone contact\r\n* [PractitionerRole](practitionerrole.html): A value in a phone contact\r\n* [RelatedPerson](relatedperson.html): A value in a phone contact"
+        description: "Multiple Resources: \n\n* [Patient](patient.html): A value in a phone contact\n* [Person](person.html): A value in a phone contact\n* [Practitioner](practitioner.html): A value in a phone contact\n* [PractitionerRole](practitionerrole.html): A value in a phone contact\n* [RelatedPerson](relatedperson.html): A value in a phone contact"
         style: simple
       - name: _tag
         in: query
@@ -465,7 +465,7 @@ paths:
         style: simple
       - name: address-use
         in: query
-        description: "Multiple Resources: \r\n\r\n* [Patient](patient.html): A use code specified in an address\r\n* [Person](person.html): A use code specified in an address\r\n* [Practitioner](practitioner.html): A use code specified in an address\r\n* [RelatedPerson](relatedperson.html): A use code specified in an address"
+        description: "Multiple Resources: \n\n* [Patient](patient.html): A use code specified in an address\n* [Person](person.html): A use code specified in an address\n* [Practitioner](practitioner.html): A use code specified in an address\n* [RelatedPerson](relatedperson.html): A use code specified in an address"
         style: simple
       - name: name
         in: query
@@ -489,7 +489,7 @@ paths:
         style: simple
       - name: family
         in: query
-        description: "Multiple Resources: \r\n\r\n* [Patient](patient.html): A portion of the family name of the patient\r\n* [Practitioner](practitioner.html): A portion of the family name"
+        description: "Multiple Resources: \n\n* [Patient](patient.html): A portion of the family name of the patient\n* [Practitioner](practitioner.html): A portion of the family name"
         style: simple
       responses:
         '200':

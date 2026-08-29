@@ -1,12 +1,10 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  description: "Fast Healthcare Interoperability Resources (FHIR, pronounced \"Fire\") defines a set of \"Resources\" that represent granular clinical concepts. The resources can be managed in isolation, or aggregated into complex documents. Technically, FHIR is designed for the web; the resources are based on simple XML or JSON structures, with an http-based RESTful protocol where each resource has predictable URL. Where possible, open internet standards are used for data representation. \n"
-  title: Untitled CodeSystem Condition API
+  title: Devoted Health Condition API
   version: unspecified
-host: api.prod.devoted.com
-basePath: /fhir/
-schemes:
-- https
+  description: 'Operations tagged Condition across 2 of this provider''s published API definitions: devoted-health-patient-access-openapi-original.json, devoted-health-patient-access-openapi.json. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.prod.devoted.com/fhir/
 tags:
 - name: Condition
 paths:
@@ -16,144 +14,60 @@ paths:
       - Condition
       parameters:
       - name: patient
-        type: string
         in: query
         description: Who has the condition. It is a required field.
+        schema:
+          type: string
       - name: _format
         in: query
-        type: string
         x-consoleDefault: application/json
+        schema:
+          type: string
       responses:
         '200':
           description: Success
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Condition'
-definitions:
-  Condition:
-    description: ''
-    type: object
-    properties:
-      resourceType:
-        type: string
-        minLength: 1
-      id:
-        type: string
-        minLength: 1
-      text:
-        type: object
-        properties:
-          status:
-            type: string
-            minLength: 1
-          div:
-            type: string
-            minLength: 1
-        required:
-        - status
-        - div
-      patient:
-        type: object
-        properties:
-          reference:
-            type: string
-            minLength: 1
-        required:
-        - reference
-      code:
-        type: object
-        properties:
-          coding:
-            type: array
-            uniqueItems: true
-            minItems: 1
-            items:
-              required:
-              - system
-              - code
-              - display
-              properties:
-                system:
-                  type: string
-                  minLength: 1
-                code:
-                  type: string
-                  minLength: 1
-                display:
-                  type: string
-                  minLength: 1
-          text:
-            type: string
-            minLength: 1
-        required:
-        - coding
-        - text
-      category:
-        type: object
-        properties:
-          coding:
-            type: array
-            uniqueItems: true
-            minItems: 1
-            items:
-              required:
-              - system
-              - code
-              - display
-              properties:
-                fhir_comments:
-                  type: array
-                  items:
-                    properties: {}
-                system:
-                  type: string
-                  minLength: 1
-                code:
-                  type: string
-                  minLength: 1
-                display:
-                  type: string
-                  minLength: 1
-        required:
-        - coding
-      verificationStatus:
-        type: string
-        minLength: 1
-      severity:
-        type: object
-        properties:
-          coding:
-            type: array
-            uniqueItems: true
-            minItems: 1
-            items:
-              required:
-              - system
-              - code
-              - display
-              properties:
-                system:
-                  type: string
-                  minLength: 1
-                code:
-                  type: string
-                  minLength: 1
-                display:
-                  type: string
-                  minLength: 1
-        required:
-        - coding
-      onsetDateTime:
-        type: string
-        minLength: 1
-      bodySite:
-        type: array
-        uniqueItems: true
-        minItems: 1
-        items:
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Condition'
+    servers:
+    - url: https://api.prod.devoted.com/fhir/
+components:
+  schemas:
+    Condition:
+      description: ''
+      type: object
+      properties:
+        resourceType:
+          type: string
+          minLength: 1
+        id:
+          type: string
+          minLength: 1
+        text:
+          type: object
+          properties:
+            status:
+              type: string
+              minLength: 1
+            div:
+              type: string
+              minLength: 1
           required:
-          - text
+          - status
+          - div
+        patient:
+          type: object
+          properties:
+            reference:
+              type: string
+              minLength: 1
+          required:
+          - reference
+        code:
+          type: object
           properties:
             coding:
               type: array
@@ -177,14 +91,108 @@ definitions:
             text:
               type: string
               minLength: 1
-    required:
-    - resourceType
-    - id
-    - text
-    - patient
-    - code
-    - category
-    - verificationStatus
-    - severity
-    - onsetDateTime
-    - bodySite
+          required:
+          - coding
+          - text
+        category:
+          type: object
+          properties:
+            coding:
+              type: array
+              uniqueItems: true
+              minItems: 1
+              items:
+                required:
+                - system
+                - code
+                - display
+                properties:
+                  fhir_comments:
+                    type: array
+                    items:
+                      properties: {}
+                  system:
+                    type: string
+                    minLength: 1
+                  code:
+                    type: string
+                    minLength: 1
+                  display:
+                    type: string
+                    minLength: 1
+          required:
+          - coding
+        verificationStatus:
+          type: string
+          minLength: 1
+        severity:
+          type: object
+          properties:
+            coding:
+              type: array
+              uniqueItems: true
+              minItems: 1
+              items:
+                required:
+                - system
+                - code
+                - display
+                properties:
+                  system:
+                    type: string
+                    minLength: 1
+                  code:
+                    type: string
+                    minLength: 1
+                  display:
+                    type: string
+                    minLength: 1
+          required:
+          - coding
+        onsetDateTime:
+          type: string
+          minLength: 1
+        bodySite:
+          type: array
+          uniqueItems: true
+          minItems: 1
+          items:
+            required:
+            - text
+            properties:
+              coding:
+                type: array
+                uniqueItems: true
+                minItems: 1
+                items:
+                  required:
+                  - system
+                  - code
+                  - display
+                  properties:
+                    system:
+                      type: string
+                      minLength: 1
+                    code:
+                      type: string
+                      minLength: 1
+                    display:
+                      type: string
+                      minLength: 1
+              text:
+                type: string
+                minLength: 1
+      required:
+      - resourceType
+      - id
+      - text
+      - patient
+      - code
+      - category
+      - verificationStatus
+      - severity
+      - onsetDateTime
+      - bodySite
+x-refined-from:
+- devoted-health-patient-access-openapi-original.json
+- devoted-health-patient-access-openapi.json

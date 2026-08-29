@@ -1,12 +1,10 @@
-swagger: '2.0'
+openapi: 3.2.0
 info:
-  description: "Fast Healthcare Interoperability Resources (FHIR, pronounced \"Fire\") defines a set of \"Resources\" that represent granular clinical concepts. The resources can be managed in isolation, or aggregated into complex documents. Technically, FHIR is designed for the web; the resources are based on simple XML or JSON structures, with an http-based RESTful protocol where each resource has predictable URL. Where possible, open internet standards are used for data representation. \n"
-  title: Untitled CodeSystem Patient API
+  title: Devoted Health Patient API
   version: unspecified
-host: api.prod.devoted.com
-basePath: /fhir/
-schemes:
-- https
+  description: 'Operations tagged Patient across 2 of this provider''s published API definitions: devoted-health-patient-access-openapi-original.json, devoted-health-patient-access-openapi.json. Each path carries the servers of the definition it was published in.'
+servers:
+- url: https://api.prod.devoted.com/fhir/
 tags:
 - name: Patient
 paths:
@@ -16,151 +14,89 @@ paths:
       - Patient
       parameters:
       - name: _id
-        type: string
         in: query
         description: A patient identifier. Either the '_id' parameter, or 'identifier' must be provided.
+        schema:
+          type: string
       - name: identifier
-        type: string
         in: query
         description: A patient identifier. Either the '_id' parameter, or 'identifier' must be provided.
+        schema:
+          type: string
       - name: _format
         in: query
-        type: string
         x-consoleDefault: application/json
+        schema:
+          type: string
       responses:
         '200':
           description: Success
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Patient'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Patient'
+    servers:
+    - url: https://api.prod.devoted.com/fhir/
   /Patient/{id}:
     parameters:
     - in: path
       required: true
       name: id
-      type: string
+      schema:
+        type: string
     get:
       tags:
       - Patient
-      parameters: []
       responses:
         '200':
           description: Success
-          schema:
-            $ref: '#/definitions/Patient'
-definitions:
-  Patient:
-    description: ''
-    type: object
-    properties:
-      resourceType:
-        type: string
-        minLength: 1
-      id:
-        type: string
-        minLength: 1
-      text:
-        type: object
-        properties:
-          status:
-            type: string
-            minLength: 1
-          div:
-            type: string
-            minLength: 1
-        required:
-        - status
-        - div
-      identifier:
-        type: array
-        uniqueItems: true
-        minItems: 1
-        items:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Patient'
+    servers:
+    - url: https://api.prod.devoted.com/fhir/
+components:
+  schemas:
+    Patient:
+      description: ''
+      type: object
+      properties:
+        resourceType:
+          type: string
+          minLength: 1
+        id:
+          type: string
+          minLength: 1
+        text:
+          type: object
+          properties:
+            status:
+              type: string
+              minLength: 1
+            div:
+              type: string
+              minLength: 1
           required:
-          - use
-          - system
-          - value
-          properties:
-            use:
-              type: string
-              minLength: 1
-            type:
-              type: object
-              properties:
-                coding:
-                  type: array
-                  uniqueItems: true
-                  minItems: 1
-                  items:
-                    required:
-                    - system
-                    - code
-                    properties:
-                      system:
-                        type: string
-                        minLength: 1
-                      code:
-                        type: string
-                        minLength: 1
-              required:
-              - coding
-            system:
-              type: string
-              minLength: 1
-            value:
-              type: string
-              minLength: 1
-      active:
-        type: boolean
-      name:
-        type: array
-        uniqueItems: true
-        minItems: 1
-        items:
-          required:
-          - use
-          properties:
-            use:
-              type: string
-              minLength: 1
-            family:
-              type: array
-              items:
-                properties: {}
-            given:
-              type: array
-              items:
-                properties: {}
-      gender:
-        type: string
-        minLength: 1
-      photo:
-        type: array
-        uniqueItems: true
-        minItems: 1
-        items:
-          required:
-          - contentType
-          - data
-          properties:
-            contentType:
-              type: string
-              minLength: 1
-            data:
-              type: string
-              minLength: 1
-      contact:
-        type: array
-        uniqueItems: true
-        minItems: 1
-        items:
-          properties:
-            relationship:
-              type: array
-              uniqueItems: true
-              minItems: 1
-              items:
+          - status
+          - div
+        identifier:
+          type: array
+          uniqueItems: true
+          minItems: 1
+          items:
+            required:
+            - use
+            - system
+            - value
+            properties:
+              use:
+                type: string
+                minLength: 1
+              type:
+                type: object
                 properties:
                   coding:
                     type: array
@@ -177,58 +113,135 @@ definitions:
                         code:
                           type: string
                           minLength: 1
-            organization:
-              type: object
-              properties:
-                reference:
-                  type: string
-                  minLength: 1
-                display:
-                  type: string
-                  minLength: 1
-              required:
-              - reference
-              - display
-      managingOrganization:
-        type: object
-        properties:
-          reference:
-            type: string
-            minLength: 1
-          display:
-            type: string
-            minLength: 1
-        required:
-        - reference
-        - display
-      link:
-        type: array
-        uniqueItems: true
-        minItems: 1
-        items:
-          required:
-          - type
+                required:
+                - coding
+              system:
+                type: string
+                minLength: 1
+              value:
+                type: string
+                minLength: 1
+        active:
+          type: boolean
+        name:
+          type: array
+          uniqueItems: true
+          minItems: 1
+          items:
+            required:
+            - use
+            properties:
+              use:
+                type: string
+                minLength: 1
+              family:
+                type: array
+                items:
+                  properties: {}
+              given:
+                type: array
+                items:
+                  properties: {}
+        gender:
+          type: string
+          minLength: 1
+        photo:
+          type: array
+          uniqueItems: true
+          minItems: 1
+          items:
+            required:
+            - contentType
+            - data
+            properties:
+              contentType:
+                type: string
+                minLength: 1
+              data:
+                type: string
+                minLength: 1
+        contact:
+          type: array
+          uniqueItems: true
+          minItems: 1
+          items:
+            properties:
+              relationship:
+                type: array
+                uniqueItems: true
+                minItems: 1
+                items:
+                  properties:
+                    coding:
+                      type: array
+                      uniqueItems: true
+                      minItems: 1
+                      items:
+                        required:
+                        - system
+                        - code
+                        properties:
+                          system:
+                            type: string
+                            minLength: 1
+                          code:
+                            type: string
+                            minLength: 1
+              organization:
+                type: object
+                properties:
+                  reference:
+                    type: string
+                    minLength: 1
+                  display:
+                    type: string
+                    minLength: 1
+                required:
+                - reference
+                - display
+        managingOrganization:
+          type: object
           properties:
-            other:
-              type: object
-              properties:
-                reference:
-                  type: string
-                  minLength: 1
-              required:
-              - reference
-            type:
+            reference:
               type: string
               minLength: 1
-    required:
-    - resourceType
-    - id
-    - text
-    - identifier
-    - active
-    - name
-    - gender
-    - photo
-    - contact
-    - managingOrganization
-    - link
+            display:
+              type: string
+              minLength: 1
+          required:
+          - reference
+          - display
+        link:
+          type: array
+          uniqueItems: true
+          minItems: 1
+          items:
+            required:
+            - type
+            properties:
+              other:
+                type: object
+                properties:
+                  reference:
+                    type: string
+                    minLength: 1
+                required:
+                - reference
+              type:
+                type: string
+                minLength: 1
+      required:
+      - resourceType
+      - id
+      - text
+      - identifier
+      - active
+      - name
+      - gender
+      - photo
+      - contact
+      - managingOrganization
+      - link
+x-refined-from:
+- devoted-health-patient-access-openapi-original.json
+- devoted-health-patient-access-openapi.json
