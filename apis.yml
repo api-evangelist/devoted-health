@@ -353,7 +353,7 @@ apis:
   humanURL: https://www.devoted.com/developers/
   baseURL: https://api.prod.devoted.com/fhir
   tags:
-  - SearchParameter
+  - Search Parameter
   tags_raw:
   - SearchParameter
   properties:
