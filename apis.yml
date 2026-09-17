@@ -115,7 +115,8 @@ apis:
     url: https://fhir.devoted.com
 - aid: devoted-health:devoted-health-explanationofbenefit-api
   name: Devoted Health ExplanationOfBenefit API
-  description: The ExplanationOfBenefit API from Devoted Health — 1 operation(s) for explanationofbenefit.
+  description: >-
+    The ExplanationOfBenefit API from Devoted Health — 1 operation(s) for explanationofbenefit.
   humanURL: https://www.devoted.com/developers/
   baseURL: https://api.prod.devoted.com/fhir
   tags:
@@ -123,42 +124,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/devoted-health-explanationofbenefit-api-openapi.yml
-  - type: CapabilityStatement
-    url: conformance/devoted-health-patient-access-capabilitystatement.json
-  - type: APIReference
-    url: https://devoted.com/developers/fhir/swagger/
-  - type: CapabilityStatement
-    url: conformance/devoted-health-provider-directory-capabilitystatement.json
-  - type: APIReference
-    url: https://fhir.devoted.com
-- aid: devoted-health:devoted-health-healthcareservice-api
-  name: Devoted Health HealthcareService API
-  description: The HealthcareService FHIR resource type
-  humanURL: https://www.devoted.com/developers/
-  baseURL: https://api.prod.devoted.com/fhir
-  tags:
-  - HealthcareService
-  properties:
-  - type: OpenAPI
-    url: openapi/devoted-health-healthcareservice-api-openapi.yml
-  - type: CapabilityStatement
-    url: conformance/devoted-health-patient-access-capabilitystatement.json
-  - type: APIReference
-    url: https://devoted.com/developers/fhir/swagger/
-  - type: CapabilityStatement
-    url: conformance/devoted-health-provider-directory-capabilitystatement.json
-  - type: APIReference
-    url: https://fhir.devoted.com
-- aid: devoted-health:devoted-health-insuranceplan-api
-  name: Devoted Health InsurancePlan API
-  description: The InsurancePlan FHIR resource type
-  humanURL: https://www.devoted.com/developers/
-  baseURL: https://api.prod.devoted.com/fhir
-  tags:
-  - InsurancePlan
-  properties:
-  - type: OpenAPI
-    url: openapi/devoted-health-insuranceplan-api-openapi.yml
   - type: CapabilityStatement
     url: conformance/devoted-health-patient-access-capabilitystatement.json
   - type: APIReference
@@ -329,44 +294,6 @@ apis:
     url: conformance/devoted-health-provider-directory-capabilitystatement.json
   - type: APIReference
     url: https://fhir.devoted.com
-- aid: devoted-health:devoted-health-practitionerrole-api
-  name: Devoted Health PractitionerRole API
-  description: The PractitionerRole FHIR resource type
-  humanURL: https://www.devoted.com/developers/
-  baseURL: https://api.prod.devoted.com/fhir
-  tags:
-  - PractitionerRole
-  properties:
-  - type: OpenAPI
-    url: openapi/devoted-health-practitionerrole-api-openapi.yml
-  - type: CapabilityStatement
-    url: conformance/devoted-health-patient-access-capabilitystatement.json
-  - type: APIReference
-    url: https://devoted.com/developers/fhir/swagger/
-  - type: CapabilityStatement
-    url: conformance/devoted-health-provider-directory-capabilitystatement.json
-  - type: APIReference
-    url: https://fhir.devoted.com
-- aid: devoted-health:devoted-health-searchparameter-api
-  name: Devoted Health SearchParameter API
-  description: The SearchParameter FHIR resource type
-  humanURL: https://www.devoted.com/developers/
-  baseURL: https://api.prod.devoted.com/fhir
-  tags:
-  - Search Parameter
-  tags_raw:
-  - SearchParameter
-  properties:
-  - type: OpenAPI
-    url: openapi/devoted-health-searchparameter-api-openapi.yml
-  - type: CapabilityStatement
-    url: conformance/devoted-health-patient-access-capabilitystatement.json
-  - type: APIReference
-    url: https://devoted.com/developers/fhir/swagger/
-  - type: CapabilityStatement
-    url: conformance/devoted-health-provider-directory-capabilitystatement.json
-  - type: APIReference
-    url: https://fhir.devoted.com
 - aid: devoted-health:devoted-health-structuredefinition-api
   name: Devoted Health StructureDefinition API
   description: The StructureDefinition FHIR resource type
@@ -440,18 +367,92 @@ apis:
   - type: APIReference
     url: https://fhir.devoted.com
 - name: Provider & Pharmacy Directory API
-  description: Public FHIR R4 API for in-network providers, facilities, and pharmacies, based on the Da
-    Vinci PDEX Plan-Net reference implementation.
+  description: >-
+    Public FHIR R4 API for in-network providers, facilities, and pharmacies, based on the Da Vinci PDEX
+    Plan-Net reference implementation.
   humanURL: https://www.devoted.com/developers/
   baseURL: https://fhir.devoted.com/fhir
   properties:
   - type: CapabilityStatement
     url: conformance/devoted-health-directory-capabilitystatement.json
 - name: Plan Coverage & Formularies API
-  description: Public FHIR R4 API for drug formulary information, based on the Da Vinci PDEX US Drug Formulary
-    implementation guide.
+  description: >-
+    Public FHIR R4 API for drug formulary information, based on the Da Vinci PDEX US Drug Formulary implementation
+    guide.
   humanURL: https://www.devoted.com/developers/
   baseURL: https://fhir.devoted.com/fhir
+- aid: devoted-health:devoted-health-healthcare-service-api
+  name: Devoted Health Healthcare Service API
+  description: The HealthcareService FHIR resource type
+  humanURL: https://www.devoted.com/developers/
+  baseURL: https://api.prod.devoted.com/fhir
+  tags:
+  - Healthcare Service
+  properties:
+  - type: OpenAPI
+    url: openapi/devoted-health-healthcare-service-api-openapi.yml
+  - type: CapabilityStatement
+    url: conformance/devoted-health-patient-access-capabilitystatement.json
+  - type: APIReference
+    url: https://devoted.com/developers/fhir/swagger/
+  - type: CapabilityStatement
+    url: conformance/devoted-health-provider-directory-capabilitystatement.json
+  - type: APIReference
+    url: https://fhir.devoted.com
+- aid: devoted-health:devoted-health-insurance-plan-api
+  name: Devoted Health Insurance Plan API
+  description: The InsurancePlan FHIR resource type
+  humanURL: https://www.devoted.com/developers/
+  baseURL: https://api.prod.devoted.com/fhir
+  tags:
+  - Insurance Plan
+  properties:
+  - type: OpenAPI
+    url: openapi/devoted-health-insurance-plan-api-openapi.yml
+  - type: CapabilityStatement
+    url: conformance/devoted-health-patient-access-capabilitystatement.json
+  - type: APIReference
+    url: https://devoted.com/developers/fhir/swagger/
+  - type: CapabilityStatement
+    url: conformance/devoted-health-provider-directory-capabilitystatement.json
+  - type: APIReference
+    url: https://fhir.devoted.com
+- aid: devoted-health:devoted-health-practitioner-role-api
+  name: Devoted Health Practitioner Role API
+  description: The PractitionerRole FHIR resource type
+  humanURL: https://www.devoted.com/developers/
+  baseURL: https://api.prod.devoted.com/fhir
+  tags:
+  - Practitioner Role
+  properties:
+  - type: OpenAPI
+    url: openapi/devoted-health-practitioner-role-api-openapi.yml
+  - type: CapabilityStatement
+    url: conformance/devoted-health-patient-access-capabilitystatement.json
+  - type: APIReference
+    url: https://devoted.com/developers/fhir/swagger/
+  - type: CapabilityStatement
+    url: conformance/devoted-health-provider-directory-capabilitystatement.json
+  - type: APIReference
+    url: https://fhir.devoted.com
+- aid: devoted-health:devoted-health-search-parameter-api
+  name: Devoted Health Search Parameter API
+  description: The SearchParameter FHIR resource type
+  humanURL: https://www.devoted.com/developers/
+  baseURL: https://api.prod.devoted.com/fhir
+  tags:
+  - Search Parameter
+  properties:
+  - type: OpenAPI
+    url: openapi/devoted-health-search-parameter-api-openapi.yml
+  - type: CapabilityStatement
+    url: conformance/devoted-health-patient-access-capabilitystatement.json
+  - type: APIReference
+    url: https://devoted.com/developers/fhir/swagger/
+  - type: CapabilityStatement
+    url: conformance/devoted-health-provider-directory-capabilitystatement.json
+  - type: APIReference
+    url: https://fhir.devoted.com
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
