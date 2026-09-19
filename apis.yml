@@ -264,6 +264,8 @@ apis:
   humanURL: https://www.devoted.com/developers/
   baseURL: https://api.prod.devoted.com/fhir
   tags:
+  - Patients
+  tags_raw:
   - Patient
   properties:
   - type: OpenAPI
@@ -387,6 +389,8 @@ apis:
   humanURL: https://www.devoted.com/developers/
   baseURL: https://api.prod.devoted.com/fhir
   tags:
+  - HealthcareService
+  tags_raw:
   - Healthcare Service
   properties:
   - type: OpenAPI
@@ -405,6 +409,8 @@ apis:
   humanURL: https://www.devoted.com/developers/
   baseURL: https://api.prod.devoted.com/fhir
   tags:
+  - InsurancePlan
+  tags_raw:
   - Insurance Plan
   properties:
   - type: OpenAPI
@@ -423,6 +429,8 @@ apis:
   humanURL: https://www.devoted.com/developers/
   baseURL: https://api.prod.devoted.com/fhir
   tags:
+  - PractitionerRole
+  tags_raw:
   - Practitioner Role
   properties:
   - type: OpenAPI
