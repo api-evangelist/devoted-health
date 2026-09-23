@@ -39,10 +39,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getLocationById
+      x-operation-id-source: derived
     put:
       tags:
       - Location
-      summary: 'update-instance: Update an existing Location instance, or create using a client-assigned ID'
+      summary: 'update-instance: Update an existing Location instance, or create using a…'
       parameters:
       - name: id
         in: path
@@ -76,6 +78,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: putLocationById
+      x-operation-id-source: derived
     delete:
       tags:
       - Location
@@ -103,6 +107,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: deleteLocationById
+      x-operation-id-source: derived
     patch:
       tags:
       - Location
@@ -140,6 +146,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: patchLocationById
+      x-operation-id-source: derived
   /Location/{id}/_history/{version_id}:
     get:
       tags:
@@ -178,6 +186,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getLocationByIdHistoryByVersionId
+      x-operation-id-source: derived
   /Location:
     get:
       tags:
@@ -305,6 +315,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getLocation
+      x-operation-id-source: derived
     post:
       tags:
       - Location
@@ -331,11 +343,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: postLocation
+      x-operation-id-source: derived
   /Location/_history:
     get:
       tags:
       - Location
-      summary: 'type-history: Fetch the resource change history for all resources of type Location'
+      summary: 'type-history: Fetch the resource change history for all resources of type…'
       responses:
         '200':
           description: Success
@@ -348,11 +362,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getLocationHistory
+      x-operation-id-source: derived
   /Location/{id}/_history:
     get:
       tags:
       - Location
-      summary: 'instance-history: Fetch the resource change history for all resources of type Location'
+      summary: 'instance-history: Fetch the resource change history for all resources of type…'
       parameters:
       - name: id
         in: path
@@ -376,6 +392,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getLocationByIdHistory
+      x-operation-id-source: derived
   /Location/_search:
     get:
       tags:
@@ -503,6 +521,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getLocationSearch
+      x-operation-id-source: derived
   /Location/$validate:
     get:
       tags:
@@ -524,6 +544,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get location $validate
+      x-summary-source: derived
+      operationId: getLocation$validate
+      x-operation-id-source: derived
     post:
       tags:
       - Location
@@ -547,6 +571,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create location $validate
+      x-summary-source: derived
+      operationId: postLocation$validate
+      x-operation-id-source: derived
   /Location/{id}/$validate:
     get:
       tags:
@@ -578,6 +606,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get location by id $validate
+      x-summary-source: derived
+      operationId: getLocationById$validate
+      x-operation-id-source: derived
     post:
       tags:
       - Location
@@ -612,6 +644,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create location by id $validate
+      x-summary-source: derived
+      operationId: postLocationById$validate
+      x-operation-id-source: derived
   /Location/{id}/$meta-delete:
     post:
       tags:
@@ -648,6 +684,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create location by id $meta delete
+      x-summary-source: derived
+      operationId: postLocationById$metaDelete
+      x-operation-id-source: derived
   /Location/{id}/$meta-add:
     post:
       tags:
@@ -684,6 +724,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create location by id $meta add
+      x-summary-source: derived
+      operationId: postLocationById$metaAdd
+      x-operation-id-source: derived
   /Location/$meta:
     get:
       tags:
@@ -701,6 +745,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get location $meta
+      x-summary-source: derived
+      operationId: getLocation$meta
+      x-operation-id-source: derived
     post:
       tags:
       - Location
@@ -725,6 +773,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create location $meta
+      x-summary-source: derived
+      operationId: postLocation$meta
+      x-operation-id-source: derived
   /Location/{id}/$meta:
     get:
       tags:
@@ -753,6 +805,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get location by id $meta
+      x-summary-source: derived
+      operationId: getLocationById$meta
+      x-operation-id-source: derived
     post:
       tags:
       - Location
@@ -788,6 +844,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create location by id $meta
+      x-summary-source: derived
+      operationId: postLocationById$meta
+      x-operation-id-source: derived
   /Location/$expunge:
     post:
       tags:
@@ -812,6 +872,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create location $expunge
+      x-summary-source: derived
+      operationId: postLocation$expunge
+      x-operation-id-source: derived
   /Location/{id}/$expunge:
     post:
       tags:
@@ -847,6 +911,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create location by id $expunge
+      x-summary-source: derived
+      operationId: postLocationById$expunge
+      x-operation-id-source: derived
 components:
   schemas:
     FHIR-JSON-RESOURCE:

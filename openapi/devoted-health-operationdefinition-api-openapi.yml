@@ -39,10 +39,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getOperationDefinitionById
+      x-operation-id-source: derived
     put:
       tags:
       - OperationDefinition
-      summary: 'update-instance: Update an existing OperationDefinition instance, or create using a client-assigned ID'
+      summary: 'update-instance: Update an existing OperationDefinition instance, or create…'
       parameters:
       - name: id
         in: path
@@ -76,6 +78,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: putOperationDefinitionById
+      x-operation-id-source: derived
     delete:
       tags:
       - OperationDefinition
@@ -103,6 +107,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: deleteOperationDefinitionById
+      x-operation-id-source: derived
     patch:
       tags:
       - OperationDefinition
@@ -140,6 +146,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: patchOperationDefinitionById
+      x-operation-id-source: derived
   /OperationDefinition/{id}/_history/{version_id}:
     get:
       tags:
@@ -178,6 +186,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getOperationDefinitionByIdHistoryByVersionId
+      x-operation-id-source: derived
   /OperationDefinition:
     get:
       tags:
@@ -325,6 +335,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getOperationDefinition
+      x-operation-id-source: derived
     post:
       tags:
       - OperationDefinition
@@ -351,11 +363,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: postOperationDefinition
+      x-operation-id-source: derived
   /OperationDefinition/_history:
     get:
       tags:
       - OperationDefinition
-      summary: 'type-history: Fetch the resource change history for all resources of type OperationDefinition'
+      summary: 'type-history: Fetch the resource change history for all resources of type…'
       responses:
         '200':
           description: Success
@@ -368,11 +382,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getOperationDefinitionHistory
+      x-operation-id-source: derived
   /OperationDefinition/{id}/_history:
     get:
       tags:
       - OperationDefinition
-      summary: 'instance-history: Fetch the resource change history for all resources of type OperationDefinition'
+      summary: 'instance-history: Fetch the resource change history for all resources of type…'
       parameters:
       - name: id
         in: path
@@ -396,6 +412,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getOperationDefinitionByIdHistory
+      x-operation-id-source: derived
   /OperationDefinition/_search:
     get:
       tags:
@@ -543,6 +561,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getOperationDefinitionSearch
+      x-operation-id-source: derived
   /OperationDefinition/$validate:
     get:
       tags:
@@ -564,6 +584,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get operation definition $validate
+      x-summary-source: derived
+      operationId: getOperationDefinition$validate
+      x-operation-id-source: derived
     post:
       tags:
       - OperationDefinition
@@ -587,6 +611,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create operation definition $validate
+      x-summary-source: derived
+      operationId: postOperationDefinition$validate
+      x-operation-id-source: derived
   /OperationDefinition/{id}/$validate:
     get:
       tags:
@@ -618,6 +646,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get operation definition by id $validate
+      x-summary-source: derived
+      operationId: getOperationDefinitionById$validate
+      x-operation-id-source: derived
     post:
       tags:
       - OperationDefinition
@@ -652,6 +684,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create operation definition by id $validate
+      x-summary-source: derived
+      operationId: postOperationDefinitionById$validate
+      x-operation-id-source: derived
   /OperationDefinition/{id}/$meta-delete:
     post:
       tags:
@@ -688,6 +724,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create operation definition by id $meta delete
+      x-summary-source: derived
+      operationId: postOperationDefinitionById$metaDelete
+      x-operation-id-source: derived
   /OperationDefinition/{id}/$meta-add:
     post:
       tags:
@@ -724,6 +764,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create operation definition by id $meta add
+      x-summary-source: derived
+      operationId: postOperationDefinitionById$metaAdd
+      x-operation-id-source: derived
   /OperationDefinition/$meta:
     get:
       tags:
@@ -741,6 +785,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get operation definition $meta
+      x-summary-source: derived
+      operationId: getOperationDefinition$meta
+      x-operation-id-source: derived
     post:
       tags:
       - OperationDefinition
@@ -765,6 +813,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create operation definition $meta
+      x-summary-source: derived
+      operationId: postOperationDefinition$meta
+      x-operation-id-source: derived
   /OperationDefinition/{id}/$meta:
     get:
       tags:
@@ -793,6 +845,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get operation definition by id $meta
+      x-summary-source: derived
+      operationId: getOperationDefinitionById$meta
+      x-operation-id-source: derived
     post:
       tags:
       - OperationDefinition
@@ -828,6 +884,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create operation definition by id $meta
+      x-summary-source: derived
+      operationId: postOperationDefinitionById$meta
+      x-operation-id-source: derived
   /OperationDefinition/$expunge:
     post:
       tags:
@@ -852,6 +912,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create operation definition $expunge
+      x-summary-source: derived
+      operationId: postOperationDefinition$expunge
+      x-operation-id-source: derived
   /OperationDefinition/{id}/$expunge:
     post:
       tags:
@@ -887,6 +951,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create operation definition by id $expunge
+      x-summary-source: derived
+      operationId: postOperationDefinitionById$expunge
+      x-operation-id-source: derived
 components:
   schemas:
     FHIR-JSON-RESOURCE:

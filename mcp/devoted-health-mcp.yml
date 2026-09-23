@@ -2,11 +2,10 @@ generated: '2026-07-18'
 method: derived
 status: candidate
 source: openapi/devoted-health-patient-access-openapi-original.json, openapi/devoted-health-provider-directory-openapi-original.yml
-notes: >-
-  No official hosted Devoted Health MCP server was found. This is a candidate
-  tool surface derived from the two FHIR APIs' read/search interactions, one tool
-  per resource interaction. All tools require SMART-on-FHIR OAuth 2.0; Patient
-  Access tools additionally require a member-authorized patient-scoped token.
+notes: No official hosted Devoted Health MCP server was found. This is a candidate tool surface derived
+  from the two FHIR APIs' read/search interactions, one tool per resource interaction. All tools require
+  SMART-on-FHIR OAuth 2.0; Patient Access tools additionally require a member-authorized patient-scoped
+  token.
 server:
   name: devoted-health
   transport: http
@@ -50,3 +49,9 @@ tools:
 - name: search_medication_knowledge
   description: Search the drug formulary (MedicationKnowledge).
   source_operation: openapi/devoted-health-provider-directory-openapi-original.yml#GET /MedicationKnowledge
+deployment:
+  mode: none
+  verified: derived
+  tools: 12
+  checked: '2026-08-12'
+  source: catalog MCP census

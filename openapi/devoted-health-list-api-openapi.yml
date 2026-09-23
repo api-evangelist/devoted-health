@@ -39,10 +39,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getListById
+      x-operation-id-source: derived
     put:
       tags:
       - List
-      summary: 'update-instance: Update an existing List instance, or create using a client-assigned ID'
+      summary: 'update-instance: Update an existing List instance, or create using a…'
       parameters:
       - name: id
         in: path
@@ -76,6 +78,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: putListById
+      x-operation-id-source: derived
     delete:
       tags:
       - List
@@ -103,6 +107,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: deleteListById
+      x-operation-id-source: derived
     patch:
       tags:
       - List
@@ -140,6 +146,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: patchListById
+      x-operation-id-source: derived
   /List/{id}/_history/{version_id}:
     get:
       tags:
@@ -178,6 +186,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getListByIdHistoryByVersionId
+      x-operation-id-source: derived
   /List:
     get:
       tags:
@@ -285,6 +295,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getList
+      x-operation-id-source: derived
     post:
       tags:
       - List
@@ -311,6 +323,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: postList
+      x-operation-id-source: derived
   /List/_history:
     get:
       tags:
@@ -328,11 +342,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getListHistory
+      x-operation-id-source: derived
   /List/{id}/_history:
     get:
       tags:
       - List
-      summary: 'instance-history: Fetch the resource change history for all resources of type List'
+      summary: 'instance-history: Fetch the resource change history for all resources of type…'
       parameters:
       - name: id
         in: path
@@ -356,6 +372,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getListByIdHistory
+      x-operation-id-source: derived
   /List/_search:
     get:
       tags:
@@ -463,6 +481,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getListSearch
+      x-operation-id-source: derived
   /List/$validate:
     get:
       tags:
@@ -484,6 +504,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get list $validate
+      x-summary-source: derived
+      operationId: getList$validate
+      x-operation-id-source: derived
     post:
       tags:
       - List
@@ -507,6 +531,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create list $validate
+      x-summary-source: derived
+      operationId: postList$validate
+      x-operation-id-source: derived
   /List/{id}/$validate:
     get:
       tags:
@@ -538,6 +566,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get list by id $validate
+      x-summary-source: derived
+      operationId: getListById$validate
+      x-operation-id-source: derived
     post:
       tags:
       - List
@@ -572,6 +604,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create list by id $validate
+      x-summary-source: derived
+      operationId: postListById$validate
+      x-operation-id-source: derived
   /List/{id}/$meta-delete:
     post:
       tags:
@@ -608,6 +644,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create list by id $meta delete
+      x-summary-source: derived
+      operationId: postListById$metaDelete
+      x-operation-id-source: derived
   /List/{id}/$meta-add:
     post:
       tags:
@@ -644,6 +684,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create list by id $meta add
+      x-summary-source: derived
+      operationId: postListById$metaAdd
+      x-operation-id-source: derived
   /List/$meta:
     get:
       tags:
@@ -661,6 +705,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get list $meta
+      x-summary-source: derived
+      operationId: getList$meta
+      x-operation-id-source: derived
     post:
       tags:
       - List
@@ -685,6 +733,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create list $meta
+      x-summary-source: derived
+      operationId: postList$meta
+      x-operation-id-source: derived
   /List/{id}/$meta:
     get:
       tags:
@@ -713,6 +765,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get list by id $meta
+      x-summary-source: derived
+      operationId: getListById$meta
+      x-operation-id-source: derived
     post:
       tags:
       - List
@@ -748,6 +804,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create list by id $meta
+      x-summary-source: derived
+      operationId: postListById$meta
+      x-operation-id-source: derived
   /List/$expunge:
     post:
       tags:
@@ -772,6 +832,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create list $expunge
+      x-summary-source: derived
+      operationId: postList$expunge
+      x-operation-id-source: derived
   /List/{id}/$expunge:
     post:
       tags:
@@ -807,6 +871,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create list by id $expunge
+      x-summary-source: derived
+      operationId: postListById$expunge
+      x-operation-id-source: derived
 components:
   schemas:
     FHIR-JSON-RESOURCE:

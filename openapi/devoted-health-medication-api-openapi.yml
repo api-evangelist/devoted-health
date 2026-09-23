@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
-  title: Devoted Health Medication API
+  description: Fast Healthcare Interoperability Resources (FHIR, pronounced "Fire") defines a set of "Resources" that represent granular clinical concepts. The resources can be managed in isolation, or aggregated into complex documents. Technically, FHIR is designed for the web; the resources are based on simple XML or JSON structures, with an http-based RESTful protocol where each resource has predictable URL. Where possible, open internet standards are used for data representation.
+  title: Untitled Medication API
   version: unspecified
-  description: 'Operations tagged Medication across 2 of this provider''s published API definitions: devoted-health-patient-access-openapi-original.json, devoted-health-patient-access-openapi.json. Each path carries the servers of the definition it was published in.'
 servers:
 - url: https://api.prod.devoted.com/fhir/
 tags:
@@ -32,8 +32,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Medication'
-    servers:
-    - url: https://api.prod.devoted.com/fhir/
+      summary: Get medication
+      x-summary-source: derived
+      operationId: getMedication
+      x-operation-id-source: derived
 components:
   schemas:
     Medication:
@@ -134,6 +136,3 @@ components:
       - code
       - isBrand
       - package
-x-refined-from:
-- devoted-health-patient-access-openapi-original.json
-- devoted-health-patient-access-openapi.json

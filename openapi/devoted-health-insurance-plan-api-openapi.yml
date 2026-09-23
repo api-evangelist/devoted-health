@@ -1,21 +1,21 @@
 openapi: 3.2.0
 info:
-  title: HAPI FHIR Server Practitioner Role API
+  title: HAPI FHIR Server Insurance Plan API
   contact: {}
   version: 6.6.0
-  description: The PractitionerRole FHIR resource type
+  description: The InsurancePlan FHIR resource type
 servers:
 - url: https://fhir.devoted.com/fhir
   description: HAPI FHIR Server
 tags:
-- name: PractitionerRole
-  description: The PractitionerRole FHIR resource type
+- name: Insurance Plan
+  description: The InsurancePlan FHIR resource type
 paths:
-  /PractitionerRole/{id}:
+  /InsurancePlan/{id}:
     get:
       tags:
-      - PractitionerRole
-      summary: 'read-instance: Read PractitionerRole instance'
+      - Insurance Plan
+      summary: 'read-instance: Read InsurancePlan instance'
       parameters:
       - name: id
         in: path
@@ -39,10 +39,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getInsurancePlanById
+      x-operation-id-source: derived
     put:
       tags:
-      - PractitionerRole
-      summary: 'update-instance: Update an existing PractitionerRole instance, or create using a client-assigned ID'
+      - Insurance Plan
+      summary: 'update-instance: Update an existing InsurancePlan instance, or create using a…'
       parameters:
       - name: id
         in: path
@@ -59,11 +61,11 @@ paths:
           application/fhir+json:
             schema:
               $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
-            example: "{\n  \"resourceType\": \"PractitionerRole\"\n}"
+            example: "{\n  \"resourceType\": \"InsurancePlan\"\n}"
           application/fhir+xml:
             schema:
               $ref: '#/components/schemas/FHIR-XML-RESOURCE'
-            example: <PractitionerRole xmlns="http://hl7.org/fhir"/>
+            example: <InsurancePlan xmlns="http://hl7.org/fhir"/>
       responses:
         '200':
           description: Success
@@ -76,9 +78,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: putInsurancePlanById
+      x-operation-id-source: derived
     delete:
       tags:
-      - PractitionerRole
+      - Insurance Plan
       summary: 'instance-delete: Perform a logical delete on a resource instance'
       parameters:
       - name: id
@@ -103,10 +107,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: deleteInsurancePlanById
+      x-operation-id-source: derived
     patch:
       tags:
-      - PractitionerRole
-      summary: 'instance-patch: Patch a resource instance of type PractitionerRole by ID'
+      - Insurance Plan
+      summary: 'instance-patch: Patch a resource instance of type InsurancePlan by ID'
       parameters:
       - name: id
         in: path
@@ -140,11 +146,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
-  /PractitionerRole/{id}/_history/{version_id}:
+      operationId: patchInsurancePlanById
+      x-operation-id-source: derived
+  /InsurancePlan/{id}/_history/{version_id}:
     get:
       tags:
-      - PractitionerRole
-      summary: 'vread-instance: Read PractitionerRole instance with specific version'
+      - Insurance Plan
+      summary: 'vread-instance: Read InsurancePlan instance with specific version'
       parameters:
       - name: id
         in: path
@@ -178,88 +186,110 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
-  /PractitionerRole:
+      operationId: getInsurancePlanByIdHistoryByVersionId
+      x-operation-id-source: derived
+  /InsurancePlan:
     get:
       tags:
-      - PractitionerRole
-      summary: 'search-type: Search for PractitionerRole instances'
+      - Insurance Plan
+      summary: 'search-type: Search for InsurancePlan instances'
       description: This is a search type
       parameters:
-      - name: date
+      - name: address-state
         in: query
-        description: The period during which the practitioner is authorized to perform in these role(s)
-        style: simple
-      - name: identifier
-        in: query
-        description: A practitioner's Identifier
-        style: simple
-      - name: specialty
-        in: query
-        description: "The practitioner has this specialty at an organization<br />\n<em>NOTE</em>: This US Core SearchParameter definition extends the usage context of\n<a href=\"http://hl7.org/fhir/R4/extension-capabilitystatement-expectation.html\">capabilitystatement-expectation</a>\n extension to formally express implementer expectations for these elements:<br />\n - multipleAnd<br />\n - multipleOr<br />\n - modifier<br />\n - comparator<br />\n - chain<br />"
-        style: simple
-      - name: role
-        in: query
-        description: The practitioner can perform this role at for the organization
-        style: simple
-      - name: practitioner
-        in: query
-        description: "Practitioner that is able to provide the defined services for the organization<br />\n<em>NOTE</em>: This US Core SearchParameter definition extends the usage context of\n<a href=\"http://hl7.org/fhir/R4/extension-capabilitystatement-expectation.html\">capabilitystatement-expectation</a>\n extension to formally express implementer expectations for these elements:<br />\n - multipleAnd<br />\n - multipleOr<br />\n - modifier<br />\n - comparator<br />\n - chain<br />"
+        description: A state specified in an address
         style: simple
       - name: _lastUpdated
         in: query
-        description: When the resource version last changed
+        description: Accesses the last updated date of an InsurancePlan
+        style: simple
+      - name: type
+        in: query
+        description: Accesses the Type of an InsurancePlan
+        style: simple
+      - name: address-country
+        in: query
+        description: A country specified in an address
+        style: simple
+      - name: administered-by
+        in: query
+        description: Product administrator
+        style: simple
+      - name: endpoint
+        in: query
+        description: Technical endpoint
+        style: simple
+      - name: phonetic
+        in: query
+        description: A portion of the organization's name using some kind of phonetic matching algorithm
+        style: simple
+      - name: coverage-area
+        in: query
+        description: Search InsurancePlan by coverage location.
+        style: simple
+      - name: address-city
+        in: query
+        description: A city specified in an address
+        style: simple
+      - name: identifier
+        in: query
+        description: Accesses the business identifier of an InsurancePlan
+        style: simple
+      - name: period
+        in: query
+        description: Accesses the active period of an InsurancePlan
+        style: simple
+      - name: address
+        in: query
+        description: A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text
+        style: simple
+      - name: owned-by
+        in: query
+        description: An organization of which this organization forms a part
         style: simple
       - name: _security
         in: query
         description: Security Labels applied to this resource
         style: simple
-      - name: active
+      - name: address-postalcode
         in: query
-        description: Whether this practitioner role record is in active use
+        description: A postal code specified in an address
         style: simple
       - name: _filter
         in: query
         description: Search the contents of the resource's data using a filter
         style: simple
-      - name: endpoint
+      - name: formulary-coverage
         in: query
-        description: Technical endpoints providing access to services operated for the practitioner with this role
+        description: Accesses the Coverage Formulary Reference of an InsurancePlan
+        style: simple
+      - name: coverage-type
+        in: query
+        description: Accesses the coverage type of an InsurancePlan
         style: simple
       - name: _profile
         in: query
         description: Profiles this resource claims to conform to
         style: simple
-      - name: phone
-        in: query
-        description: "Multiple Resources: \n\n* [Patient](patient.html): A value in a phone contact\n* [Person](person.html): A value in a phone contact\n* [Practitioner](practitioner.html): A value in a phone contact\n* [PractitionerRole](practitionerrole.html): A value in a phone contact\n* [RelatedPerson](relatedperson.html): A value in a phone contact"
-        style: simple
-      - name: service
-        in: query
-        description: The list of healthcare services that this worker provides for this role's Organization/Location(s)
-        style: simple
       - name: _tag
         in: query
         description: Tags applied to this resource
-        style: simple
-      - name: organization
-        in: query
-        description: The identity of the organization the practitioner represents / acts on behalf of
         style: simple
       - name: _has
         in: query
         description: Return resources linked to by the given target
         style: simple
+      - name: address-use
+        in: query
+        description: A use code specified in an address
+        style: simple
+      - name: name
+        in: query
+        description: Accesses the name of an InsurancePlan
+        style: simple
       - name: _source
         in: query
         description: Identifies where the resource comes from
-        style: simple
-      - name: telecom
-        in: query
-        description: "Multiple Resources: \n\n* [Patient](patient.html): The value in any kind of telecom details of the patient\n* [Person](person.html): The value in any kind of contact\n* [Practitioner](practitioner.html): The value in any kind of contact\n* [PractitionerRole](practitionerrole.html): The value in any kind of contact\n* [RelatedPerson](relatedperson.html): The value in any kind of contact"
-        style: simple
-      - name: location
-        in: query
-        description: One of the locations at which this practitioner provides care
         style: simple
       - name: _id
         in: query
@@ -273,9 +303,9 @@ paths:
         in: query
         description: Search on the entire content of the resource
         style: simple
-      - name: email
+      - name: status
         in: query
-        description: "Multiple Resources: \n\n* [Patient](patient.html): A value in an email contact\n* [Person](person.html): A value in an email contact\n* [Practitioner](practitioner.html): A value in an email contact\n* [PractitionerRole](practitionerrole.html): A value in an email contact\n* [RelatedPerson](relatedperson.html): A value in an email contact"
+        description: Accesses the status of an InsurancePlan
         style: simple
       responses:
         '200':
@@ -289,20 +319,22 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getInsurancePlan
+      x-operation-id-source: derived
     post:
       tags:
-      - PractitionerRole
-      summary: 'create-type: Create a new PractitionerRole instance'
+      - Insurance Plan
+      summary: 'create-type: Create a new InsurancePlan instance'
       requestBody:
         content:
           application/fhir+json:
             schema:
               $ref: '#/components/schemas/FHIR-JSON-RESOURCE'
-            example: "{\n  \"resourceType\": \"PractitionerRole\"\n}"
+            example: "{\n  \"resourceType\": \"InsurancePlan\"\n}"
           application/fhir+xml:
             schema:
               $ref: '#/components/schemas/FHIR-XML-RESOURCE'
-            example: <PractitionerRole xmlns="http://hl7.org/fhir"/>
+            example: <InsurancePlan xmlns="http://hl7.org/fhir"/>
       responses:
         '200':
           description: Success
@@ -315,11 +347,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
-  /PractitionerRole/_history:
+      operationId: postInsurancePlan
+      x-operation-id-source: derived
+  /InsurancePlan/_history:
     get:
       tags:
-      - PractitionerRole
-      summary: 'type-history: Fetch the resource change history for all resources of type PractitionerRole'
+      - Insurance Plan
+      summary: 'type-history: Fetch the resource change history for all resources of type…'
       responses:
         '200':
           description: Success
@@ -332,11 +366,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
-  /PractitionerRole/{id}/_history:
+      operationId: getInsurancePlanHistory
+      x-operation-id-source: derived
+  /InsurancePlan/{id}/_history:
     get:
       tags:
-      - PractitionerRole
-      summary: 'instance-history: Fetch the resource change history for all resources of type PractitionerRole'
+      - Insurance Plan
+      summary: 'instance-history: Fetch the resource change history for all resources of type…'
       parameters:
       - name: id
         in: path
@@ -360,88 +396,110 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
-  /PractitionerRole/_search:
+      operationId: getInsurancePlanByIdHistory
+      x-operation-id-source: derived
+  /InsurancePlan/_search:
     get:
       tags:
-      - PractitionerRole
-      summary: 'search-type: Search for PractitionerRole instances'
+      - Insurance Plan
+      summary: 'search-type: Search for InsurancePlan instances'
       description: This is a search type
       parameters:
-      - name: date
+      - name: address-state
         in: query
-        description: The period during which the practitioner is authorized to perform in these role(s)
-        style: simple
-      - name: identifier
-        in: query
-        description: A practitioner's Identifier
-        style: simple
-      - name: specialty
-        in: query
-        description: "The practitioner has this specialty at an organization<br />\n<em>NOTE</em>: This US Core SearchParameter definition extends the usage context of\n<a href=\"http://hl7.org/fhir/R4/extension-capabilitystatement-expectation.html\">capabilitystatement-expectation</a>\n extension to formally express implementer expectations for these elements:<br />\n - multipleAnd<br />\n - multipleOr<br />\n - modifier<br />\n - comparator<br />\n - chain<br />"
-        style: simple
-      - name: role
-        in: query
-        description: The practitioner can perform this role at for the organization
-        style: simple
-      - name: practitioner
-        in: query
-        description: "Practitioner that is able to provide the defined services for the organization<br />\n<em>NOTE</em>: This US Core SearchParameter definition extends the usage context of\n<a href=\"http://hl7.org/fhir/R4/extension-capabilitystatement-expectation.html\">capabilitystatement-expectation</a>\n extension to formally express implementer expectations for these elements:<br />\n - multipleAnd<br />\n - multipleOr<br />\n - modifier<br />\n - comparator<br />\n - chain<br />"
+        description: A state specified in an address
         style: simple
       - name: _lastUpdated
         in: query
-        description: When the resource version last changed
+        description: Accesses the last updated date of an InsurancePlan
+        style: simple
+      - name: type
+        in: query
+        description: Accesses the Type of an InsurancePlan
+        style: simple
+      - name: address-country
+        in: query
+        description: A country specified in an address
+        style: simple
+      - name: administered-by
+        in: query
+        description: Product administrator
+        style: simple
+      - name: endpoint
+        in: query
+        description: Technical endpoint
+        style: simple
+      - name: phonetic
+        in: query
+        description: A portion of the organization's name using some kind of phonetic matching algorithm
+        style: simple
+      - name: coverage-area
+        in: query
+        description: Search InsurancePlan by coverage location.
+        style: simple
+      - name: address-city
+        in: query
+        description: A city specified in an address
+        style: simple
+      - name: identifier
+        in: query
+        description: Accesses the business identifier of an InsurancePlan
+        style: simple
+      - name: period
+        in: query
+        description: Accesses the active period of an InsurancePlan
+        style: simple
+      - name: address
+        in: query
+        description: A server defined search that may match any of the string fields in the Address, including line, city, district, state, country, postalCode, and/or text
+        style: simple
+      - name: owned-by
+        in: query
+        description: An organization of which this organization forms a part
         style: simple
       - name: _security
         in: query
         description: Security Labels applied to this resource
         style: simple
-      - name: active
+      - name: address-postalcode
         in: query
-        description: Whether this practitioner role record is in active use
+        description: A postal code specified in an address
         style: simple
       - name: _filter
         in: query
         description: Search the contents of the resource's data using a filter
         style: simple
-      - name: endpoint
+      - name: formulary-coverage
         in: query
-        description: Technical endpoints providing access to services operated for the practitioner with this role
+        description: Accesses the Coverage Formulary Reference of an InsurancePlan
+        style: simple
+      - name: coverage-type
+        in: query
+        description: Accesses the coverage type of an InsurancePlan
         style: simple
       - name: _profile
         in: query
         description: Profiles this resource claims to conform to
         style: simple
-      - name: phone
-        in: query
-        description: "Multiple Resources: \n\n* [Patient](patient.html): A value in a phone contact\n* [Person](person.html): A value in a phone contact\n* [Practitioner](practitioner.html): A value in a phone contact\n* [PractitionerRole](practitionerrole.html): A value in a phone contact\n* [RelatedPerson](relatedperson.html): A value in a phone contact"
-        style: simple
-      - name: service
-        in: query
-        description: The list of healthcare services that this worker provides for this role's Organization/Location(s)
-        style: simple
       - name: _tag
         in: query
         description: Tags applied to this resource
-        style: simple
-      - name: organization
-        in: query
-        description: The identity of the organization the practitioner represents / acts on behalf of
         style: simple
       - name: _has
         in: query
         description: Return resources linked to by the given target
         style: simple
+      - name: address-use
+        in: query
+        description: A use code specified in an address
+        style: simple
+      - name: name
+        in: query
+        description: Accesses the name of an InsurancePlan
+        style: simple
       - name: _source
         in: query
         description: Identifies where the resource comes from
-        style: simple
-      - name: telecom
-        in: query
-        description: "Multiple Resources: \n\n* [Patient](patient.html): The value in any kind of telecom details of the patient\n* [Person](person.html): The value in any kind of contact\n* [Practitioner](practitioner.html): The value in any kind of contact\n* [PractitionerRole](practitionerrole.html): The value in any kind of contact\n* [RelatedPerson](relatedperson.html): The value in any kind of contact"
-        style: simple
-      - name: location
-        in: query
-        description: One of the locations at which this practitioner provides care
         style: simple
       - name: _id
         in: query
@@ -455,9 +513,9 @@ paths:
         in: query
         description: Search on the entire content of the resource
         style: simple
-      - name: email
+      - name: status
         in: query
-        description: "Multiple Resources: \n\n* [Patient](patient.html): A value in an email contact\n* [Person](person.html): A value in an email contact\n* [Practitioner](practitioner.html): A value in an email contact\n* [PractitionerRole](practitionerrole.html): A value in an email contact\n* [RelatedPerson](relatedperson.html): A value in an email contact"
+        description: Accesses the status of an InsurancePlan
         style: simple
       responses:
         '200':
@@ -471,10 +529,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
-  /PractitionerRole/$validate:
+      operationId: getInsurancePlanSearch
+      x-operation-id-source: derived
+  /InsurancePlan/$validate:
     get:
       tags:
-      - PractitionerRole
+      - Insurance Plan
       parameters:
       - name: mode
         in: query
@@ -492,9 +552,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get insurance plan $validate
+      x-summary-source: derived
+      operationId: getInsurancePlan$validate
+      x-operation-id-source: derived
     post:
       tags:
-      - PractitionerRole
+      - Insurance Plan
       requestBody:
         content:
           application/fhir+json:
@@ -502,7 +566,7 @@ paths:
               title: FHIR Resource
               type: object
               example: null
-            example: "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [ {\n    \"name\": \"resource\",\n    \"resource\": {\n      \"resourceType\": \"PractitionerRole\",\n      \"id\": \"1\"\n    }\n  }, {\n    \"name\": \"mode\",\n    \"valueCode\": \"example\"\n  }, {\n    \"name\": \"profile\"\n  } ]\n}"
+            example: "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [ {\n    \"name\": \"resource\",\n    \"resource\": {\n      \"resourceType\": \"InsurancePlan\",\n      \"id\": \"1\"\n    }\n  }, {\n    \"name\": \"mode\",\n    \"valueCode\": \"example\"\n  }, {\n    \"name\": \"profile\"\n  } ]\n}"
       responses:
         '200':
           description: Success
@@ -515,10 +579,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
-  /PractitionerRole/{id}/$validate:
+      summary: Create insurance plan $validate
+      x-summary-source: derived
+      operationId: postInsurancePlan$validate
+      x-operation-id-source: derived
+  /InsurancePlan/{id}/$validate:
     get:
       tags:
-      - PractitionerRole
+      - Insurance Plan
       parameters:
       - name: id
         in: path
@@ -546,9 +614,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get insurance plan by id $validate
+      x-summary-source: derived
+      operationId: getInsurancePlanById$validate
+      x-operation-id-source: derived
     post:
       tags:
-      - PractitionerRole
+      - Insurance Plan
       parameters:
       - name: id
         in: path
@@ -567,7 +639,7 @@ paths:
               title: FHIR Resource
               type: object
               example: null
-            example: "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [ {\n    \"name\": \"resource\",\n    \"resource\": {\n      \"resourceType\": \"PractitionerRole\",\n      \"id\": \"1\"\n    }\n  }, {\n    \"name\": \"mode\",\n    \"valueCode\": \"example\"\n  }, {\n    \"name\": \"profile\"\n  } ]\n}"
+            example: "{\n  \"resourceType\": \"Parameters\",\n  \"parameter\": [ {\n    \"name\": \"resource\",\n    \"resource\": {\n      \"resourceType\": \"InsurancePlan\",\n      \"id\": \"1\"\n    }\n  }, {\n    \"name\": \"mode\",\n    \"valueCode\": \"example\"\n  }, {\n    \"name\": \"profile\"\n  } ]\n}"
       responses:
         '200':
           description: Success
@@ -580,10 +652,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
-  /PractitionerRole/{id}/$meta-delete:
+      summary: Create insurance plan by id $validate
+      x-summary-source: derived
+      operationId: postInsurancePlanById$validate
+      x-operation-id-source: derived
+  /InsurancePlan/{id}/$meta-delete:
     post:
       tags:
-      - PractitionerRole
+      - Insurance Plan
       description: Delete tags, profiles, and/or security labels from a resource
       parameters:
       - name: id
@@ -616,10 +692,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
-  /PractitionerRole/{id}/$meta-add:
+      summary: Create insurance plan by id $meta delete
+      x-summary-source: derived
+      operationId: postInsurancePlanById$metaDelete
+      x-operation-id-source: derived
+  /InsurancePlan/{id}/$meta-add:
     post:
       tags:
-      - PractitionerRole
+      - Insurance Plan
       description: Add tags, profiles, and/or security labels to a resource
       parameters:
       - name: id
@@ -652,10 +732,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
-  /PractitionerRole/$meta:
+      summary: Create insurance plan by id $meta add
+      x-summary-source: derived
+      operationId: postInsurancePlanById$metaAdd
+      x-operation-id-source: derived
+  /InsurancePlan/$meta:
     get:
       tags:
-      - PractitionerRole
+      - Insurance Plan
       description: Request a list of tags, profiles, and security labels for a specfic resource instance
       responses:
         '200':
@@ -669,9 +753,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get insurance plan $meta
+      x-summary-source: derived
+      operationId: getInsurancePlan$meta
+      x-operation-id-source: derived
     post:
       tags:
-      - PractitionerRole
+      - Insurance Plan
       description: Request a list of tags, profiles, and security labels for a specfic resource instance
       requestBody:
         content:
@@ -693,10 +781,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
-  /PractitionerRole/{id}/$meta:
+      summary: Create insurance plan $meta
+      x-summary-source: derived
+      operationId: postInsurancePlan$meta
+      x-operation-id-source: derived
+  /InsurancePlan/{id}/$meta:
     get:
       tags:
-      - PractitionerRole
+      - Insurance Plan
       description: Request a list of tags, profiles, and security labels for a specfic resource instance
       parameters:
       - name: id
@@ -721,9 +813,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get insurance plan by id $meta
+      x-summary-source: derived
+      operationId: getInsurancePlanById$meta
+      x-operation-id-source: derived
     post:
       tags:
-      - PractitionerRole
+      - Insurance Plan
       description: Request a list of tags, profiles, and security labels for a specfic resource instance
       parameters:
       - name: id
@@ -756,10 +852,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
-  /PractitionerRole/$expunge:
+      summary: Create insurance plan by id $meta
+      x-summary-source: derived
+      operationId: postInsurancePlanById$meta
+      x-operation-id-source: derived
+  /InsurancePlan/$expunge:
     post:
       tags:
-      - PractitionerRole
+      - Insurance Plan
       requestBody:
         content:
           application/fhir+json:
@@ -780,10 +880,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
-  /PractitionerRole/{id}/$expunge:
+      summary: Create insurance plan $expunge
+      x-summary-source: derived
+      operationId: postInsurancePlan$expunge
+      x-operation-id-source: derived
+  /InsurancePlan/{id}/$expunge:
     post:
       tags:
-      - PractitionerRole
+      - Insurance Plan
       parameters:
       - name: id
         in: path
@@ -815,6 +919,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create insurance plan by id $expunge
+      x-summary-source: derived
+      operationId: postInsurancePlanById$expunge
+      x-operation-id-source: derived
 components:
   schemas:
     FHIR-JSON-RESOURCE:

@@ -39,10 +39,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getPractitionerById
+      x-operation-id-source: derived
     put:
       tags:
       - Practitioner
-      summary: 'update-instance: Update an existing Practitioner instance, or create using a client-assigned ID'
+      summary: 'update-instance: Update an existing Practitioner instance, or create using a…'
       parameters:
       - name: id
         in: path
@@ -76,6 +78,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: putPractitionerById
+      x-operation-id-source: derived
     delete:
       tags:
       - Practitioner
@@ -103,6 +107,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: deletePractitionerById
+      x-operation-id-source: derived
     patch:
       tags:
       - Practitioner
@@ -140,6 +146,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: patchPractitionerById
+      x-operation-id-source: derived
   /Practitioner/{id}/_history/{version_id}:
     get:
       tags:
@@ -178,6 +186,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getPractitionerByIdHistoryByVersionId
+      x-operation-id-source: derived
   /Practitioner:
     get:
       tags:
@@ -305,6 +315,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getPractitioner
+      x-operation-id-source: derived
     post:
       tags:
       - Practitioner
@@ -331,11 +343,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: postPractitioner
+      x-operation-id-source: derived
   /Practitioner/_history:
     get:
       tags:
       - Practitioner
-      summary: 'type-history: Fetch the resource change history for all resources of type Practitioner'
+      summary: 'type-history: Fetch the resource change history for all resources of type…'
       responses:
         '200':
           description: Success
@@ -348,11 +362,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getPractitionerHistory
+      x-operation-id-source: derived
   /Practitioner/{id}/_history:
     get:
       tags:
       - Practitioner
-      summary: 'instance-history: Fetch the resource change history for all resources of type Practitioner'
+      summary: 'instance-history: Fetch the resource change history for all resources of type…'
       parameters:
       - name: id
         in: path
@@ -376,6 +392,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getPractitionerByIdHistory
+      x-operation-id-source: derived
   /Practitioner/_search:
     get:
       tags:
@@ -503,6 +521,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getPractitionerSearch
+      x-operation-id-source: derived
   /Practitioner/$validate:
     get:
       tags:
@@ -524,6 +544,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get practitioner $validate
+      x-summary-source: derived
+      operationId: getPractitioner$validate
+      x-operation-id-source: derived
     post:
       tags:
       - Practitioner
@@ -547,6 +571,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create practitioner $validate
+      x-summary-source: derived
+      operationId: postPractitioner$validate
+      x-operation-id-source: derived
   /Practitioner/{id}/$validate:
     get:
       tags:
@@ -578,6 +606,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get practitioner by id $validate
+      x-summary-source: derived
+      operationId: getPractitionerById$validate
+      x-operation-id-source: derived
     post:
       tags:
       - Practitioner
@@ -612,6 +644,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create practitioner by id $validate
+      x-summary-source: derived
+      operationId: postPractitionerById$validate
+      x-operation-id-source: derived
   /Practitioner/{id}/$meta-delete:
     post:
       tags:
@@ -648,6 +684,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create practitioner by id $meta delete
+      x-summary-source: derived
+      operationId: postPractitionerById$metaDelete
+      x-operation-id-source: derived
   /Practitioner/{id}/$meta-add:
     post:
       tags:
@@ -684,6 +724,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create practitioner by id $meta add
+      x-summary-source: derived
+      operationId: postPractitionerById$metaAdd
+      x-operation-id-source: derived
   /Practitioner/$meta:
     get:
       tags:
@@ -701,6 +745,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get practitioner $meta
+      x-summary-source: derived
+      operationId: getPractitioner$meta
+      x-operation-id-source: derived
     post:
       tags:
       - Practitioner
@@ -725,6 +773,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create practitioner $meta
+      x-summary-source: derived
+      operationId: postPractitioner$meta
+      x-operation-id-source: derived
   /Practitioner/{id}/$meta:
     get:
       tags:
@@ -753,6 +805,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get practitioner by id $meta
+      x-summary-source: derived
+      operationId: getPractitionerById$meta
+      x-operation-id-source: derived
     post:
       tags:
       - Practitioner
@@ -788,6 +844,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create practitioner by id $meta
+      x-summary-source: derived
+      operationId: postPractitionerById$meta
+      x-operation-id-source: derived
   /Practitioner/$expunge:
     post:
       tags:
@@ -812,6 +872,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create practitioner $expunge
+      x-summary-source: derived
+      operationId: postPractitioner$expunge
+      x-operation-id-source: derived
   /Practitioner/{id}/$expunge:
     post:
       tags:
@@ -847,6 +911,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create practitioner by id $expunge
+      x-summary-source: derived
+      operationId: postPractitionerById$expunge
+      x-operation-id-source: derived
 components:
   schemas:
     FHIR-JSON-RESOURCE:

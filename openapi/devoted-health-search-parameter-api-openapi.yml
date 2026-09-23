@@ -8,13 +8,13 @@ servers:
 - url: https://fhir.devoted.com/fhir
   description: HAPI FHIR Server
 tags:
-- name: SearchParameter
+- name: Search Parameter
   description: The SearchParameter FHIR resource type
 paths:
   /SearchParameter/{id}:
     get:
       tags:
-      - SearchParameter
+      - Search Parameter
       summary: 'read-instance: Read SearchParameter instance'
       parameters:
       - name: id
@@ -39,10 +39,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getSearchParameterById
+      x-operation-id-source: derived
     put:
       tags:
-      - SearchParameter
-      summary: 'update-instance: Update an existing SearchParameter instance, or create using a client-assigned ID'
+      - Search Parameter
+      summary: 'update-instance: Update an existing SearchParameter instance, or create using a…'
       parameters:
       - name: id
         in: path
@@ -76,9 +78,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: putSearchParameterById
+      x-operation-id-source: derived
     delete:
       tags:
-      - SearchParameter
+      - Search Parameter
       summary: 'instance-delete: Perform a logical delete on a resource instance'
       parameters:
       - name: id
@@ -103,9 +107,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: deleteSearchParameterById
+      x-operation-id-source: derived
     patch:
       tags:
-      - SearchParameter
+      - Search Parameter
       summary: 'instance-patch: Patch a resource instance of type SearchParameter by ID'
       parameters:
       - name: id
@@ -140,10 +146,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: patchSearchParameterById
+      x-operation-id-source: derived
   /SearchParameter/{id}/_history/{version_id}:
     get:
       tags:
-      - SearchParameter
+      - Search Parameter
       summary: 'vread-instance: Read SearchParameter instance with specific version'
       parameters:
       - name: id
@@ -178,10 +186,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getSearchParameterByIdHistoryByVersionId
+      x-operation-id-source: derived
   /SearchParameter:
     get:
       tags:
-      - SearchParameter
+      - Search Parameter
       summary: 'search-type: Search for SearchParameter instances'
       description: This is a search type
       parameters:
@@ -313,9 +323,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getSearchParameter
+      x-operation-id-source: derived
     post:
       tags:
-      - SearchParameter
+      - Search Parameter
       summary: 'create-type: Create a new SearchParameter instance'
       requestBody:
         content:
@@ -339,11 +351,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: postSearchParameter
+      x-operation-id-source: derived
   /SearchParameter/_history:
     get:
       tags:
-      - SearchParameter
-      summary: 'type-history: Fetch the resource change history for all resources of type SearchParameter'
+      - Search Parameter
+      summary: 'type-history: Fetch the resource change history for all resources of type…'
       responses:
         '200':
           description: Success
@@ -356,11 +370,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getSearchParameterHistory
+      x-operation-id-source: derived
   /SearchParameter/{id}/_history:
     get:
       tags:
-      - SearchParameter
-      summary: 'instance-history: Fetch the resource change history for all resources of type SearchParameter'
+      - Search Parameter
+      summary: 'instance-history: Fetch the resource change history for all resources of type…'
       parameters:
       - name: id
         in: path
@@ -384,10 +400,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getSearchParameterByIdHistory
+      x-operation-id-source: derived
   /SearchParameter/_search:
     get:
       tags:
-      - SearchParameter
+      - Search Parameter
       summary: 'search-type: Search for SearchParameter instances'
       description: This is a search type
       parameters:
@@ -519,10 +537,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getSearchParameterSearch
+      x-operation-id-source: derived
   /SearchParameter/$validate:
     get:
       tags:
-      - SearchParameter
+      - Search Parameter
       parameters:
       - name: mode
         in: query
@@ -540,9 +560,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get search parameter $validate
+      x-summary-source: derived
+      operationId: getSearchParameter$validate
+      x-operation-id-source: derived
     post:
       tags:
-      - SearchParameter
+      - Search Parameter
       requestBody:
         content:
           application/fhir+json:
@@ -563,10 +587,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create search parameter $validate
+      x-summary-source: derived
+      operationId: postSearchParameter$validate
+      x-operation-id-source: derived
   /SearchParameter/{id}/$validate:
     get:
       tags:
-      - SearchParameter
+      - Search Parameter
       parameters:
       - name: id
         in: path
@@ -594,9 +622,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get search parameter by id $validate
+      x-summary-source: derived
+      operationId: getSearchParameterById$validate
+      x-operation-id-source: derived
     post:
       tags:
-      - SearchParameter
+      - Search Parameter
       parameters:
       - name: id
         in: path
@@ -628,10 +660,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create search parameter by id $validate
+      x-summary-source: derived
+      operationId: postSearchParameterById$validate
+      x-operation-id-source: derived
   /SearchParameter/{id}/$meta-delete:
     post:
       tags:
-      - SearchParameter
+      - Search Parameter
       description: Delete tags, profiles, and/or security labels from a resource
       parameters:
       - name: id
@@ -664,10 +700,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create search parameter by id $meta delete
+      x-summary-source: derived
+      operationId: postSearchParameterById$metaDelete
+      x-operation-id-source: derived
   /SearchParameter/{id}/$meta-add:
     post:
       tags:
-      - SearchParameter
+      - Search Parameter
       description: Add tags, profiles, and/or security labels to a resource
       parameters:
       - name: id
@@ -700,10 +740,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create search parameter by id $meta add
+      x-summary-source: derived
+      operationId: postSearchParameterById$metaAdd
+      x-operation-id-source: derived
   /SearchParameter/$meta:
     get:
       tags:
-      - SearchParameter
+      - Search Parameter
       description: Request a list of tags, profiles, and security labels for a specfic resource instance
       responses:
         '200':
@@ -717,9 +761,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get search parameter $meta
+      x-summary-source: derived
+      operationId: getSearchParameter$meta
+      x-operation-id-source: derived
     post:
       tags:
-      - SearchParameter
+      - Search Parameter
       description: Request a list of tags, profiles, and security labels for a specfic resource instance
       requestBody:
         content:
@@ -741,10 +789,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create search parameter $meta
+      x-summary-source: derived
+      operationId: postSearchParameter$meta
+      x-operation-id-source: derived
   /SearchParameter/{id}/$meta:
     get:
       tags:
-      - SearchParameter
+      - Search Parameter
       description: Request a list of tags, profiles, and security labels for a specfic resource instance
       parameters:
       - name: id
@@ -769,9 +821,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get search parameter by id $meta
+      x-summary-source: derived
+      operationId: getSearchParameterById$meta
+      x-operation-id-source: derived
     post:
       tags:
-      - SearchParameter
+      - Search Parameter
       description: Request a list of tags, profiles, and security labels for a specfic resource instance
       parameters:
       - name: id
@@ -804,10 +860,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create search parameter by id $meta
+      x-summary-source: derived
+      operationId: postSearchParameterById$meta
+      x-operation-id-source: derived
   /SearchParameter/$expunge:
     post:
       tags:
-      - SearchParameter
+      - Search Parameter
       requestBody:
         content:
           application/fhir+json:
@@ -828,10 +888,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create search parameter $expunge
+      x-summary-source: derived
+      operationId: postSearchParameter$expunge
+      x-operation-id-source: derived
   /SearchParameter/{id}/$expunge:
     post:
       tags:
-      - SearchParameter
+      - Search Parameter
       parameters:
       - name: id
         in: path
@@ -863,6 +927,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create search parameter by id $expunge
+      x-summary-source: derived
+      operationId: postSearchParameterById$expunge
+      x-operation-id-source: derived
 components:
   schemas:
     FHIR-JSON-RESOURCE:

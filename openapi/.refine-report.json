@@ -2,7 +2,6 @@
   "provider": "devoted-health",
   "sources": [
     "_original/devoted-health-patient-access-openapi-original.json",
-    "_original/devoted-health-patient-access-openapi.json",
     "_original/devoted-health-provider-directory-openapi-original.yml"
   ],
   "outputs": [
@@ -28,27 +27,27 @@
     "devoted-health-system-level-operations-api-openapi.yml",
     "devoted-health-valueset-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 4 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
   "notes": [
-    "sourced from openapi/_original/ (3 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "1 archived document(s) dropped as subsets of other archived documents",
+    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
     "devoted-health-patient-access-openapi-original.json: upgraded swagger 2.0 -> OpenAPI 3.2.0",
-    "devoted-health-patient-access-openapi.json: upgraded swagger 2.0 -> OpenAPI 3.2.0",
     "devoted-health-provider-directory-openapi-original.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
-    "tag 'Condition' spans 2 source specs (devoted-health-patient-access-openapi-original.json, devoted-health-patient-access-openapi.json): per-path servers applied",
-    "tag 'Encounter' spans 2 source specs (devoted-health-patient-access-openapi-original.json, devoted-health-patient-access-openapi.json): per-path servers applied",
-    "tag 'ExplanationOfBenefit' spans 2 source specs (devoted-health-patient-access-openapi-original.json, devoted-health-patient-access-openapi.json): per-path servers applied",
-    "tag 'Medication' spans 2 source specs (devoted-health-patient-access-openapi-original.json, devoted-health-patient-access-openapi.json): per-path servers applied",
-    "tag 'Patient' spans 2 source specs (devoted-health-patient-access-openapi-original.json, devoted-health-patient-access-openapi.json): per-path servers applied"
+    "superseded outputs removed: devoted-health-healthcare-service-api-openapi.yml, devoted-health-insurance-plan-api-openapi.yml, devoted-health-practitioner-role-api-openapi.yml, devoted-health-search-parameter-api-openapi.yml",
+    "apis.yml register: written (+4 apis, 23 total)"
   ],
   "skipped": [
+    "_original/devoted-health-patient-access-openapi.json: archived document superseded by a larger archived document",
     "devoted-health-codesystem-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "devoted-health-condition-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "devoted-health-encounter-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "devoted-health-explanationofbenefit-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "devoted-health-healthcareservice-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "devoted-health-insuranceplan-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "devoted-health-healthcare-service-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "devoted-health-insurance-plan-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "devoted-health-list-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "devoted-health-location-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "devoted-health-medication-api-openapi.yml: previously refined output, superseded by openapi/_original/",
@@ -58,8 +57,8 @@
     "devoted-health-organizationaffiliation-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "devoted-health-patient-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "devoted-health-practitioner-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "devoted-health-practitionerrole-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "devoted-health-searchparameter-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "devoted-health-practitioner-role-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "devoted-health-search-parameter-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "devoted-health-structuredefinition-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "devoted-health-subscription-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "devoted-health-system-level-operations-api-openapi.yml: previously refined output, superseded by openapi/_original/",

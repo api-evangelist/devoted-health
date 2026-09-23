@@ -39,10 +39,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getStructureDefinitionById
+      x-operation-id-source: derived
     put:
       tags:
       - StructureDefinition
-      summary: 'update-instance: Update an existing StructureDefinition instance, or create using a client-assigned ID'
+      summary: 'update-instance: Update an existing StructureDefinition instance, or create…'
       parameters:
       - name: id
         in: path
@@ -76,6 +78,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: putStructureDefinitionById
+      x-operation-id-source: derived
     delete:
       tags:
       - StructureDefinition
@@ -103,6 +107,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: deleteStructureDefinitionById
+      x-operation-id-source: derived
     patch:
       tags:
       - StructureDefinition
@@ -140,6 +146,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: patchStructureDefinitionById
+      x-operation-id-source: derived
   /StructureDefinition/{id}/_history/{version_id}:
     get:
       tags:
@@ -178,6 +186,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getStructureDefinitionByIdHistoryByVersionId
+      x-operation-id-source: derived
   /StructureDefinition:
     get:
       tags:
@@ -341,6 +351,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getStructureDefinition
+      x-operation-id-source: derived
     post:
       tags:
       - StructureDefinition
@@ -367,11 +379,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: postStructureDefinition
+      x-operation-id-source: derived
   /StructureDefinition/_history:
     get:
       tags:
       - StructureDefinition
-      summary: 'type-history: Fetch the resource change history for all resources of type StructureDefinition'
+      summary: 'type-history: Fetch the resource change history for all resources of type…'
       responses:
         '200':
           description: Success
@@ -384,11 +398,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getStructureDefinitionHistory
+      x-operation-id-source: derived
   /StructureDefinition/{id}/_history:
     get:
       tags:
       - StructureDefinition
-      summary: 'instance-history: Fetch the resource change history for all resources of type StructureDefinition'
+      summary: 'instance-history: Fetch the resource change history for all resources of type…'
       parameters:
       - name: id
         in: path
@@ -412,6 +428,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getStructureDefinitionByIdHistory
+      x-operation-id-source: derived
   /StructureDefinition/_search:
     get:
       tags:
@@ -575,6 +593,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getStructureDefinitionSearch
+      x-operation-id-source: derived
   /StructureDefinition/$validate:
     get:
       tags:
@@ -596,6 +616,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get structure definition $validate
+      x-summary-source: derived
+      operationId: getStructureDefinition$validate
+      x-operation-id-source: derived
     post:
       tags:
       - StructureDefinition
@@ -619,6 +643,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create structure definition $validate
+      x-summary-source: derived
+      operationId: postStructureDefinition$validate
+      x-operation-id-source: derived
   /StructureDefinition/{id}/$validate:
     get:
       tags:
@@ -650,6 +678,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get structure definition by id $validate
+      x-summary-source: derived
+      operationId: getStructureDefinitionById$validate
+      x-operation-id-source: derived
     post:
       tags:
       - StructureDefinition
@@ -684,6 +716,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create structure definition by id $validate
+      x-summary-source: derived
+      operationId: postStructureDefinitionById$validate
+      x-operation-id-source: derived
   /StructureDefinition/{id}/$meta-delete:
     post:
       tags:
@@ -720,6 +756,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create structure definition by id $meta delete
+      x-summary-source: derived
+      operationId: postStructureDefinitionById$metaDelete
+      x-operation-id-source: derived
   /StructureDefinition/{id}/$meta-add:
     post:
       tags:
@@ -756,6 +796,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create structure definition by id $meta add
+      x-summary-source: derived
+      operationId: postStructureDefinitionById$metaAdd
+      x-operation-id-source: derived
   /StructureDefinition/$meta:
     get:
       tags:
@@ -773,6 +817,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get structure definition $meta
+      x-summary-source: derived
+      operationId: getStructureDefinition$meta
+      x-operation-id-source: derived
     post:
       tags:
       - StructureDefinition
@@ -797,6 +845,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create structure definition $meta
+      x-summary-source: derived
+      operationId: postStructureDefinition$meta
+      x-operation-id-source: derived
   /StructureDefinition/{id}/$meta:
     get:
       tags:
@@ -825,6 +877,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get structure definition by id $meta
+      x-summary-source: derived
+      operationId: getStructureDefinitionById$meta
+      x-operation-id-source: derived
     post:
       tags:
       - StructureDefinition
@@ -860,6 +916,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create structure definition by id $meta
+      x-summary-source: derived
+      operationId: postStructureDefinitionById$meta
+      x-operation-id-source: derived
   /StructureDefinition/$expunge:
     post:
       tags:
@@ -884,6 +944,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create structure definition $expunge
+      x-summary-source: derived
+      operationId: postStructureDefinition$expunge
+      x-operation-id-source: derived
   /StructureDefinition/{id}/$expunge:
     post:
       tags:
@@ -919,6 +983,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create structure definition by id $expunge
+      x-summary-source: derived
+      operationId: postStructureDefinitionById$expunge
+      x-operation-id-source: derived
   /StructureDefinition/$snapshot:
     get:
       tags:
@@ -940,6 +1008,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get structure definition $snapshot
+      x-summary-source: derived
+      operationId: getStructureDefinition$snapshot
+      x-operation-id-source: derived
     post:
       tags:
       - StructureDefinition
@@ -963,6 +1035,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create structure definition $snapshot
+      x-summary-source: derived
+      operationId: postStructureDefinition$snapshot
+      x-operation-id-source: derived
   /StructureDefinition/{id}/$snapshot:
     get:
       tags:
@@ -994,6 +1070,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get structure definition by id $snapshot
+      x-summary-source: derived
+      operationId: getStructureDefinitionById$snapshot
+      x-operation-id-source: derived
     post:
       tags:
       - StructureDefinition
@@ -1028,6 +1108,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create structure definition by id $snapshot
+      x-summary-source: derived
+      operationId: postStructureDefinitionById$snapshot
+      x-operation-id-source: derived
 components:
   schemas:
     FHIR-JSON-RESOURCE:

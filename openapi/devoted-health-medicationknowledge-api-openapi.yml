@@ -39,10 +39,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getMedicationKnowledgeById
+      x-operation-id-source: derived
     put:
       tags:
       - MedicationKnowledge
-      summary: 'update-instance: Update an existing MedicationKnowledge instance, or create using a client-assigned ID'
+      summary: 'update-instance: Update an existing MedicationKnowledge instance, or create…'
       parameters:
       - name: id
         in: path
@@ -76,6 +78,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: putMedicationKnowledgeById
+      x-operation-id-source: derived
     delete:
       tags:
       - MedicationKnowledge
@@ -103,6 +107,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: deleteMedicationKnowledgeById
+      x-operation-id-source: derived
     patch:
       tags:
       - MedicationKnowledge
@@ -140,6 +146,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: patchMedicationKnowledgeById
+      x-operation-id-source: derived
   /MedicationKnowledge/{id}/_history/{version_id}:
     get:
       tags:
@@ -178,6 +186,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getMedicationKnowledgeByIdHistoryByVersionId
+      x-operation-id-source: derived
   /MedicationKnowledge:
     get:
       tags:
@@ -293,6 +303,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getMedicationKnowledge
+      x-operation-id-source: derived
     post:
       tags:
       - MedicationKnowledge
@@ -319,11 +331,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: postMedicationKnowledge
+      x-operation-id-source: derived
   /MedicationKnowledge/_history:
     get:
       tags:
       - MedicationKnowledge
-      summary: 'type-history: Fetch the resource change history for all resources of type MedicationKnowledge'
+      summary: 'type-history: Fetch the resource change history for all resources of type…'
       responses:
         '200':
           description: Success
@@ -336,11 +350,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getMedicationKnowledgeHistory
+      x-operation-id-source: derived
   /MedicationKnowledge/{id}/_history:
     get:
       tags:
       - MedicationKnowledge
-      summary: 'instance-history: Fetch the resource change history for all resources of type MedicationKnowledge'
+      summary: 'instance-history: Fetch the resource change history for all resources of type…'
       parameters:
       - name: id
         in: path
@@ -364,6 +380,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getMedicationKnowledgeByIdHistory
+      x-operation-id-source: derived
   /MedicationKnowledge/_search:
     get:
       tags:
@@ -479,6 +497,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getMedicationKnowledgeSearch
+      x-operation-id-source: derived
   /MedicationKnowledge/$validate:
     get:
       tags:
@@ -500,6 +520,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get medication knowledge $validate
+      x-summary-source: derived
+      operationId: getMedicationKnowledge$validate
+      x-operation-id-source: derived
     post:
       tags:
       - MedicationKnowledge
@@ -523,6 +547,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create medication knowledge $validate
+      x-summary-source: derived
+      operationId: postMedicationKnowledge$validate
+      x-operation-id-source: derived
   /MedicationKnowledge/{id}/$validate:
     get:
       tags:
@@ -554,6 +582,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get medication knowledge by id $validate
+      x-summary-source: derived
+      operationId: getMedicationKnowledgeById$validate
+      x-operation-id-source: derived
     post:
       tags:
       - MedicationKnowledge
@@ -588,6 +620,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create medication knowledge by id $validate
+      x-summary-source: derived
+      operationId: postMedicationKnowledgeById$validate
+      x-operation-id-source: derived
   /MedicationKnowledge/{id}/$meta-delete:
     post:
       tags:
@@ -624,6 +660,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create medication knowledge by id $meta delete
+      x-summary-source: derived
+      operationId: postMedicationKnowledgeById$metaDelete
+      x-operation-id-source: derived
   /MedicationKnowledge/{id}/$meta-add:
     post:
       tags:
@@ -660,6 +700,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create medication knowledge by id $meta add
+      x-summary-source: derived
+      operationId: postMedicationKnowledgeById$metaAdd
+      x-operation-id-source: derived
   /MedicationKnowledge/$meta:
     get:
       tags:
@@ -677,6 +721,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get medication knowledge $meta
+      x-summary-source: derived
+      operationId: getMedicationKnowledge$meta
+      x-operation-id-source: derived
     post:
       tags:
       - MedicationKnowledge
@@ -701,6 +749,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create medication knowledge $meta
+      x-summary-source: derived
+      operationId: postMedicationKnowledge$meta
+      x-operation-id-source: derived
   /MedicationKnowledge/{id}/$meta:
     get:
       tags:
@@ -729,6 +781,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get medication knowledge by id $meta
+      x-summary-source: derived
+      operationId: getMedicationKnowledgeById$meta
+      x-operation-id-source: derived
     post:
       tags:
       - MedicationKnowledge
@@ -764,6 +820,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create medication knowledge by id $meta
+      x-summary-source: derived
+      operationId: postMedicationKnowledgeById$meta
+      x-operation-id-source: derived
   /MedicationKnowledge/$expunge:
     post:
       tags:
@@ -788,6 +848,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create medication knowledge $expunge
+      x-summary-source: derived
+      operationId: postMedicationKnowledge$expunge
+      x-operation-id-source: derived
   /MedicationKnowledge/{id}/$expunge:
     post:
       tags:
@@ -823,6 +887,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create medication knowledge by id $expunge
+      x-summary-source: derived
+      operationId: postMedicationKnowledgeById$expunge
+      x-operation-id-source: derived
 components:
   schemas:
     FHIR-JSON-RESOURCE:

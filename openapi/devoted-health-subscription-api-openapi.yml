@@ -35,6 +35,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create subscription $trigger subscription
+      x-summary-source: derived
+      operationId: postSubscription$triggerSubscription
+      x-operation-id-source: derived
   /Subscription/{id}/$trigger-subscription:
     post:
       tags:
@@ -70,6 +74,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create subscription by id $trigger subscription
+      x-summary-source: derived
+      operationId: postSubscriptionById$triggerSubscription
+      x-operation-id-source: derived
 components:
   schemas:
     FHIR-JSON-RESOURCE:

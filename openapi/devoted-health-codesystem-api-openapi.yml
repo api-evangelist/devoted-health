@@ -35,6 +35,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create code system $upload external code system
+      x-summary-source: derived
+      operationId: postCodeSystem$uploadExternalCodeSystem
+      x-operation-id-source: derived
   /CodeSystem/$apply-codesystem-delta-remove:
     post:
       tags:
@@ -59,6 +63,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create code system $apply codesystem delta remove
+      x-summary-source: derived
+      operationId: postCodeSystem$applyCodesystemDeltaRemove
+      x-operation-id-source: derived
   /CodeSystem/$apply-codesystem-delta-add:
     post:
       tags:
@@ -83,6 +91,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create code system $apply codesystem delta add
+      x-summary-source: derived
+      operationId: postCodeSystem$applyCodesystemDeltaAdd
+      x-operation-id-source: derived
 components:
   schemas:
     FHIR-JSON-RESOURCE:

@@ -39,10 +39,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getOrganizationById
+      x-operation-id-source: derived
     put:
       tags:
       - Organization
-      summary: 'update-instance: Update an existing Organization instance, or create using a client-assigned ID'
+      summary: 'update-instance: Update an existing Organization instance, or create using a…'
       parameters:
       - name: id
         in: path
@@ -76,6 +78,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: putOrganizationById
+      x-operation-id-source: derived
     delete:
       tags:
       - Organization
@@ -103,6 +107,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: deleteOrganizationById
+      x-operation-id-source: derived
     patch:
       tags:
       - Organization
@@ -140,6 +146,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: patchOrganizationById
+      x-operation-id-source: derived
   /Organization/{id}/_history/{version_id}:
     get:
       tags:
@@ -178,6 +186,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getOrganizationByIdHistoryByVersionId
+      x-operation-id-source: derived
   /Organization:
     get:
       tags:
@@ -289,6 +299,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getOrganization
+      x-operation-id-source: derived
     post:
       tags:
       - Organization
@@ -315,11 +327,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: postOrganization
+      x-operation-id-source: derived
   /Organization/_history:
     get:
       tags:
       - Organization
-      summary: 'type-history: Fetch the resource change history for all resources of type Organization'
+      summary: 'type-history: Fetch the resource change history for all resources of type…'
       responses:
         '200':
           description: Success
@@ -332,11 +346,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getOrganizationHistory
+      x-operation-id-source: derived
   /Organization/{id}/_history:
     get:
       tags:
       - Organization
-      summary: 'instance-history: Fetch the resource change history for all resources of type Organization'
+      summary: 'instance-history: Fetch the resource change history for all resources of type…'
       parameters:
       - name: id
         in: path
@@ -360,6 +376,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getOrganizationByIdHistory
+      x-operation-id-source: derived
   /Organization/_search:
     get:
       tags:
@@ -471,6 +489,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      operationId: getOrganizationSearch
+      x-operation-id-source: derived
   /Organization/$validate:
     get:
       tags:
@@ -492,6 +512,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get organization $validate
+      x-summary-source: derived
+      operationId: getOrganization$validate
+      x-operation-id-source: derived
     post:
       tags:
       - Organization
@@ -515,6 +539,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create organization $validate
+      x-summary-source: derived
+      operationId: postOrganization$validate
+      x-operation-id-source: derived
   /Organization/{id}/$validate:
     get:
       tags:
@@ -546,6 +574,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get organization by id $validate
+      x-summary-source: derived
+      operationId: getOrganizationById$validate
+      x-operation-id-source: derived
     post:
       tags:
       - Organization
@@ -580,6 +612,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create organization by id $validate
+      x-summary-source: derived
+      operationId: postOrganizationById$validate
+      x-operation-id-source: derived
   /Organization/{id}/$meta-delete:
     post:
       tags:
@@ -616,6 +652,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create organization by id $meta delete
+      x-summary-source: derived
+      operationId: postOrganizationById$metaDelete
+      x-operation-id-source: derived
   /Organization/{id}/$meta-add:
     post:
       tags:
@@ -652,6 +692,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create organization by id $meta add
+      x-summary-source: derived
+      operationId: postOrganizationById$metaAdd
+      x-operation-id-source: derived
   /Organization/$meta:
     get:
       tags:
@@ -669,6 +713,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get organization $meta
+      x-summary-source: derived
+      operationId: getOrganization$meta
+      x-operation-id-source: derived
     post:
       tags:
       - Organization
@@ -693,6 +741,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create organization $meta
+      x-summary-source: derived
+      operationId: postOrganization$meta
+      x-operation-id-source: derived
   /Organization/{id}/$meta:
     get:
       tags:
@@ -721,6 +773,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get organization by id $meta
+      x-summary-source: derived
+      operationId: getOrganizationById$meta
+      x-operation-id-source: derived
     post:
       tags:
       - Organization
@@ -756,6 +812,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create organization by id $meta
+      x-summary-source: derived
+      operationId: postOrganizationById$meta
+      x-operation-id-source: derived
   /Organization/$expunge:
     post:
       tags:
@@ -780,6 +840,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create organization $expunge
+      x-summary-source: derived
+      operationId: postOrganization$expunge
+      x-operation-id-source: derived
   /Organization/{id}/$expunge:
     post:
       tags:
@@ -815,6 +879,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create organization by id $expunge
+      x-summary-source: derived
+      operationId: postOrganizationById$expunge
+      x-operation-id-source: derived
 components:
   schemas:
     FHIR-JSON-RESOURCE:

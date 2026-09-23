@@ -56,6 +56,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get value set $validate code
+      x-summary-source: derived
+      operationId: getValueSet$validateCode
+      x-operation-id-source: derived
     post:
       tags:
       - ValueSet
@@ -79,6 +83,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create value set $validate code
+      x-summary-source: derived
+      operationId: postValueSet$validateCode
+      x-operation-id-source: derived
   /ValueSet/{id}/$validate-code:
     get:
       tags:
@@ -134,6 +142,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get value set by id $validate code
+      x-summary-source: derived
+      operationId: getValueSetById$validateCode
+      x-operation-id-source: derived
     post:
       tags:
       - ValueSet
@@ -168,6 +180,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create value set by id $validate code
+      x-summary-source: derived
+      operationId: postValueSetById$validateCode
+      x-operation-id-source: derived
   /ValueSet/{id}/$invalidate-expansion:
     post:
       tags:
@@ -203,6 +219,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create value set by id $invalidate expansion
+      x-summary-source: derived
+      operationId: postValueSetById$invalidateExpansion
+      x-operation-id-source: derived
   /ValueSet/$expand:
     get:
       tags:
@@ -256,6 +276,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get value set $expand
+      x-summary-source: derived
+      operationId: getValueSet$expand
+      x-operation-id-source: derived
     post:
       tags:
       - ValueSet
@@ -279,6 +303,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create value set $expand
+      x-summary-source: derived
+      operationId: postValueSet$expand
+      x-operation-id-source: derived
   /ValueSet/{id}/$expand:
     get:
       tags:
@@ -342,6 +370,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Get value set by id $expand
+      x-summary-source: derived
+      operationId: getValueSetById$expand
+      x-operation-id-source: derived
     post:
       tags:
       - ValueSet
@@ -376,6 +408,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/FHIR-XML-RESOURCE'
               example: null
+      summary: Create value set by id $expand
+      x-summary-source: derived
+      operationId: postValueSetById$expand
+      x-operation-id-source: derived
 components:
   schemas:
     FHIR-JSON-RESOURCE:
