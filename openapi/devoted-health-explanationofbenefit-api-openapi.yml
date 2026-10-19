@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
-  description: Fast Healthcare Interoperability Resources (FHIR, pronounced "Fire") defines a set of "Resources" that represent granular clinical concepts. The resources can be managed in isolation, or aggregated into complex documents. Technically, FHIR is designed for the web; the resources are based on simple XML or JSON structures, with an http-based RESTful protocol where each resource has predictable URL. Where possible, open internet standards are used for data representation.
-  title: Untitled Explanation Of Benefit API
-  version: unspecified
+  description: Fast Healthcare Interoperability Resources (FHIR, pronounced "Fire") defines a set of "Resources" that represent granular clinical concepts. The resources can be managed in isolation, or aggregated into complex documents. Technically, FHIR is designed for the web; the resources are based on simple XML or JSON structures, with an http-based RESTful protocol where each resource has a predictable URL. Where possible, open internet standards are used for data representation.
+  title: Devoted Health FHIR Explanation Of Benefit API
+  version: R4
 servers:
 - url: https://api.prod.devoted.com/fhir/
 tags:
@@ -10,118 +10,340 @@ tags:
 paths:
   /ExplanationOfBenefit:
     get:
-      tags:
-      - ExplanationOfBenefit
       parameters:
-      - name: patient
+      - description: The patient present at the encounter. It is a required field.
         in: query
-        description: The patient present at the encounter. It is a required field.
+        name: patient
         schema:
           type: string
-      - name: date
+      - description: A date or date range from which to find appointments. This must be set when using patient, practitioner or location. The 'date' parameter may be provided once without a prefix or time component to imply a date range or once without a prefix and with a time component to search for appointments at a specific time. Alternately it may be provided twice with 'le' and 'gt' prefixes to search for appointments within a specific range. The date prefix pair must create a closed range.
         in: query
-        description: A date or date range from which to find appointments. This must be set when using patient, practitioner or location. The 'date' parameter may be provided once without a prefix or time component to imply a date range or once without a prefix and with a time component to search for appointments at a specific time. Alternately it may be provided twice with 'le' and 'gt' prefixes to search for appointments within a specific range. The date prefix pair must create a closed range.
+        name: date
         schema:
           type: string
-          format: date
-      - name: _format
-        in: query
+      - in: query
+        name: _format
         x-consoleDefault: application/json
         schema:
           type: string
       responses:
         '200':
-          description: Success
+          description: searchset Bundle of ExplanationOfBenefit resources
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/ExplanationOfBenefit'
+                $ref: '#/components/schemas/ExplanationOfBenefitBundle'
+      tags:
+      - ExplanationOfBenefit
       summary: Get explanation of benefit
       x-summary-source: derived
       operationId: getExplanationOfBenefit
       x-operation-id-source: derived
 components:
   schemas:
-    ExplanationOfBenefit:
-      description: ''
+    Reference:
       type: object
+      additionalProperties: false
       properties:
-        resourceType:
+        reference:
           type: string
-          minLength: 1
-        id:
+        type:
           type: string
-          minLength: 1
-        text:
-          type: object
-          properties:
-            status:
-              type: string
-              minLength: 1
-            div:
-              type: string
-              minLength: 1
-          required:
-          - status
-          - div
         identifier:
-          type: array
-          uniqueItems: true
-          minItems: 1
-          items:
-            required:
-            - system
-            - value
-            properties:
-              system:
-                type: string
-                minLength: 1
-              value:
-                type: string
-                minLength: 1
-        request:
-          type: object
-          properties:
-            reference:
-              type: string
-              minLength: 1
-          required:
-          - reference
-        outcome:
+          $ref: '#/components/schemas/Identifier'
+        display:
           type: string
-          minLength: 1
-        disposition:
-          type: string
-          minLength: 1
-        created:
-          type: string
-          minLength: 1
-        organization:
-          type: object
-          properties:
-            reference:
-              type: string
-              minLength: 1
-          required:
-          - reference
-        requestOrganization:
-          type: object
-          properties:
-            reference:
-              type: string
-              minLength: 1
-          required:
-          - reference
+    ExplanationOfBenefit:
+      type: object
+      additionalProperties: false
       required:
       - resourceType
       - id
-      - text
+      - meta
       - identifier
-      - request
-      - outcome
-      - disposition
+      - status
+      - type
+      - use
+      - patient
+      - billablePeriod
       - created
-      - organization
-      - requestOrganization
+      - insurer
+      - provider
+      - claim
+      - outcome
+      - insurance
+      properties:
+        resourceType:
+          type: string
+          enum:
+          - ExplanationOfBenefit
+        id:
+          type: string
+        meta:
+          $ref: '#/components/schemas/Meta'
+        identifier:
+          type: array
+          items:
+            $ref: '#/components/schemas/Identifier'
+        status:
+          type: string
+        type:
+          $ref: '#/components/schemas/CodeableConcept'
+        use:
+          type: string
+        patient:
+          $ref: '#/components/schemas/Reference'
+        billablePeriod:
+          $ref: '#/components/schemas/Period'
+        created:
+          type: string
+        insurer:
+          $ref: '#/components/schemas/Reference'
+        provider:
+          $ref: '#/components/schemas/Reference'
+        facility:
+          $ref: '#/components/schemas/Reference'
+        claim:
+          $ref: '#/components/schemas/Reference'
+        outcome:
+          type: string
+        careTeam:
+          type: array
+          items:
+            type: object
+            additionalProperties: false
+            required:
+            - sequence
+            - provider
+            - role
+            properties:
+              sequence:
+                type: integer
+                minimum: 1
+              provider:
+                $ref: '#/components/schemas/Reference'
+              role:
+                $ref: '#/components/schemas/CodeableConcept'
+        diagnosis:
+          type: array
+          items:
+            type: object
+            additionalProperties: false
+            required:
+            - sequence
+            - diagnosisCodeableConcept
+            properties:
+              sequence:
+                type: integer
+                minimum: 1
+              diagnosisCodeableConcept:
+                $ref: '#/components/schemas/CodeableConcept'
+              type:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CodeableConcept'
+        insurance:
+          type: array
+          items:
+            type: object
+            additionalProperties: false
+            required:
+            - focal
+            - coverage
+            properties:
+              focal:
+                type: boolean
+              coverage:
+                $ref: '#/components/schemas/Reference'
+        item:
+          type: array
+          items:
+            type: object
+            additionalProperties: false
+            required:
+            - sequence
+            - productOrService
+            - quantity
+            - adjudication
+            properties:
+              sequence:
+                type: integer
+                minimum: 1
+              productOrService:
+                $ref: '#/components/schemas/CodeableConcept'
+              modifier:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CodeableConcept'
+              servicedDate:
+                type: string
+              servicedPeriod:
+                $ref: '#/components/schemas/Period'
+              locationCodeableConcept:
+                $ref: '#/components/schemas/CodeableConcept'
+              quantity:
+                $ref: '#/components/schemas/Quantity'
+              adjudication:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: false
+                  required:
+                  - category
+                  - amount
+                  properties:
+                    category:
+                      $ref: '#/components/schemas/CodeableConcept'
+                    amount:
+                      $ref: '#/components/schemas/Money'
+        total:
+          type: array
+          items:
+            type: object
+            additionalProperties: false
+            required:
+            - category
+            - amount
+            properties:
+              category:
+                $ref: '#/components/schemas/CodeableConcept'
+              amount:
+                $ref: '#/components/schemas/Money'
+        payment:
+          type: object
+          additionalProperties: false
+          required:
+          - amount
+          properties:
+            amount:
+              $ref: '#/components/schemas/Money'
+    Identifier:
+      type: object
+      additionalProperties: false
+      properties:
+        use:
+          type: string
+        type:
+          $ref: '#/components/schemas/CodeableConcept'
+        system:
+          type: string
+        value:
+          type: string
+    Money:
+      type: object
+      additionalProperties: false
+      properties:
+        value:
+          type: number
+        currency:
+          type: string
+    CodeableConcept:
+      type: object
+      additionalProperties: false
+      properties:
+        coding:
+          type: array
+          items:
+            $ref: '#/components/schemas/Coding'
+        text:
+          type: string
+    ExplanationOfBenefitBundle:
+      additionalProperties: false
+      properties:
+        entry:
+          items:
+            additionalProperties: false
+            properties:
+              fullUrl:
+                type: string
+              resource:
+                $ref: '#/components/schemas/ExplanationOfBenefit'
+              search:
+                additionalProperties: false
+                properties:
+                  mode:
+                    type: string
+                required:
+                - mode
+                type: object
+            required:
+            - resource
+            - search
+            type: object
+          type: array
+        link:
+          items:
+            additionalProperties: false
+            properties:
+              relation:
+                type: string
+              url:
+                type: string
+            required:
+            - relation
+            - url
+            type: object
+          type: array
+        resourceType:
+          enum:
+          - Bundle
+          type: string
+        total:
+          minimum: 0
+          type: integer
+        type:
+          enum:
+          - searchset
+          type: string
+      required:
+      - resourceType
+      - type
+      - total
+      type: object
+    Meta:
+      type: object
+      additionalProperties: false
+      properties:
+        versionId:
+          type: string
+        lastUpdated:
+          type: string
+        source:
+          type: string
+        profile:
+          type: array
+          items:
+            type: string
+    Quantity:
+      type: object
+      additionalProperties: false
+      properties:
+        value:
+          type: number
+        comparator:
+          type: string
+        unit:
+          type: string
+        system:
+          type: string
+        code:
+          type: string
+    Period:
+      type: object
+      additionalProperties: false
+      properties:
+        start:
+          type: string
+        end:
+          type: string
+    Coding:
+      type: object
+      additionalProperties: false
+      properties:
+        system:
+          type: string
+        code:
+          type: string
+        display:
+          type: string
+x-generated: AUTO-GENERATED by `o fhir_swagger` from the Go FHIR formatter packages (backend/services/clinical/format/fhir/**/schema.json + capability.go). DO NOT edit by hand — your changes will be overwritten. Regenerate with `o fhir_swagger` and commit.

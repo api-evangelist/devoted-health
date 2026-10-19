@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
-  description: Fast Healthcare Interoperability Resources (FHIR, pronounced "Fire") defines a set of "Resources" that represent granular clinical concepts. The resources can be managed in isolation, or aggregated into complex documents. Technically, FHIR is designed for the web; the resources are based on simple XML or JSON structures, with an http-based RESTful protocol where each resource has predictable URL. Where possible, open internet standards are used for data representation.
-  title: Untitled Medication API
-  version: unspecified
+  description: Fast Healthcare Interoperability Resources (FHIR, pronounced "Fire") defines a set of "Resources" that represent granular clinical concepts. The resources can be managed in isolation, or aggregated into complex documents. Technically, FHIR is designed for the web; the resources are based on simple XML or JSON structures, with an http-based RESTful protocol where each resource has a predictable URL. Where possible, open internet standards are used for data representation.
+  title: Devoted Health FHIR Medication API
+  version: R4
 servers:
 - url: https://api.prod.devoted.com/fhir/
 tags:
@@ -10,129 +10,153 @@ tags:
 paths:
   /Medication:
     get:
-      tags:
-      - Medication
       parameters:
-      - name: patient
+      - description: The patient to return MedicationRequests for. It is a required field.
         in: query
-        description: The patient to return MedicationRequests for. It is a required field.
+        name: patient
         schema:
           type: string
-      - name: _format
-        in: query
+      - in: query
+        name: _format
         x-consoleDefault: application/json
         schema:
           type: string
+      responses:
+        '200':
+          description: searchset Bundle of Medication resources
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MedicationBundle'
+      tags:
+      - Medication
+      summary: Get medication
+      x-summary-source: derived
+      operationId: getMedication
+      x-operation-id-source: derived
+  /Medication/{medicationId}:
+    parameters:
+    - in: path
+      name: medicationId
+      required: true
+      schema:
+        type: string
+    get:
       responses:
         '200':
           description: Success
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Medication'
-      summary: Get medication
+                $ref: '#/components/schemas/Medication'
+      tags:
+      - Medication
+      summary: Get medication by medication id
       x-summary-source: derived
-      operationId: getMedication
+      operationId: getMedicationByMedicationId
       x-operation-id-source: derived
 components:
   schemas:
     Medication:
-      description: ''
       type: object
-      properties:
-        resourceType:
-          type: string
-          minLength: 1
-        id:
-          type: string
-          minLength: 1
-        text:
-          type: object
-          properties:
-            status:
-              type: string
-              minLength: 1
-            div:
-              type: string
-              minLength: 1
-          required:
-          - status
-          - div
-        code:
-          type: object
-          properties:
-            coding:
-              type: array
-              uniqueItems: true
-              minItems: 1
-              items:
-                required:
-                - system
-                - code
-                - display
-                properties:
-                  system:
-                    type: string
-                    minLength: 1
-                  code:
-                    type: string
-                    minLength: 1
-                  display:
-                    type: string
-                    minLength: 1
-                  _display:
-                    type: object
-                    properties:
-                      fhir_comments:
-                        type: array
-                        items:
-                          properties: {}
-                    required:
-                    - fhir_comments
-          required:
-          - coding
-        isBrand:
-          type: boolean
-        package:
-          type: object
-          properties:
-            fhir_comments:
-              type: array
-              items:
-                properties: {}
-            container:
-              type: object
-              properties:
-                coding:
-                  type: array
-                  uniqueItems: true
-                  minItems: 1
-                  items:
-                    required:
-                    - system
-                    - code
-                    - display
-                    properties:
-                      system:
-                        type: string
-                        minLength: 1
-                      code:
-                        type: string
-                        minLength: 1
-                      display:
-                        type: string
-                        minLength: 1
-              required:
-              - coding
-          required:
-          - fhir_comments
-          - container
+      additionalProperties: false
       required:
       - resourceType
       - id
-      - text
       - code
-      - isBrand
-      - package
+      properties:
+        resourceType:
+          type: string
+          enum:
+          - Medication
+        id:
+          type: string
+        code:
+          $ref: '#/components/schemas/CodeableConcept'
+        text:
+          $ref: '#/components/schemas/Narrative'
+    MedicationBundle:
+      additionalProperties: false
+      properties:
+        entry:
+          items:
+            additionalProperties: false
+            properties:
+              fullUrl:
+                type: string
+              resource:
+                $ref: '#/components/schemas/Medication'
+              search:
+                additionalProperties: false
+                properties:
+                  mode:
+                    type: string
+                required:
+                - mode
+                type: object
+            required:
+            - resource
+            - search
+            type: object
+          type: array
+        link:
+          items:
+            additionalProperties: false
+            properties:
+              relation:
+                type: string
+              url:
+                type: string
+            required:
+            - relation
+            - url
+            type: object
+          type: array
+        resourceType:
+          enum:
+          - Bundle
+          type: string
+        total:
+          minimum: 0
+          type: integer
+        type:
+          enum:
+          - searchset
+          type: string
+      required:
+      - resourceType
+      - type
+      - total
+      type: object
+    CodeableConcept:
+      type: object
+      additionalProperties: false
+      properties:
+        coding:
+          type: array
+          items:
+            $ref: '#/components/schemas/Coding'
+        text:
+          type: string
+    Narrative:
+      type: object
+      additionalProperties: false
+      required:
+      - status
+      - div
+      properties:
+        status:
+          type: string
+        div:
+          type: string
+    Coding:
+      type: object
+      additionalProperties: false
+      properties:
+        system:
+          type: string
+        code:
+          type: string
+        display:
+          type: string
+x-generated: AUTO-GENERATED by `o fhir_swagger` from the Go FHIR formatter packages (backend/services/clinical/format/fhir/**/schema.json + capability.go). DO NOT edit by hand — your changes will be overwritten. Regenerate with `o fhir_swagger` and commit.

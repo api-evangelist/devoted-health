@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
-  description: Fast Healthcare Interoperability Resources (FHIR, pronounced "Fire") defines a set of "Resources" that represent granular clinical concepts. The resources can be managed in isolation, or aggregated into complex documents. Technically, FHIR is designed for the web; the resources are based on simple XML or JSON structures, with an http-based RESTful protocol where each resource has predictable URL. Where possible, open internet standards are used for data representation.
-  title: Untitled Condition API
-  version: unspecified
+  description: Fast Healthcare Interoperability Resources (FHIR, pronounced "Fire") defines a set of "Resources" that represent granular clinical concepts. The resources can be managed in isolation, or aggregated into complex documents. Technically, FHIR is designed for the web; the resources are based on simple XML or JSON structures, with an http-based RESTful protocol where each resource has a predictable URL. Where possible, open internet standards are used for data representation.
+  title: Devoted Health FHIR Condition API
+  version: R4
 servers:
 - url: https://api.prod.devoted.com/fhir/
 tags:
@@ -10,188 +10,191 @@ tags:
 paths:
   /Condition:
     get:
-      tags:
-      - Condition
       parameters:
-      - name: patient
+      - description: Who has the condition. It is a required field.
         in: query
-        description: Who has the condition. It is a required field.
+        name: patient
         schema:
           type: string
-      - name: _format
-        in: query
+      - in: query
+        name: _format
         x-consoleDefault: application/json
         schema:
           type: string
       responses:
         '200':
-          description: Success
+          description: searchset Bundle of Condition resources
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Condition'
+                $ref: '#/components/schemas/ConditionBundle'
+      tags:
+      - Condition
       summary: Get condition
       x-summary-source: derived
       operationId: getCondition
       x-operation-id-source: derived
 components:
   schemas:
-    Condition:
-      description: ''
+    Reference:
       type: object
+      additionalProperties: false
+      properties:
+        reference:
+          type: string
+        type:
+          type: string
+        identifier:
+          $ref: '#/components/schemas/Identifier'
+        display:
+          type: string
+    Condition:
+      type: object
+      additionalProperties: false
+      required:
+      - resourceType
+      - meta
+      - clinicalStatus
+      - verificationStatus
+      - category
+      - code
+      - subject
+      - recordedDate
       properties:
         resourceType:
           type: string
-          minLength: 1
+          enum:
+          - Condition
         id:
           type: string
-          minLength: 1
+        meta:
+          $ref: '#/components/schemas/Meta'
         text:
-          type: object
-          properties:
-            status:
-              type: string
-              minLength: 1
-            div:
-              type: string
-              minLength: 1
-          required:
-          - status
-          - div
-        patient:
-          type: object
-          properties:
-            reference:
-              type: string
-              minLength: 1
-          required:
-          - reference
-        code:
-          type: object
-          properties:
-            coding:
-              type: array
-              uniqueItems: true
-              minItems: 1
-              items:
-                required:
-                - system
-                - code
-                - display
-                properties:
-                  system:
-                    type: string
-                    minLength: 1
-                  code:
-                    type: string
-                    minLength: 1
-                  display:
-                    type: string
-                    minLength: 1
-            text:
-              type: string
-              minLength: 1
-          required:
-          - coding
-          - text
-        category:
-          type: object
-          properties:
-            coding:
-              type: array
-              uniqueItems: true
-              minItems: 1
-              items:
-                required:
-                - system
-                - code
-                - display
-                properties:
-                  fhir_comments:
-                    type: array
-                    items:
-                      properties: {}
-                  system:
-                    type: string
-                    minLength: 1
-                  code:
-                    type: string
-                    minLength: 1
-                  display:
-                    type: string
-                    minLength: 1
-          required:
-          - coding
+          $ref: '#/components/schemas/Narrative'
+        clinicalStatus:
+          $ref: '#/components/schemas/CodeableConcept'
         verificationStatus:
-          type: string
-          minLength: 1
-        severity:
-          type: object
-          properties:
-            coding:
-              type: array
-              uniqueItems: true
-              minItems: 1
-              items:
-                required:
-                - system
-                - code
-                - display
-                properties:
-                  system:
-                    type: string
-                    minLength: 1
-                  code:
-                    type: string
-                    minLength: 1
-                  display:
-                    type: string
-                    minLength: 1
-          required:
-          - coding
+          $ref: '#/components/schemas/CodeableConcept'
+        category:
+          type: array
+          items:
+            $ref: '#/components/schemas/CodeableConcept'
+        code:
+          $ref: '#/components/schemas/CodeableConcept'
+        subject:
+          $ref: '#/components/schemas/Reference'
         onsetDateTime:
           type: string
-          minLength: 1
-        bodySite:
+        recordedDate:
+          type: string
+    Identifier:
+      type: object
+      additionalProperties: false
+      properties:
+        use:
+          type: string
+        type:
+          $ref: '#/components/schemas/CodeableConcept'
+        system:
+          type: string
+        value:
+          type: string
+    CodeableConcept:
+      type: object
+      additionalProperties: false
+      properties:
+        coding:
           type: array
-          uniqueItems: true
-          minItems: 1
           items:
-            required:
-            - text
+            $ref: '#/components/schemas/Coding'
+        text:
+          type: string
+    Narrative:
+      type: object
+      additionalProperties: false
+      required:
+      - status
+      - div
+      properties:
+        status:
+          type: string
+        div:
+          type: string
+    Meta:
+      type: object
+      additionalProperties: false
+      properties:
+        versionId:
+          type: string
+        lastUpdated:
+          type: string
+        source:
+          type: string
+        profile:
+          type: array
+          items:
+            type: string
+    ConditionBundle:
+      additionalProperties: false
+      properties:
+        entry:
+          items:
+            additionalProperties: false
             properties:
-              coding:
-                type: array
-                uniqueItems: true
-                minItems: 1
-                items:
-                  required:
-                  - system
-                  - code
-                  - display
-                  properties:
-                    system:
-                      type: string
-                      minLength: 1
-                    code:
-                      type: string
-                      minLength: 1
-                    display:
-                      type: string
-                      minLength: 1
-              text:
+              fullUrl:
                 type: string
-                minLength: 1
+              resource:
+                $ref: '#/components/schemas/Condition'
+              search:
+                additionalProperties: false
+                properties:
+                  mode:
+                    type: string
+                required:
+                - mode
+                type: object
+            required:
+            - resource
+            - search
+            type: object
+          type: array
+        link:
+          items:
+            additionalProperties: false
+            properties:
+              relation:
+                type: string
+              url:
+                type: string
+            required:
+            - relation
+            - url
+            type: object
+          type: array
+        resourceType:
+          enum:
+          - Bundle
+          type: string
+        total:
+          minimum: 0
+          type: integer
+        type:
+          enum:
+          - searchset
+          type: string
       required:
       - resourceType
-      - id
-      - text
-      - patient
-      - code
-      - category
-      - verificationStatus
-      - severity
-      - onsetDateTime
-      - bodySite
+      - type
+      - total
+      type: object
+    Coding:
+      type: object
+      additionalProperties: false
+      properties:
+        system:
+          type: string
+        code:
+          type: string
+        display:
+          type: string
+x-generated: AUTO-GENERATED by `o fhir_swagger` from the Go FHIR formatter packages (backend/services/clinical/format/fhir/**/schema.json + capability.go). DO NOT edit by hand — your changes will be overwritten. Regenerate with `o fhir_swagger` and commit.

@@ -1,0 +1,127 @@
+openapi: 3.2.0
+info:
+  description: Fast Healthcare Interoperability Resources (FHIR, pronounced "Fire") defines a set of "Resources" that represent granular clinical concepts. The resources can be managed in isolation, or aggregated into complex documents. Technically, FHIR is designed for the web; the resources are based on simple XML or JSON structures, with an http-based RESTful protocol where each resource has predictable URL. Where possible, open internet standards are used for data representation.
+  title: Untitled Explanation Of Benefit API
+  version: unspecified
+servers:
+- url: https://api.prod.devoted.com/fhir/
+tags:
+- name: ExplanationOfBenefit
+paths:
+  /ExplanationOfBenefit:
+    get:
+      tags:
+      - ExplanationOfBenefit
+      parameters:
+      - name: patient
+        in: query
+        description: The patient present at the encounter. It is a required field.
+        schema:
+          type: string
+      - name: date
+        in: query
+        description: A date or date range from which to find appointments. This must be set when using patient, practitioner or location. The 'date' parameter may be provided once without a prefix or time component to imply a date range or once without a prefix and with a time component to search for appointments at a specific time. Alternately it may be provided twice with 'le' and 'gt' prefixes to search for appointments within a specific range. The date prefix pair must create a closed range.
+        schema:
+          type: string
+          format: date
+      - name: _format
+        in: query
+        x-consoleDefault: application/json
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ExplanationOfBenefit'
+      summary: Get explanation of benefit
+      x-summary-source: derived
+      operationId: getExplanationOfBenefit
+      x-operation-id-source: derived
+components:
+  schemas:
+    ExplanationOfBenefit:
+      description: ''
+      type: object
+      properties:
+        resourceType:
+          type: string
+          minLength: 1
+        id:
+          type: string
+          minLength: 1
+        text:
+          type: object
+          properties:
+            status:
+              type: string
+              minLength: 1
+            div:
+              type: string
+              minLength: 1
+          required:
+          - status
+          - div
+        identifier:
+          type: array
+          uniqueItems: true
+          minItems: 1
+          items:
+            required:
+            - system
+            - value
+            properties:
+              system:
+                type: string
+                minLength: 1
+              value:
+                type: string
+                minLength: 1
+        request:
+          type: object
+          properties:
+            reference:
+              type: string
+              minLength: 1
+          required:
+          - reference
+        outcome:
+          type: string
+          minLength: 1
+        disposition:
+          type: string
+          minLength: 1
+        created:
+          type: string
+          minLength: 1
+        organization:
+          type: object
+          properties:
+            reference:
+              type: string
+              minLength: 1
+          required:
+          - reference
+        requestOrganization:
+          type: object
+          properties:
+            reference:
+              type: string
+              minLength: 1
+          required:
+          - reference
+      required:
+      - resourceType
+      - id
+      - text
+      - identifier
+      - request
+      - outcome
+      - disposition
+      - created
+      - organization
+      - requestOrganization

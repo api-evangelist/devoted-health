@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
-  description: Fast Healthcare Interoperability Resources (FHIR, pronounced "Fire") defines a set of "Resources" that represent granular clinical concepts. The resources can be managed in isolation, or aggregated into complex documents. Technically, FHIR is designed for the web; the resources are based on simple XML or JSON structures, with an http-based RESTful protocol where each resource has predictable URL. Where possible, open internet standards are used for data representation.
-  title: Untitled Encounter API
-  version: unspecified
+  description: Fast Healthcare Interoperability Resources (FHIR, pronounced "Fire") defines a set of "Resources" that represent granular clinical concepts. The resources can be managed in isolation, or aggregated into complex documents. Technically, FHIR is designed for the web; the resources are based on simple XML or JSON structures, with an http-based RESTful protocol where each resource has a predictable URL. Where possible, open internet standards are used for data representation.
+  title: Devoted Health FHIR Encounter API
+  version: R4
 servers:
 - url: https://api.prod.devoted.com/fhir/
 tags:
@@ -10,80 +10,186 @@ tags:
 paths:
   /Encounter:
     get:
-      tags:
-      - Encounter
       parameters:
-      - name: patient
+      - description: The patient present at the encounter. It is a required field.
         in: query
-        description: The patient present at the encounter. It is a required field.
+        name: patient
         schema:
           type: string
-      - name: date
+      - description: A date or date range from which to find appointments. This must be set when using patient, practitioner or location. The 'date' parameter may be provided once without a prefix or time component to imply a date range or once without a prefix and with a time component to search for appointments at a specific time. Alternately it may be provided twice with 'le' and 'gt' prefixes to search for appointments within a specific range. The date prefix pair must create a closed range.
         in: query
-        description: A date or date range from which to find appointments. This must be set when using patient, practitioner or location. The 'date' parameter may be provided once without a prefix or time component to imply a date range or once without a prefix and with a time component to search for appointments at a specific time. Alternately it may be provided twice with 'le' and 'gt' prefixes to search for appointments within a specific range. The date prefix pair must create a closed range.
+        name: date
         schema:
           type: string
-          format: date
-      - name: _format
-        in: query
+      - in: query
+        name: _format
         x-consoleDefault: application/json
         schema:
           type: string
       responses:
         '200':
-          description: Success
+          description: searchset Bundle of Encounter resources
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Encounter'
+                $ref: '#/components/schemas/EncounterBundle'
+      tags:
+      - Encounter
       summary: Get encounter
       x-summary-source: derived
       operationId: getEncounter
       x-operation-id-source: derived
 components:
   schemas:
-    Encounter:
-      description: ''
+    Reference:
       type: object
+      additionalProperties: false
       properties:
-        resourceType:
+        reference:
           type: string
-          minLength: 1
-        id:
+        type:
           type: string
-          minLength: 1
-        text:
-          type: object
-          properties:
-            status:
-              type: string
-              minLength: 1
-            div:
-              type: string
-              minLength: 1
-          required:
-          - status
-          - div
-        status:
+        identifier:
+          $ref: '#/components/schemas/Identifier'
+        display:
           type: string
-          minLength: 1
-        class:
-          type: string
-          minLength: 1
-        patient:
-          type: object
-          properties:
-            reference:
-              type: string
-              minLength: 1
-          required:
-          - reference
+    Encounter:
+      type: object
+      additionalProperties: false
       required:
       - resourceType
       - id
-      - text
+      - meta
       - status
       - class
-      - patient
+      - subject
+      - period
+      properties:
+        resourceType:
+          type: string
+          enum:
+          - Encounter
+        id:
+          type: string
+        meta:
+          $ref: '#/components/schemas/Meta'
+        status:
+          type: string
+        class:
+          $ref: '#/components/schemas/Coding'
+        type:
+          type: array
+          items:
+            $ref: '#/components/schemas/CodeableConcept'
+        subject:
+          $ref: '#/components/schemas/Reference'
+        period:
+          $ref: '#/components/schemas/Period'
+    EncounterBundle:
+      additionalProperties: false
+      properties:
+        entry:
+          items:
+            additionalProperties: false
+            properties:
+              fullUrl:
+                type: string
+              resource:
+                $ref: '#/components/schemas/Encounter'
+              search:
+                additionalProperties: false
+                properties:
+                  mode:
+                    type: string
+                required:
+                - mode
+                type: object
+            required:
+            - resource
+            - search
+            type: object
+          type: array
+        link:
+          items:
+            additionalProperties: false
+            properties:
+              relation:
+                type: string
+              url:
+                type: string
+            required:
+            - relation
+            - url
+            type: object
+          type: array
+        resourceType:
+          enum:
+          - Bundle
+          type: string
+        total:
+          minimum: 0
+          type: integer
+        type:
+          enum:
+          - searchset
+          type: string
+      required:
+      - resourceType
+      - type
+      - total
+      type: object
+    Identifier:
+      type: object
+      additionalProperties: false
+      properties:
+        use:
+          type: string
+        type:
+          $ref: '#/components/schemas/CodeableConcept'
+        system:
+          type: string
+        value:
+          type: string
+    CodeableConcept:
+      type: object
+      additionalProperties: false
+      properties:
+        coding:
+          type: array
+          items:
+            $ref: '#/components/schemas/Coding'
+        text:
+          type: string
+    Meta:
+      type: object
+      additionalProperties: false
+      properties:
+        versionId:
+          type: string
+        lastUpdated:
+          type: string
+        source:
+          type: string
+        profile:
+          type: array
+          items:
+            type: string
+    Period:
+      type: object
+      additionalProperties: false
+      properties:
+        start:
+          type: string
+        end:
+          type: string
+    Coding:
+      type: object
+      additionalProperties: false
+      properties:
+        system:
+          type: string
+        code:
+          type: string
+        display:
+          type: string
+x-generated: AUTO-GENERATED by `o fhir_swagger` from the Go FHIR formatter packages (backend/services/clinical/format/fhir/**/schema.json + capability.go). DO NOT edit by hand — your changes will be overwritten. Regenerate with `o fhir_swagger` and commit.

@@ -1,8 +1,8 @@
 openapi: 3.2.0
 info:
-  description: Fast Healthcare Interoperability Resources (FHIR, pronounced "Fire") defines a set of "Resources" that represent granular clinical concepts. The resources can be managed in isolation, or aggregated into complex documents. Technically, FHIR is designed for the web; the resources are based on simple XML or JSON structures, with an http-based RESTful protocol where each resource has predictable URL. Where possible, open internet standards are used for data representation.
-  title: Untitled Patient API
-  version: unspecified
+  description: Fast Healthcare Interoperability Resources (FHIR, pronounced "Fire") defines a set of "Resources" that represent granular clinical concepts. The resources can be managed in isolation, or aggregated into complex documents. Technically, FHIR is designed for the web; the resources are based on simple XML or JSON structures, with an http-based RESTful protocol where each resource has a predictable URL. Where possible, open internet standards are used for data representation.
+  title: Devoted Health FHIR Patient API
+  version: R4
 servers:
 - url: https://api.prod.devoted.com/fhir/
 tags:
@@ -10,47 +10,43 @@ tags:
 paths:
   /Patient:
     get:
-      tags:
-      - Patient
       parameters:
-      - name: _id
+      - description: A patient identifier. Either the '_id' parameter, or 'identifier' must be provided.
         in: query
-        description: A patient identifier. Either the '_id' parameter, or 'identifier' must be provided.
+        name: _id
         schema:
           type: string
-      - name: identifier
+      - description: A patient identifier. Either the '_id' parameter, or 'identifier' must be provided.
         in: query
-        description: A patient identifier. Either the '_id' parameter, or 'identifier' must be provided.
+        name: identifier
         schema:
           type: string
-      - name: _format
-        in: query
+      - in: query
+        name: _format
         x-consoleDefault: application/json
         schema:
           type: string
       responses:
         '200':
-          description: Success
+          description: searchset Bundle of Patient resources
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Patient'
+                $ref: '#/components/schemas/PatientBundle'
+      tags:
+      - Patient
       summary: Get patient
       x-summary-source: derived
       operationId: getPatient
       x-operation-id-source: derived
-  /Patient/{id}:
+  /Patient/{patientId}:
     parameters:
     - in: path
+      name: patientId
       required: true
-      name: id
       schema:
         type: string
     get:
-      tags:
-      - Patient
       responses:
         '200':
           description: Success
@@ -58,191 +54,220 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Patient'
-      summary: Get patient by id
+      tags:
+      - Patient
+      summary: Get patient by patient id
       x-summary-source: derived
-      operationId: getPatientById
+      operationId: getPatientByPatientId
       x-operation-id-source: derived
 components:
   schemas:
     Patient:
-      description: ''
       type: object
-      properties:
-        resourceType:
-          type: string
-          minLength: 1
-        id:
-          type: string
-          minLength: 1
-        text:
-          type: object
-          properties:
-            status:
-              type: string
-              minLength: 1
-            div:
-              type: string
-              minLength: 1
-          required:
-          - status
-          - div
-        identifier:
-          type: array
-          uniqueItems: true
-          minItems: 1
-          items:
-            required:
-            - use
-            - system
-            - value
-            properties:
-              use:
-                type: string
-                minLength: 1
-              type:
-                type: object
-                properties:
-                  coding:
-                    type: array
-                    uniqueItems: true
-                    minItems: 1
-                    items:
-                      required:
-                      - system
-                      - code
-                      properties:
-                        system:
-                          type: string
-                          minLength: 1
-                        code:
-                          type: string
-                          minLength: 1
-                required:
-                - coding
-              system:
-                type: string
-                minLength: 1
-              value:
-                type: string
-                minLength: 1
-        active:
-          type: boolean
-        name:
-          type: array
-          uniqueItems: true
-          minItems: 1
-          items:
-            required:
-            - use
-            properties:
-              use:
-                type: string
-                minLength: 1
-              family:
-                type: array
-                items:
-                  properties: {}
-              given:
-                type: array
-                items:
-                  properties: {}
-        gender:
-          type: string
-          minLength: 1
-        photo:
-          type: array
-          uniqueItems: true
-          minItems: 1
-          items:
-            required:
-            - contentType
-            - data
-            properties:
-              contentType:
-                type: string
-                minLength: 1
-              data:
-                type: string
-                minLength: 1
-        contact:
-          type: array
-          uniqueItems: true
-          minItems: 1
-          items:
-            properties:
-              relationship:
-                type: array
-                uniqueItems: true
-                minItems: 1
-                items:
-                  properties:
-                    coding:
-                      type: array
-                      uniqueItems: true
-                      minItems: 1
-                      items:
-                        required:
-                        - system
-                        - code
-                        properties:
-                          system:
-                            type: string
-                            minLength: 1
-                          code:
-                            type: string
-                            minLength: 1
-              organization:
-                type: object
-                properties:
-                  reference:
-                    type: string
-                    minLength: 1
-                  display:
-                    type: string
-                    minLength: 1
-                required:
-                - reference
-                - display
-        managingOrganization:
-          type: object
-          properties:
-            reference:
-              type: string
-              minLength: 1
-            display:
-              type: string
-              minLength: 1
-          required:
-          - reference
-          - display
-        link:
-          type: array
-          uniqueItems: true
-          minItems: 1
-          items:
-            required:
-            - type
-            properties:
-              other:
-                type: object
-                properties:
-                  reference:
-                    type: string
-                    minLength: 1
-                required:
-                - reference
-              type:
-                type: string
-                minLength: 1
+      additionalProperties: false
       required:
       - resourceType
       - id
-      - text
+      - meta
       - identifier
       - active
       - name
       - gender
-      - photo
-      - contact
-      - managingOrganization
-      - link
+      properties:
+        resourceType:
+          type: string
+          enum:
+          - Patient
+        id:
+          type: string
+        meta:
+          $ref: '#/components/schemas/Meta'
+        identifier:
+          type: array
+          items:
+            $ref: '#/components/schemas/Identifier'
+        active:
+          type: boolean
+        name:
+          type: array
+          items:
+            $ref: '#/components/schemas/HumanName'
+        telecom:
+          type: array
+          items:
+            $ref: '#/components/schemas/ContactPoint'
+        gender:
+          type: string
+          enum:
+          - male
+          - female
+          - other
+          - unknown
+        birthDate:
+          type: string
+        deceasedBoolean:
+          type: boolean
+        deceasedDateTime:
+          type: string
+        address:
+          type: array
+          items:
+            $ref: '#/components/schemas/Address'
+    Identifier:
+      type: object
+      additionalProperties: false
+      properties:
+        use:
+          type: string
+        type:
+          $ref: '#/components/schemas/CodeableConcept'
+        system:
+          type: string
+        value:
+          type: string
+    PatientBundle:
+      additionalProperties: false
+      properties:
+        entry:
+          items:
+            additionalProperties: false
+            properties:
+              fullUrl:
+                type: string
+              resource:
+                $ref: '#/components/schemas/Patient'
+              search:
+                additionalProperties: false
+                properties:
+                  mode:
+                    type: string
+                required:
+                - mode
+                type: object
+            required:
+            - resource
+            - search
+            type: object
+          type: array
+        link:
+          items:
+            additionalProperties: false
+            properties:
+              relation:
+                type: string
+              url:
+                type: string
+            required:
+            - relation
+            - url
+            type: object
+          type: array
+        resourceType:
+          enum:
+          - Bundle
+          type: string
+        total:
+          minimum: 0
+          type: integer
+        type:
+          enum:
+          - searchset
+          type: string
+      required:
+      - resourceType
+      - type
+      - total
+      type: object
+    CodeableConcept:
+      type: object
+      additionalProperties: false
+      properties:
+        coding:
+          type: array
+          items:
+            $ref: '#/components/schemas/Coding'
+        text:
+          type: string
+    HumanName:
+      type: object
+      additionalProperties: false
+      properties:
+        use:
+          type: string
+        text:
+          type: string
+        family:
+          type: string
+        given:
+          type: array
+          items:
+            type: string
+        prefix:
+          type: array
+          items:
+            type: string
+        suffix:
+          type: array
+          items:
+            type: string
+    Meta:
+      type: object
+      additionalProperties: false
+      properties:
+        versionId:
+          type: string
+        lastUpdated:
+          type: string
+        source:
+          type: string
+        profile:
+          type: array
+          items:
+            type: string
+    Address:
+      type: object
+      additionalProperties: false
+      properties:
+        use:
+          type: string
+        type:
+          type: string
+        text:
+          type: string
+        line:
+          type: array
+          items:
+            type: string
+        city:
+          type: string
+        district:
+          type: string
+        state:
+          type: string
+        postalCode:
+          type: string
+        country:
+          type: string
+    ContactPoint:
+      type: object
+      additionalProperties: false
+      properties:
+        system:
+          type: string
+        value:
+          type: string
+        use:
+          type: string
+        rank:
+          type: integer
+    Coding:
+      type: object
+      additionalProperties: false
+      properties:
+        system:
+          type: string
+        code:
+          type: string
+        display:
+          type: string
+x-generated: AUTO-GENERATED by `o fhir_swagger` from the Go FHIR formatter packages (backend/services/clinical/format/fhir/**/schema.json + capability.go). DO NOT edit by hand — your changes will be overwritten. Regenerate with `o fhir_swagger` and commit.
