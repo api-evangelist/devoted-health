@@ -38,3 +38,6 @@ method: searched
 checked:
 - https://www.commonwellalliance.org/wp-json/wp/v2/pages?slug=commonwell-connected-products&_fields=id,link,content
 - https://www.commonwellalliance.org/wp-json/wp/v2/pages?slug=commonwell-members&_fields=id,link,content
+source:
+- https://www.commonwellalliance.org/wp-json/wp/v2/pages?slug=commonwell-connected-products&_fields=id,link,content
+- https://www.commonwellalliance.org/wp-json/wp/v2/pages?slug=commonwell-members&_fields=id,link,content
